@@ -1,5 +1,4 @@
 # AstronomyLess
-First Init
 
 ASTRONOMY LESSON v.1.0.0
 This project is the the first version of web-learning platform which helps modern pupils remote study astronomy.
@@ -25,3 +24,6 @@ FEATURES ON ASTRONOMY LESSON v.2.0.0
 3. Ability to change images, text and questions
 4. Emailing
 5. Chat between pupils and teachers.
+
+If you have any comments, questions or propositions about project feel free to write me on 
+email: dionisiy1986@gmail.com
