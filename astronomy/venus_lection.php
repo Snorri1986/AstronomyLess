@@ -1,0 +1,32 @@
+<?php
+// Connect and fetch data from MySQL Database for Mercury planet
+$user = 'root';
+$pass = 'DL05092015';
+$db = 'solarSystem';
+
+// Establish connection
+$conn = new mysqli('localhost',$user,$pass,$db) or die("Unable to connect");
+
+mysqli_query($conn,"SET NAMES 'utf8'");
+
+$sql = "SELECT `Text` FROM `venus` WHERE 1";
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+mysqli_set_charset($conn,"utf8");
+
+$result = $conn->query($sql);
+
+// Display data
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<pre>".$row["Text"]."</pre>";
+    }
+} else {
+    echo "0 results";
+}
+// Close connection to MySQL Database
+mysqli_close($conn);
+?>
