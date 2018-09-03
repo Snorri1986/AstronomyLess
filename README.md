@@ -8,7 +8,7 @@ Mobile version will be released after 2nd version.
 
 STACK OF DEVELOPMENT: HTML5/CSS/Bootstrap, JavaScript, JQuery,PHP, MySQL
 
-INSTALLATION GUIDE. !!! Use files from folders only !!!
+INSTALLATION GUIDE.
 1. Download repository to the local PC
 2. Download and install XAMPP Control Panel v 3.2.2 on C:\ drive
 3. The astronomy directory move to C:\xampp\htdocs
