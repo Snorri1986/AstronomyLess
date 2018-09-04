@@ -1,7 +1,7 @@
 <?php
 // Connect and fetch data from MySQL Database for Mercury planet
 $user = 'root';
-$pass = 'DL05092015';
+$pass = '11111';
 $db = 'solarSystem';
 
 // Establish connection
