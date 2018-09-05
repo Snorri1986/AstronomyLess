@@ -9,13 +9,7 @@ Mobile version will be released after 2nd version.
 STACK OF DEVELOPMENT: HTML5/CSS/Bootstrap, JavaScript, JQuery,PHP, MySQL
 
 INSTALLATION GUIDE.
-1. Download repository to the local PC
-2. Download and install XAMPP Control Panel v 3.2.2 on C:\ drive
-3. The astronomy directory move to C:\xampp\htdocs
-4. The solarsystem directory move to C:\xampp\mysql\data. If you had problems with this step, create database "solarsystem" using 
-phpMyAdmin from XAMPP and replace files.
-5. Start Apache and MySQL in XAMPP
-6. Write http://localhost/astronomy/main.html in search bar on browser
+1. Install will be available using small installation file (.bat). It will be available very soon.
 
 FEATURES ON ASTRONOMY LESSON v.2.0.0
 1. Client-Server architecture
