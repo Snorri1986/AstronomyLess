@@ -1,6 +1,6 @@
 <?php
-$user = 'root';
-$pass = '11111';
+$user = 'spaceman';
+$pass = 'mask';
 $db = 'solarSystem';
 
 $conn = new mysqli('localhost',$user,$pass,$db) or die("Unable to connect");
