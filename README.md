@@ -11,6 +11,7 @@ STACK OF DEVELOPMENT: HTML5/CSS/Bootstrap, JavaScript, JQuery,PHP, MySQL
 INSTALLATION GUIDE.
 1. Save archive on different drive (on d:\)
 2. Run install.bat
+2a) Press any key after install XAMPP will be finished.
 3. Start Apache and MySQL on XAMMPP Control panel
 4. Click Admin on MySQL line. phpMyAdmon is being run
 5. Create new database with name - solarsystem
