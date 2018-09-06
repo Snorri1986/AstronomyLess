@@ -9,7 +9,15 @@ Mobile version will be released after 2nd version.
 STACK OF DEVELOPMENT: HTML5/CSS/Bootstrap, JavaScript, JQuery,PHP, MySQL
 
 INSTALLATION GUIDE.
-1. Install will be available using small installation file (.bat). It will be available very soon.
+1. Save archive on different drive (on d:\)
+2. Run install.bat
+3. Start Apache and MySQL on XAMMPP Control panel
+4. Click Admin on MySQL line. phpMyAdmon is being run
+5. Create new database with name - solarsystem
+6. Create new user with name 'spaceman' and pass 'mask'
+7. Give him all data privilages (left column)
+8. Import table data from sql-file on 'db' folder
+
 
 FEATURES ON ASTRONOMY LESSON v.2.0.0
 1. Client-Server architecture
