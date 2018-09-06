@@ -17,6 +17,7 @@ INSTALLATION GUIDE.
 6. Create new user with name 'spaceman' and pass 'mask'
 7. Give him all data privilages (left column)
 8. Import table data from sql-file on 'db' folder
+9. Run lection_cp.bat
 
 
 FEATURES ON ASTRONOMY LESSON v.2.0.0
