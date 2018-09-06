@@ -13,6 +13,7 @@ INSTALLATION GUIDE.
 2. Run install.bat
 2a) Press any key after install XAMPP will be finished.
 3. Start Apache and MySQL on XAMMPP Control panel
+3a) set codepage is 'utf8_general_ci'
 4. Click Admin on MySQL line. phpMyAdmon is being run
 5. Create new database with name - solarsystem
 6. Create new user with name 'spaceman' and pass 'mask'
