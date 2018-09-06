@@ -17,6 +17,7 @@ INSTALLATION GUIDE.
 4. Click Admin on MySQL line. phpMyAdmon is being run
 5. Create new database with name - solarsystem
 6. Create new user with name 'spaceman' and pass 'mask'
+6a) set hostname - localhost
 7. Give him all data privilages (left column)
 8. Import table data from sql-file on 'db' folder
 9. Run lection_cp.bat
