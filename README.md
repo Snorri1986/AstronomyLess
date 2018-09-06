@@ -9,7 +9,7 @@ Mobile version will be released after 2nd version.
 STACK OF DEVELOPMENT: HTML5/CSS/Bootstrap, JavaScript, JQuery,PHP, MySQL
 
 INSTALLATION GUIDE.
-1. Save archive on different drive (on d:\)
+1. Save 'install_package.zip' on different drive (on d:\)
 2. Run install.bat
 2a) Press any key after install XAMPP will be finished.
 3. Start Apache and MySQL on XAMMPP Control panel
