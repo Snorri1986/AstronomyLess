@@ -22,6 +22,7 @@ INSTALLATION GUIDE.
 7a) Choose 'solarsystem' database
 8. Import table data from sql-file on 'db' folder
 9. Run lection_cp.bat
+10. Enter http://localhost/main.html for start using system.
 
 
 FEATURES ON ASTRONOMY LESSON v.2.0.0
