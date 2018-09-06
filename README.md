@@ -19,6 +19,7 @@ INSTALLATION GUIDE.
 6. Create new user with name 'spaceman' and pass 'mask'
 6a) set hostname - localhost
 7. Give him all data privilages (left column)
+7a) Choose 'solarsystem' database
 8. Import table data from sql-file on 'db' folder
 9. Run lection_cp.bat
 
