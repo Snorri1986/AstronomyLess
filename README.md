@@ -24,6 +24,10 @@ INSTALLATION GUIDE.
 9. Run lection_cp.bat
 10. Enter http://localhost/main.html for start using system.
 
+MANUAL.
+1. Change text on txt-file in C:\xampp\mysql\data\solarsystem\<name_planet>.txt if you want to change text lection.
+Evert txt-file should end with '@' symbol.
+
 
 FEATURES ON ASTRONOMY LESSON v.2.0.0
 1. Client-Server architecture
