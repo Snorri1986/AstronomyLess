@@ -12,6 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="scripts/Local_IssTime.js"></script>
   <script src="scripts/teach_redirect.js"></script> 
+  <script src="scripts/cookies.js"></script> <!-- new -->
 </head>
 <body onload="startTimeIss(),startTime()">
    <div class="container" id="greetings">
@@ -52,7 +53,7 @@
     <button type="button" class="btn btn-warning"><a href="lections.html">Лекція</a></button>
     <button type="button" class="btn btn-warning"><a href="general_test.html">Тест</a></button>
     <button type="button" class="btn btn-warning"><a href="https://www.nasa.gov/multimedia/imagegallery/index.html">Галерея</a></button>
-    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#auth_teacher"><a href="#">Вчителю</a></button>
+    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#auth_teacher"><a href="#" onclick = "getCookie()">Вчителю</a></button> <!-- new -->
   </div>
    <div class="container" id="add_info">
     <p>Додаткову інформацію ти зможешь знайти за наступними посиланнями:</p>
@@ -93,8 +94,8 @@
       <input type="password" class="form-control" id="password" name="password" style="width:250px;"> 
     </div>
     <button type="submit" class="btn btn-default" id="send" style="width:120px;"
-    onclick="teachRedirection(document.getElementById('password').value)">Вхід</button> 
-    <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel" style="width:120px;">Відмінити</button>  </form>
+    onclick="teachRedirection(document.getElementById('password').value);setCookies();">Вхід</button> <!-- new -->
+    <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel" style="width:120px;" onclick="delCookies()">Відмінити</button>  </form> <!-- new -->
       </div>
      </div>
        </div>
