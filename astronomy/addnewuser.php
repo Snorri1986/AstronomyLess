@@ -43,9 +43,18 @@ $usr_mail = $_GET['n_email'];
 
 }
 
-// test code 19.11.2018
+// new code 19.11.2018
 if(isset($_GET['tabel'])) {
   $usr_tabnum = $_GET['tabel'];
+}
+//
+
+
+// new code 19.11.2018
+if($usr_type == 'T' && $usr_tabnum == NULL) {
+	$conn->close();
+	header("Location:main.html");
+	exit;
 }
 //
 
@@ -62,7 +71,7 @@ $stmt->execute();
 
 $conn->close();
 
-// redirection to the main page
+// redirection to the main page new code 19.11.2018
 header("Location:main.html");
 exit;
 

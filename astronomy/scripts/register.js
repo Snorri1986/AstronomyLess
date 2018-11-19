@@ -12,10 +12,21 @@ function getUserAttrib() {
 var u_name = document.getElementById("auth_name").value;
 var u_surname = document.getElementById("auth_surname").value;
 var u_passphrase = document.getElementById("auth_pass").value;
+// new code 19.11.2018
+if(u_passphrase.length <= 5) {
+  alert("The password must be more then 5 character");
+  return;
+}
+var u_tab_num = document.getElementById("tab_num").value;
+//
 cbox = document.getElementById("t_cbox").checked /* is teacher ? */
 if (cbox) {
 	u_type = 'teacher';
-}
+  if(!u_tab_num) {
+  alert("The table number for teacher should be entered");
+    return;
+  }
+ }
 else {
 	u_type = 'pupil';
 }
