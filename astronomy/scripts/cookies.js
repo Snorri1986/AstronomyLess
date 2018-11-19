@@ -15,6 +15,7 @@ function setCookies() {
 
 /* Fieled teacher's form fields */
 function getCookie() {
+    
     var fio_form = localStorage.getItem("fio");
     var email_form = localStorage.getItem("email");
     document.getElementById("fio").value = fio_form;
@@ -27,7 +28,7 @@ function delCookies() {
     window.localStorage.removeItem("email"); 
 }
 
-
+/**********************/
 
 
 

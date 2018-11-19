@@ -12,12 +12,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="scripts/Local_IssTime.js"></script>
   <script src="scripts/teach_redirect.js"></script> 
-  <script src="scripts/cookies.js"></script> <!-- new -->
+  <script src="scripts/cookies.js"></script> <!-- new 10.09.2018 -->
+  <script src="scripts/register.js"></script> <!-- new 19.09.2018 -->
+  <script src="addnewuser.php"></script> <!-- new 19.11.2018 -->
+  <!-- <script src="addnewteacher.php"></script> --> <!-- new 19.11.2018 -->
 </head>
 <body onload="startTimeIss(),startTime()">
-   <div class="container" id="greetings">
+  <div class="container" id="greetings">
 	<div id="hello">
-    <h1>Вітаємо у віртуальному всесвіті!!!</h1>
+    <h1>Вітаємо у віртуальному всесвіті!!!</h1> 
+    <button id="auth_click" type="button" class="btn btn-success" data-toggle="modal" data-target="#auth_form"><a href="#">Реєстрація</a></button> <!-- new 17.09.2018 -->
     <div id="vinci">
     <p>"Не сворачивает тот,</p>
     <p>кто смотрит на звёзды!</p>
@@ -53,7 +57,7 @@
     <button type="button" class="btn btn-warning"><a href="lections.html">Лекція</a></button>
     <button type="button" class="btn btn-warning"><a href="general_test.html">Тест</a></button>
     <button type="button" class="btn btn-warning"><a href="https://www.nasa.gov/multimedia/imagegallery/index.html">Галерея</a></button>
-    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#auth_teacher"><a href="#" onclick = "getCookie()">Вчителю</a></button> <!-- new -->
+    <button id="auth_click" type="button" class="btn btn-warning" data-toggle="modal" data-target="#auth_teacher" onclick = "getCookie()"><a href="#">Вчителю</a></button>  <!-- new 12.09.2018 -->
   </div>
    <div class="container" id="add_info">
     <p>Додаткову інформацію ти зможешь знайти за наступними посиланнями:</p>
@@ -80,6 +84,7 @@
         <div class="modal-body">
         <div class="container">
           <h2 style="color:black;">Анкета вчителя</h2>
+          <!-- Write cookies 10.09.2018 -->
        <form  method="post" enctype="text/plain">  
     <div class="form-group">
       <label for="fio" style="color:black;">Прізвище та ім'я:</label>
@@ -87,19 +92,97 @@
     </div>
     <div class="form-group">
       <label for="email" style="color:black;">Email викладача:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" style="width:250px;" required>
+      <input type="email" class="form-control" id="t_email" placeholder="Enter email" name="email" style="width:250px;" required> <!-- new 26092018 -->
     </div>
     <div class="form-group">
       <label for="password" style="color:black;">Пароль: </label>
       <input type="password" class="form-control" id="password" name="password" style="width:250px;"> 
     </div>
     <button type="submit" class="btn btn-default" id="send" style="width:120px;"
-    onclick="teachRedirection(document.getElementById('password').value);setCookies();">Вхід</button> <!-- new -->
-    <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel" style="width:120px;" onclick="delCookies()">Відмінити</button>  </form> <!-- new -->
+    onclick="teachRedirection(document.getElementById('password').value);setCookies();">Вхід</button> <!-- new 10.09.2018 --> 
+    <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel" style="width:120px;" onclick="delCookies()">Відмінити</button>  </form> <!-- new 12.09.2018 -->
+    <!-- -->
       </div>
      </div>
        </div>
     </div>
   </div>
+
+<!-- Auth and Register Form(html code)--> <!-- new 17.09.2018 -->
+
+  <div class="modal fade" id="auth_form" role="dialog">
+    <div class="modal-dialog modal-sm">
+     <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+        <div class="container">
+          <h2 style="color:black;">Вхід до порталу!!!</h2>
+         <form  method="get" enctype="text/plain" action="addnewuser.php"> <!-- new 27092018  action="addnewpupil.php" -->
+    <div class="form-group">
+      <label for="fio" style="color:black;">Ім'я:</label>
+      <input type="text" class="form-control" id="auth_name" name="username" style="width:250px;" required> 
+    </div>
+    <div class="form-group">
+      <label for="text" style="color:black;">Прізвище:</label>
+      <input type="text" class="form-control" id="auth_surname"  name="usersurname" style="width:250px;" required>
+    </div>
+         <!-- new 25092018 -->
+         <div class="form-group">
+      <label for="email" style="color:black;">Email:</label>
+      <input type="email" class="form-control" id="email" name="n_email" style="width:250px;" required>
+        </div>
+        <!-- -->
+    <div class="form-group">
+      <label for="password" style="color:black;">Пароль:</label>
+      <input type="password" pattern=".{5,}" class="form-control" id="auth_pass" name="password" style="width:250px;" required> <!-- new 19.11.2018 -->
+    </div>
+         <!-- test interactid for teacher -->
+    <div class="form-group">
+      <label for="text" style="color:black;">Номер:</label>
+      <input type="text" class="form-control" id="tab_num" name="tabel" style="width:250px;"> 
+    </div>
+         <!-- -->
+    <label for="teacher" style="color:black;">Вчитель:</label>
+    <input type="checkbox" id="t_cbox" name="t_type" value="teacher">
+    <label for="pupil" style="color:black;">Учень:</label>
+    <input type="checkbox" id="p_cbox" name="p_type" value="pupil" checked="checked" style="color:black;"><br>
+    <button type="submit" class="btn btn-default btn-sm" id="auth_send" style="width:120px;">Вхід</button>  
+    <button type="submit" class="btn btn-default btn-sm" id="reg_send" style="width:120px;" onclick="getUserAttrib()">Реєстрація</button> <!-- new 19.09.2018 -->
+         </form>
+    </div>
+     </div>
+       </div>
+    </div>
+  </div>
+
+<!-- -->
+<!-- Auth and Register Form --> <!-- new 17.09.2018 -->
+  <script>
+    $(document).ready(function(){
+      /* test code */
+     
+    var reg_flag = localStorage.getItem("reg_flag"); 
+    var usr_type = localStorage.getItem("u_type"); 
+    
+    if (reg_flag != 1 ) 
+    document.getElementById("auth_click").click();
+    else 
+         $("#auth_form").remove();
+       if(usr_type == 'p') {
+           /* Name and Surname should be uploaded from DB */
+          $("button.btn-success").replaceWith("<h3>Welcome,Pupil Noname</h3>"); /* new 25092018 */
+          }
+       else if(usr_type == 't')
+           /* Name and Surname should be uploaded from DB */
+          $("button.btn-success").replaceWith("<h3>Welcome,Teacher Noname</h3>"); /* new 25092018 */
+    window.localStorage.removeItem("reg_flag");
+    window.localStorage.removeItem("u_type");
+    /*****************/
+    });
+  </script>
+  <!-- -->
+
  </body>
 </html>
