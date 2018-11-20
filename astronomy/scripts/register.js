@@ -39,18 +39,43 @@ function addUser(attr_array) {
     var reg_result;
     var user_type;
 if(attr_array[3] == 'teacher') {
+     // new code 20.11.2018
+    var pv_user = localStorage.getItem("not_allow_duplicate");
+      if(pv_user == attr_array[1]) {
+        alert("This teacher has already added into system");
+        window.localStorage.removeItem("not_allow_duplicate");
+        return;
+      }
+     //
+
     alert("The new teacher was successfully uploaded");
       reg_result = 1;
       user_type = "t";
       window.localStorage.setItem("reg_flag",reg_result);
       window.localStorage.setItem("u_type",user_type);
+      // new code 20.11.2018
+      var prev_user = attr_array[1];
+      window.localStorage.setItem("not_allow_duplicate",prev_user);
+      //
     }
 else if(attr_array[3] == 'pupil') {
+      // new code 20.11.2018
+    var pv_user = localStorage.getItem("not_allow_duplicate");
+      if(pv_user == attr_array[1]) {
+        alert("This pupil has already added into system");
+        window.localStorage.removeItem("not_allow_duplicate");
+        return;
+      }
+       //
     alert("The new pupil was successfully uploaded");
       reg_result = 1;
       user_type = "p";
       window.localStorage.setItem("reg_flag",reg_result);
       window.localStorage.setItem("u_type",user_type);
+      // new code 20.11.2018
+      var prev_user = attr_array[1];
+      window.localStorage.setItem("not_allow_duplicate",prev_user);
+      //
     }
   }
 
