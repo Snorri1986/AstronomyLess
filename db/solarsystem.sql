@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 20 2018 г., 21:31
+-- Время создания: Ноя 21 2018 г., 23:09
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -21,6 +21,24 @@ SET time_zone = "+00:00";
 --
 -- База данных: `solarsystem`
 --
+
+DELIMITER $$
+--
+-- Процедуры
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetUser` (IN `req_name` VARCHAR(20), IN `reg_surname` VARCHAR(20), IN `reg_email` VARCHAR(30), IN `reg_password` VARCHAR(20), OUT `our_name` VARCHAR(20), OUT `our_surname` VARCHAR(20))  BEGIN
+
+select name, surname
+    into our_name, our_surname
+from users
+where name = req_name 
+and surname = reg_surname
+and email = reg_email
+and user_pass = reg_password;
+
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -217,7 +235,7 @@ CREATE TABLE `users` (
   `name` varchar(30) NOT NULL COMMENT 'name',
   `surname` varchar(30) NOT NULL COMMENT 'surname',
   `type` varchar(1) NOT NULL COMMENT 'user type',
-  `email` varchar(20) NOT NULL COMMENT 'user email',
+  `email` varchar(30) NOT NULL COMMENT 'user email',
   `interactid` int(11) DEFAULT NULL COMMENT 'communication id',
   `is_activ` varchar(1) NOT NULL DEFAULT 'Y' COMMENT 'user status',
   `table_num` int(11) DEFAULT NULL COMMENT 'table num(teachers)',
@@ -225,6 +243,14 @@ CREATE TABLE `users` (
   `user_pass` varchar(10) NOT NULL COMMENT 'user''s passphrase',
   `add_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='site users and their attributes';
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `surname`, `type`, `email`, `interactid`, `is_activ`, `table_num`, `is_root`, `user_pass`, `add_date`) VALUES
+(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34'),
+(22, 'Luka', 'Pupkin', 'P', 'luka@gmail.com', NULL, 'Y', 0, 'N', '0000000000', '2018-11-21 21:48:14');
 
 -- --------------------------------------------------------
 
@@ -268,7 +294,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'counter', AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'counter', AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
