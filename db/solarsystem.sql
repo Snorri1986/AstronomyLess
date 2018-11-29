@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 21 2018 г., 23:09
+-- Время создания: Ноя 29 2018 г., 21:24
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -26,7 +26,7 @@ DELIMITER $$
 --
 -- Процедуры
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetUser` (IN `req_name` VARCHAR(20), IN `reg_surname` VARCHAR(20), IN `reg_email` VARCHAR(30), IN `reg_password` VARCHAR(20), OUT `our_name` VARCHAR(20), OUT `our_surname` VARCHAR(20))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetUser` (IN `req_name` VARCHAR(30), IN `reg_surname` VARCHAR(30), IN `reg_email` VARCHAR(30), IN `reg_password` VARCHAR(30), OUT `our_name` VARCHAR(30), OUT `our_surname` VARCHAR(30))  BEGIN
 
 select name, surname
     into our_name, our_surname
@@ -250,7 +250,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `surname`, `type`, `email`, `interactid`, `is_activ`, `table_num`, `is_root`, `user_pass`, `add_date`) VALUES
 (15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34'),
-(22, 'Luka', 'Pupkin', 'P', 'luka@gmail.com', NULL, 'Y', 0, 'N', '0000000000', '2018-11-21 21:48:14');
+(16, 'Vasya', 'Pupkin', 'P', 'vasya@gmail.com', NULL, 'Y', 0, 'N', '0987654321', '2018-11-29 19:57:00'),
+(17, 'Kisa', 'Lisa', 'P', 'lisa@gmail.com', NULL, 'Y', 0, 'N', '654321', '2018-11-29 20:10:40'),
+(18, 'Zop', 'Pop', 'P', 'zop@gmail.com', NULL, 'Y', 0, 'N', '000000', '2018-11-29 20:17:21');
 
 -- --------------------------------------------------------
 
@@ -294,7 +296,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'counter', AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'counter', AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

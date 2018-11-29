@@ -15,13 +15,14 @@
   <script src="scripts/cookies.js"></script> <!-- new 10.09.2018 -->
   <script src="scripts/register.js"></script> <!-- new 19.09.2018 -->
   <script src="addnewuser.php"></script> <!-- new 19.11.2018 -->
-  <!-- <script src="addnewteacher.php"></script> --> <!-- new 19.11.2018 -->
+  <script src="welcomeuser.php"></script> <!-- new 22.11.2018 -->
 </head>
 <body onload="startTimeIss(),startTime()">
   <div class="container" id="greetings">
 	<div id="hello">
     <h1>Вітаємо у віртуальному всесвіті!!!</h1> 
-    <button id="auth_click" type="button" class="btn btn-success" data-toggle="modal" data-target="#auth_form"><a href="#">Реєстрація</a></button> <!-- new 17.09.2018 -->
+    <button id="auth_click" type="button" class="btn btn-success" data-toggle="modal" data-target="#auth_form"><a href="#">Реєстрація</a></button>  
+    <div id="welcome"></div>  
     <div id="vinci">
     <p>"Не сворачивает тот,</p>
     <p>кто смотрит на звёзды!</p>
@@ -108,9 +109,8 @@
     </div>
   </div>
 
-<!-- Auth and Register Form(html code)--> <!-- new 17.09.2018 -->
-
-  <div class="modal fade" id="auth_form" role="dialog">
+<!-- Auth and Register Form(html code)--> <!-- new 22.11.2018 -->
+ <div class="modal fade" id="auth_form" role="dialog">
     <div class="modal-dialog modal-sm">
      <div class="modal-content">
         <div class="modal-header">
@@ -119,7 +119,7 @@
         <div class="modal-body">
         <div class="container">
           <h2 style="color:black;">Вхід до порталу!!!</h2>
-         <form  method="get" enctype="text/plain" action="addnewuser.php"> <!-- new 27092018  action="addnewpupil.php" -->
+         <form  method="get" enctype="text/plain" id="use_php"> 
     <div class="form-group">
       <label for="fio" style="color:black;">Ім'я:</label>
       <input type="text" class="form-control" id="auth_name" name="username" style="width:250px;" required> 
@@ -148,7 +148,7 @@
     <input type="checkbox" id="t_cbox" name="t_type" value="teacher">
     <label for="pupil" style="color:black;">Учень:</label>
     <input type="checkbox" id="p_cbox" name="p_type" value="pupil" checked="checked" style="color:black;"><br>
-    <button type="submit" class="btn btn-default btn-sm" id="auth_send" style="width:120px;">Вхід</button>  
+    <button type="submit" class="btn btn-default btn-sm" id="auth_send" style="width:120px;" onclick="allowTrustUsers()">Вхід</button>  <!-- test code 21.11.2018 -->
     <button type="submit" class="btn btn-default btn-sm" id="reg_send" style="width:120px;" onclick="getUserAttrib()">Реєстрація</button> <!-- new 19.09.2018 -->
          </form>
     </div>
@@ -156,33 +156,19 @@
        </div>
     </div>
   </div>
-
-<!-- -->
-<!-- Auth and Register Form --> <!-- new 17.09.2018 -->
-  <script>
-    $(document).ready(function(){
-      /* test code */
-     
-    var reg_flag = localStorage.getItem("reg_flag"); 
-    var usr_type = localStorage.getItem("u_type"); 
-    
-    if (reg_flag != 1 ) 
+    <!-- new code 29.11.2018 -->
+   <script>
+   $(document).ready(function(){
+    // new code 29.11.2018
     document.getElementById("auth_click").click();
-    else 
-         $("#auth_form").remove();
-       if(usr_type == 'p') {
-           /* Name and Surname should be uploaded from DB */
-          $("button.btn-success").replaceWith("<h3>Welcome,Pupil Noname</h3>"); /* new 25092018 */
-          }
-       else if(usr_type == 't')
-           /* Name and Surname should be uploaded from DB */
-          $("button.btn-success").replaceWith("<h3>Welcome,Teacher Noname</h3>"); /* new 25092018 */
-    window.localStorage.removeItem("reg_flag");
-    window.localStorage.removeItem("u_type");
-    /*****************/
-    });
-  </script>
-  <!-- -->
-
+    //
+    var user_name = localStorage.getItem("user_name");
+    var user_sur_name = localStorage.getItem("user_sur_name");
+    var greeting = "Дійсний користувач: ";
+    if(user_name != null)
+     $("#welcome").replaceWith(greeting + user_name + " " + user_sur_name);
+   });
+    </script> 
+   <!-- -->
  </body>
 </html>
