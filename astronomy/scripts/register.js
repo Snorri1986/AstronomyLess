@@ -38,6 +38,7 @@ addUser(u_attribs);
 function addUser(attr_array) {
     var reg_result;
     var user_type;
+
 if(attr_array[3] == 'teacher') {
      // new code 20.11.2018
     var pv_user = localStorage.getItem("not_allow_duplicate");
@@ -77,12 +78,53 @@ else if(attr_array[3] == 'pupil') {
       window.localStorage.setItem("not_allow_duplicate",prev_user);
       //
     }
+
+    // new code 22.11.2018
+     var form = document.getElementById('use_php');
+         form.action = "addnewuser.php";
+         form.submit();
+    //
   }
 
-/*Enter to the main page after successfull auth */
+
+// new 21.11.2018 test code
 function allowTrustUsers() {
-    /* redirection code */
+    // store name and surname of user into localStorage
+    // call jquery function
+    // call stored procedure in MySQL
+
+    // new code 27.11.2018
+    var u_name = document.getElementById("auth_name").value;
+    var u_surname = document.getElementById("auth_surname").value;
+    var u_passphrase = document.getElementById("auth_pass").value;
+    var e_mail = document.getElementById("email").value;
+    //
+
+  $(window).ready(function(){ // new code 26.11.2018 old: ready
+    $.ajax({
+    type:"GET",  // new 28.11.2018
+    url: "welcomeuser.php",
+    // new code 29.11.2018
+    data: {
+      username: u_name,  
+      usersurname: u_surname, 
+      n_email: e_mail, 
+      password: u_passphrase 
+    },
+    datatype:"text", // new code 29.11.2018
+    success: function(data){
+      $("button.btn-success").replaceWith($("#welcome").html(data));
+    }
+}); 
+});
+    // new code 29.11.2018
+  window.localStorage.setItem("user_name",u_name);
+  window.localStorage.setItem("user_sur_name",u_surname);
+    // 
 }
+
+
+
 
 
 
