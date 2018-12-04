@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 29 2018 г., 21:24
+-- Время создания: Дек 04 2018 г., 22:24
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -26,10 +26,15 @@ DELIMITER $$
 --
 -- Процедуры
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetUser` (IN `req_name` VARCHAR(30), IN `reg_surname` VARCHAR(30), IN `reg_email` VARCHAR(30), IN `reg_password` VARCHAR(30), OUT `our_name` VARCHAR(30), OUT `our_surname` VARCHAR(30))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetUser` (IN `req_name` VARCHAR(30), IN `reg_surname` VARCHAR(30), IN `reg_email` VARCHAR(30), IN `reg_password` VARCHAR(30), OUT `our_name` VARCHAR(30), OUT `our_surname` VARCHAR(30), OUT `our_type` VARCHAR(30))  BEGIN
 
-select name, surname
-    into our_name, our_surname
+select name, 
+       surname,
+case type
+    when 'P' then 'Pupil'
+    when 'T' then 'Teacher'
+END as type
+    into our_name, our_surname,our_type
 from users
 where name = req_name 
 and surname = reg_surname

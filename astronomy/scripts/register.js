@@ -111,16 +111,14 @@ function allowTrustUsers() {
       n_email: e_mail, 
       password: u_passphrase 
     },
-    datatype:"text", // new code 29.11.2018
+    datatype:"text", 
     success: function(data){
-      $("button.btn-success").replaceWith($("#welcome").html(data));
+    $("button.btn-success").replaceWith($("#welcome").html(data)); // new code 04.12.2018
+      localStorage.setItem("trus_user",data); // new code 04.12.2018
     }
 }); 
 });
-    // new code 29.11.2018
-  window.localStorage.setItem("user_name",u_name);
-  window.localStorage.setItem("user_sur_name",u_surname);
-    // 
+    
 }
 
 

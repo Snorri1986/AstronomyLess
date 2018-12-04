@@ -58,7 +58,7 @@
     <button type="button" class="btn btn-warning"><a href="lections.html">Лекція</a></button>
     <button type="button" class="btn btn-warning"><a href="general_test.html">Тест</a></button>
     <button type="button" class="btn btn-warning"><a href="https://www.nasa.gov/multimedia/imagegallery/index.html">Галерея</a></button>
-    <button id="auth_click" type="button" class="btn btn-warning" data-toggle="modal" data-target="#auth_teacher" onclick = "getCookie()"><a href="#">Вчителю</a></button>  <!-- new 12.09.2018 -->
+   <button type="button" class="btn btn-warning"><a href="#">Створити урок</a></button>
   </div>
    <div class="container" id="add_info">
     <p>Додаткову інформацію ти зможешь знайти за наступними посиланнями:</p>
@@ -76,40 +76,7 @@
 <div class="realtime">
   <div id="LocalTime"></div><br>
     <div id="LocalTimeISS"></div>
-   <div class="modal fade" id="auth_teacher" role="dialog">
-    <div class="modal-dialog modal-sm">
-     <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-        <div class="container">
-          <h2 style="color:black;">Анкета вчителя</h2>
-          <!-- Write cookies 10.09.2018 -->
-       <form  method="post" enctype="text/plain">  
-    <div class="form-group">
-      <label for="fio" style="color:black;">Прізвище та ім'я:</label>
-      <input type="text" class="form-control" id="fio" placeholder="name" name="fio" style="width:250px;" required> 
-    </div>
-    <div class="form-group">
-      <label for="email" style="color:black;">Email викладача:</label>
-      <input type="email" class="form-control" id="t_email" placeholder="Enter email" name="email" style="width:250px;" required> <!-- new 26092018 -->
-    </div>
-    <div class="form-group">
-      <label for="password" style="color:black;">Пароль: </label>
-      <input type="password" class="form-control" id="password" name="password" style="width:250px;"> 
-    </div>
-    <button type="submit" class="btn btn-default" id="send" style="width:120px;"
-    onclick="teachRedirection(document.getElementById('password').value);setCookies();">Вхід</button> <!-- new 10.09.2018 --> 
-    <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel" style="width:120px;" onclick="delCookies()">Відмінити</button>  </form> <!-- new 12.09.2018 -->
-    <!-- -->
-      </div>
-     </div>
-       </div>
-    </div>
-  </div>
-
-<!-- Auth and Register Form(html code)--> <!-- new 22.11.2018 -->
+  <!-- Auth and Register Form(html code)--> <!-- new 22.11.2018 -->
  <div class="modal fade" id="auth_form" role="dialog">
     <div class="modal-dialog modal-sm">
      <div class="modal-content">
@@ -156,19 +123,12 @@
        </div>
     </div>
   </div>
-    <!-- new code 29.11.2018 -->
+     <!-- new code 04.12.2018 -->
    <script>
    $(document).ready(function(){
-    // new code 29.11.2018
-    document.getElementById("auth_click").click();
-    //
-    var user_name = localStorage.getItem("user_name");
-    var user_sur_name = localStorage.getItem("user_sur_name");
-    var greeting = "Дійсний користувач: ";
-    if(user_name != null)
-     $("#welcome").replaceWith(greeting + user_name + " " + user_sur_name);
-   });
-    </script> 
+      var trusted_user = localStorage.getItem("trus_user"); // test 04.12.2018
+   $("#welcome").replaceWith(trusted_user); // test 04.12.2018
+   </script> 
    <!-- -->
  </body>
 </html>

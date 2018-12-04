@@ -30,16 +30,21 @@ $usr_pass = $_GET['password'];
 }
 
 
-$call = mysqli_prepare($conn,"CALL GetUser(?, ?, ?, ?,@our_name,@our_surname)");
+/* Added new value @our_type 03.12.2018 */
+$call = mysqli_prepare($conn,"CALL GetUser(?, ?, ?, ?,@our_name,@our_surname,@our_type)");
 $call->bind_param('ssss',$usr_name,$usr_surname,$usr_mail,$usr_pass);
 $call->execute();
 
-$select = mysqli_query($conn,"SELECT @our_name, @our_surname");
+/* Added new value @our_type 03.12.2018 */
+$select = mysqli_query($conn,"SELECT @our_name, @our_surname, @our_type");
 $result = $select->fetch_assoc();
 
 
+$fetched_type = $result['@our_type']; // new 03.12.2018
 $fetched_name = $result['@our_name'];
 $fetched_surname = $result['@our_surname'];
+
+echo $fetched_type." ".$fetched_name." ".$fetched_surname; // new code 04.12.2018
 
 $conn->close();
 ?>
