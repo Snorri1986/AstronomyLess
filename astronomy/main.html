@@ -58,7 +58,9 @@
     <button type="button" class="btn btn-warning"><a href="lections.html">Лекція</a></button>
     <button type="button" class="btn btn-warning"><a href="general_test.html">Тест</a></button>
     <button type="button" class="btn btn-warning"><a href="https://www.nasa.gov/multimedia/imagegallery/index.html">Галерея</a></button>
-   <button type="button" class="btn btn-warning"><a href="#">Створити урок</a></button>
+     <!-- new code 05.12.2018 -->
+    <button type="button" class="btn btn-warning" id="creator"><a href="admin.html">Cтворити урок</a></button>
+    <!-- -->
   </div>
    <div class="container" id="add_info">
     <p>Додаткову інформацію ти зможешь знайти за наступними посиланнями:</p>
@@ -123,11 +125,15 @@
        </div>
     </div>
   </div>
-     <!-- new code 04.12.2018 -->
+     <!-- new code 05.12.2018 -->
+     <!-- Pupil is default role. Pupil don't have ability to create a new lesson -->
    <script>
    $(document).ready(function(){
-      var trusted_user = localStorage.getItem("trus_user"); // test 04.12.2018
-   $("#welcome").replaceWith(trusted_user); // test 04.12.2018
+        document.getElementById("creator").classList.add('disabled');
+           var btn = document.getElementById("creator");
+           btn.onclick = null;
+        $('#creator').click(function(e) { e.preventDefault(); }); // disabled link
+      });
    </script> 
    <!-- -->
  </body>

@@ -80,6 +80,8 @@ else if(attr_array[3] == 'pupil') {
     }
 
     // new code 22.11.2018
+    // instead of action in <form>
+    // add new user using php script
      var form = document.getElementById('use_php');
          form.action = "addnewuser.php";
          form.submit();
@@ -112,13 +114,34 @@ function allowTrustUsers() {
       password: u_passphrase 
     },
     datatype:"text", 
-    success: function(data){
+    success: function(data){ // data is string
     $("button.btn-success").replaceWith($("#welcome").html(data)); // new code 04.12.2018
       localStorage.setItem("trus_user",data); // new code 04.12.2018
     }
 }); 
 });
-    
+
+  // Authorized trusted user and give it site permissions
+  // new code 05.12.2018
+  var from_db = localStorage.getItem("trus_user"); 
+  var user_type = from_db.substring(0,1); // analyze only first symbol
+
+  switch(user_type) {
+    case 'P': {
+            null; // nothing to do (default role)
+            break;
+    }
+
+     // only teacher can create a new lesson (admin = teacher)
+    case 'T': {
+       document.getElementById("creator").classList.remove('disabled'); 
+       $('#creator').on('click',function() {
+           window.location = "admin.html";
+       });
+       break;
+    }
+  }
+  //
 }
 
 
