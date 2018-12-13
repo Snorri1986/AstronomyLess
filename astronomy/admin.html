@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="scripts/adm_servs.js"></script> <!-- test code 12.12.2018 -->
 <style>
 .container  {
 	display: inline-block;
@@ -26,6 +27,17 @@ body {
 	text-align: center;
 }
 
+/* new code 13.12.2018 */
+.black {
+    color: black;
+}
+/************************/
+
+#but_next_admin_page {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 </style>
 </head>
 <body>
@@ -38,9 +50,9 @@ body {
 	<h4>Upload new image #1 for new lesson</h4>
 <form  method="get" enctype="text/plain" id="php_upload_image_1"> 
     <div class="form-group">
-    	<input type="file" name="myFile">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_image_1">Upload</button>
-    </div>
+    	<input type="file" name="myFile" id="img1"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_image_1" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
+    </div> 
 </form>
 </div>
     <!-- -->
@@ -49,8 +61,8 @@ body {
     <h4>Upload new image #2 for new lesson</h4>
 <form  method="get" enctype="text/plain" id="php_upload_image_2"> 
     <div class="form-group">
-    	<input type="file" name="myFile">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_image_2">Upload</button>
+    	<input type="file" name="myFile" id="img2"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_image_2" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
 </div>
@@ -59,8 +71,8 @@ body {
     <h4>Upload new image #3 for new lesson</h4>
 <form  method="get" enctype="text/plain" id="php_upload_image_3"> 
     <div class="form-group">
-    	<input type="file" name="myFile">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_image_3">Upload</button>
+    	<input type="file" name="myFile" id="img3"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_image_3" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
 </div>
@@ -72,8 +84,8 @@ body {
     <h4>Upload new image #4 for new lesson</h4>
 <form  method="get" enctype="text/plain" id="php_upload_image_4"> 
     <div class="form-group">
-    	<input type="file" name="myFile">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_image_4">Upload</button>
+    	<input type="file" name="myFile" id="img4"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_image_4" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
 </div>
@@ -83,8 +95,8 @@ body {
     <h4>Upload new image #5 for new lesson</h4>
 <form  method="get" enctype="text/plain" id="php_upload_image_5"> 
     <div class="form-group">
-    	<input type="file" name="myFile">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_image_5">Upload</button>
+    	<input type="file" name="myFile" id="img5"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_image_5" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
 </div>
@@ -94,8 +106,8 @@ body {
     <h4>Upload new image #6 for new lesson</h4>
 <form  method="get" enctype="text/plain" id="php_upload_image_6"> 
     <div class="form-group">
-    	<input type="file" name="myFile">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_image_6">Upload</button>
+    	<input type="file" name="myFile" id="img6"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_image_6" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
       </div>
@@ -106,8 +118,8 @@ body {
 <h4>Upload new image #7 for new lesson</h4>
 <form  method="get" enctype="text/plain" id="php_upload_image_7"> 
     <div class="form-group">
-    	<input type="file" name="myFile">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_image_7">Upload</button>
+    	<input type="file" name="myFile" id="img7"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_image_7" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
       </div>
@@ -117,8 +129,8 @@ body {
 <h4>Upload new image #8 for new lesson</h4>
 <form  method="get" enctype="text/plain" id="php_upload_image_8"> 
     <div class="form-group">
-    	<input type="file" name="myFile">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_image_8">Upload</button>
+    	<input type="file" name="myFile" id="img8"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_image_8" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
       </div>
@@ -128,8 +140,8 @@ body {
 <h4>Upload new image #9 for new lesson</h4>
 <form  method="get" enctype="text/plain" id="php_upload_image_9"> 
     <div class="form-group">
-    	<input type="file" name="myFile">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_image_9">Upload</button>
+    	<input type="file" name="myFile" id="img9"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_image_9" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
       </div>
@@ -142,10 +154,10 @@ body {
 		<h4>Upload new carousel images for #1</h4>
 <form method="get" enctype="text/plain" id="php_carousel_image_1"> 
     <div class="form-group">
-    	<input type="file" name="myFile1">
-    	<input type="file" name="myFile2">
-    	<input type="file" name="myFile3">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_1">Upload</button>
+    	<input type="file" name="myFile1" id="1c">   <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile2" id="1cc">  <!-- test code 12.12.2018 --> 
+    	<input type="file" name="myFile3" id="1ccc"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_1" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
       </div>
@@ -155,10 +167,10 @@ body {
 		<h4>Upload new carousel images for #2</h4>
 <form method="get" enctype="text/plain" id="php_carousel_image_2"> 
     <div class="form-group">
-    	<input type="file" name="myFile1">
-    	<input type="file" name="myFile2">
-    	<input type="file" name="myFile3">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_2">Upload</button>
+    	<input type="file" name="myFile1" id="2c">  <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile2" id="2cc"> <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile3" id="2ccc"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_2" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
       </div>
@@ -168,10 +180,10 @@ body {
 		<h4>Upload new carousel images for #3</h4>
 <form method="get" enctype="text/plain" id="php_carousel_image_3"> 
     <div class="form-group">
-    	<input type="file" name="myFile1">
-    	<input type="file" name="myFile2">
-    	<input type="file" name="myFile3">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_3">Upload</button>
+    	<input type="file" name="myFile1" id="3c"> <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile2" id="3cc"> <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile3" id="3ccc"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_3" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
       </div>
@@ -183,10 +195,10 @@ body {
 		<h4>Upload new carousel images for #4</h4>
 <form method="get" enctype="text/plain" id="php_carousel_image_4"> 
     <div class="form-group">
-    	<input type="file" name="myFile1">
-    	<input type="file" name="myFile2">
-    	<input type="file" name="myFile3">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_4">Upload</button>
+    	<input type="file" name="myFile1" id="4c"> <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile2" id="4cc"> <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile3" id="4ccc"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_4" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
       </div>
@@ -196,10 +208,10 @@ body {
 		<h4>Upload new carousel images for #5</h4>
 <form method="get" enctype="text/plain" id="php_carousel_image_5"> 
     <div class="form-group">
-    	<input type="file" name="myFile1">
-    	<input type="file" name="myFile2">
-    	<input type="file" name="myFile3">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_5">Upload</button>
+    	<input type="file" name="myFile1" id="5c"> <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile2" id="5cc"> <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile3" id="5ccc"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_5" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
       </div>
@@ -209,10 +221,10 @@ body {
 		<h4>Upload new carousel images for #6</h4>
 <form method="get" enctype="text/plain" id="php_carousel_image_6"> 
     <div class="form-group">
-    	<input type="file" name="myFile1">
-    	<input type="file" name="myFile2">
-    	<input type="file" name="myFile3">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_6">Upload</button>
+    	<input type="file" name="myFile1" id="6c"> <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile2" id="6cc"> <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile3" id="6ccc"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_6" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
       </div>
@@ -223,10 +235,10 @@ body {
 	<h4>Upload new carousel images for #7</h4>
 <form method="get" enctype="text/plain" id="php_carousel_image_7"> 
     <div class="form-group">
-    	<input type="file" name="myFile1">
-    	<input type="file" name="myFile2">
-    	<input type="file" name="myFile3">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_7">Upload</button>
+    	<input type="file" name="myFile1" id="7c"> <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile2" id="7cc"> <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile3" id="7ccc"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_7" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
      </div>
@@ -236,10 +248,10 @@ body {
 	<h4>Upload new carousel images for #8</h4>
 <form method="get" enctype="text/plain" id="php_carousel_image_8"> 
     <div class="form-group">
-    	<input type="file" name="myFile1">
-    	<input type="file" name="myFile2">
-    	<input type="file" name="myFile3">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_8">Upload</button>
+    	<input type="file" name="myFile1" id="8c"> <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile2" id="8cc"> <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile3" id="8ccc"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_8" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
      </div>
@@ -249,10 +261,10 @@ body {
 	<h4>Upload new carousel images for #9</h4>
 <form method="get" enctype="text/plain" id="php_carousel_image_9"> 
     <div class="form-group">
-    	<input type="file" name="myFile1">
-    	<input type="file" name="myFile2">
-    	<input type="file" name="myFile3">
-        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_9">Upload</button>
+    	<input type="file" name="myFile1" id="9c"> <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile2" id="9cc"> <!-- test code 12.12.2018 -->
+    	<input type="file" name="myFile3" id="9ccc"> <!-- test code 12.12.2018 -->
+        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_9" onclick="db_uploader()">Upload</button> <!-- test code 12.12.2018 -->
     </div>
 </form>
      </div>
@@ -260,5 +272,116 @@ body {
 <hr>
 </div>  <!-- close container id="upload_images_num_1" -->
     <!-- -->
-</body>
+    <!-- new name of buttons --> <!-- test code 13.12.2018 -->
+    <div class="container" id="btn_images">
+        <h2 class="main_title">Change name of buttons</h2>
+          <div class="row">
+        <!-- Button #1 in lections.html -->
+            <div class="col-md-3">
+                <h4>Write new name of button #1 in lection</h4>
+                <form method="get" enctype="text/plain" id="image_descr_1"> 
+           <div class="form-group">
+                <input class="black" type="text" id="name_image_descr_1"> <!-- test code 13.12.2018 -->
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_1">Upload</button>
+           </div>
+       </form> 
+           </div>
+           <!-- -->
+        <!-- Button #2 in lections.html -->
+        <div class="col-md-3">
+                <h4>Write new name of button #2 in lection</h4>
+                <form method="get" enctype="text/plain" id="image_descr_2"> 
+           <div class="form-group">
+                <input class="black" type="text" id="name_image_descr_2"> <!-- test code 13.12.2018 -->
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_2">Upload</button>
+           </div>
+        </form> 
+           </div>
+           <!-- -->
+        <!-- Button #3 in lections.html -->
+        <div class="col-md-3">
+                <h4>Write new name of button #3 in lection</h4>
+                <form method="get" enctype="text/plain" id="image_descr_3"> 
+           <div class="form-group">
+                <input class="black" type="text" id="name_image_descr_3"> <!-- test code 13.12.2018 -->
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_3">Upload</button>
+           </div>
+        </form> 
+           </div>
+           <!-- -->
+        <!-- Button #4 in lections.html -->
+        <div class="col-md-3">
+                <h4>Write new name of button #4 in lection</h4>
+                <form method="get" enctype="text/plain" id="image_descr_4"> 
+           <div class="form-group">
+                <input class="black" type="text" id="name_image_descr_4"> <!-- test code 13.12.2018 -->
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_4">Upload</button>
+           </div>
+        </form> 
+           </div>
+           <!-- -->
+    </div>
+        <div class="row">
+        <!-- Button #5 in lections.html -->
+           <div class="col-md-3">
+                <h4>Write new name of button #5 in lection</h4>
+                <form method="get" enctype="text/plain" id="image_descr_5"> 
+           <div class="form-group">
+                <input class="black" type="text" id="name_image_descr_5"> <!-- test code 13.12.2018 -->
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_5">Upload</button>
+           </div>
+        </form> 
+           </div>
+           <!-- -->
+        <!-- Button #6 in lections.html -->
+           <div class="col-md-3">
+                <h4>Write new name of button #6 in lection</h4>
+                <form method="get" enctype="text/plain" id="image_descr_6"> 
+           <div class="form-group">
+                <input class="black" type="text" id="name_image_descr_6"> <!-- test code 13.12.2018 -->
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_6">Upload</button>
+           </div>
+        </form> 
+           </div>
+           <!-- -->
+        <!-- Button #7 in lections.html -->
+        <div class="col-md-3">
+                <h4>Write new name of button #7 in lection</h4>
+                <form method="get" enctype="text/plain" id="image_descr_7"> 
+           <div class="form-group">
+                <input class="black" type="text" id="name_image_descr_7"> <!-- test code 13.12.2018 -->
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_7">Upload</button>
+           </div>
+        </form> 
+           </div> 
+           <!-- -->
+        <!-- Button #8 in lections.html -->
+        <div class="col-md-3">
+                <h4>Write new name of button #8 in lection</h4>
+                <form method="get" enctype="text/plain" id="image_descr_8"> 
+           <div class="form-group">
+                <input class="black" type="text" id="name_image_descr_8"> <!-- test code 13.12.2018 -->
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_8">Upload</button>
+           </div>
+        </form> 
+           </div>
+           <!-- -->
+        <!-- Button #9 in lections.html -->
+        <div class="col-md-3">
+                <h4>Write new name of button #9 in lection</h4>
+                <form method="get" enctype="text/plain" id="image_descr_9"> 
+           <div class="form-group">
+                <input class="black" type="text" id="name_image_descr_9"> <!-- test code 13.12.2018 -->
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_9">Upload</button>
+           </div>
+        </form> 
+           </div>
+           <!-- -->
+        </div>
+    </div>
+         <!-- Button to next admin page -->
+    <div class="container" id="but_next_admin_page">
+        <button type="button" class="btn btn-warning btn-lg"><a href="admin2.html">Next page</a></button>
+    </div>
+  </body>
 </html>
