@@ -12,10 +12,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="scripts/Local_IssTime.js"></script>
   <script src="scripts/teach_redirect.js"></script> 
-  <script src="scripts/cookies.js"></script> <!-- new 10.09.2018 -->
-  <script src="scripts/register.js"></script> <!-- new 19.09.2018 -->
-  <script src="addnewuser.php"></script> <!-- new 19.11.2018 -->
-  <script src="welcomeuser.php"></script> <!-- new 22.11.2018 -->
+  <script src="scripts/cookies.js"></script> 
+  <script src="scripts/register.js"></script> 
+  <script src="addnewuser.php"></script> 
+  <script src="welcomeuser.php"></script> 
 </head>
 <body onload="startTimeIss(),startTime()">
   <div class="container" id="greetings">
@@ -58,10 +58,8 @@
     <button type="button" class="btn btn-warning"><a href="lections.html">Лекція</a></button>
     <button type="button" class="btn btn-warning"><a href="general_test.html">Тест</a></button>
     <button type="button" class="btn btn-warning"><a href="https://www.nasa.gov/multimedia/imagegallery/index.html">Галерея</a></button>
-     <!-- new code 05.12.2018 -->
-    <button type="button" class="btn btn-warning" id="creator"><a href="admin.html">Cтворити урок</a></button>
-    <!-- -->
-  </div>
+     <button type="button" class="btn btn-warning" id="creator"><a href="admin.html">Cтворити урок</a></button> 
+    </div>
    <div class="container" id="add_info">
     <p>Додаткову інформацію ти зможешь знайти за наступними посиланнями:</p>
     <!--  Logos with link -->
@@ -78,7 +76,7 @@
 <div class="realtime">
   <div id="LocalTime"></div><br>
     <div id="LocalTimeISS"></div>
-  <!-- Auth and Register Form(html code)--> <!-- new 22.11.2018 -->
+  <!-- Auth and Register Form(html code)--> 
  <div class="modal fade" id="auth_form" role="dialog">
     <div class="modal-dialog modal-sm">
      <div class="modal-content">
@@ -97,15 +95,13 @@
       <label for="text" style="color:black;">Прізвище:</label>
       <input type="text" class="form-control" id="auth_surname"  name="usersurname" style="width:250px;" required>
     </div>
-         <!-- new 25092018 -->
          <div class="form-group">
       <label for="email" style="color:black;">Email:</label>
       <input type="email" class="form-control" id="email" name="n_email" style="width:250px;" required>
         </div>
-        <!-- -->
     <div class="form-group">
       <label for="password" style="color:black;">Пароль:</label>
-      <input type="password" pattern=".{5,}" class="form-control" id="auth_pass" name="password" style="width:250px;" required> <!-- new 19.11.2018 -->
+      <input type="password" pattern=".{5,}" class="form-control" id="auth_pass" name="password" style="width:250px;" required> 
     </div>
          <!-- test interactid for teacher -->
     <div class="form-group">
@@ -117,15 +113,14 @@
     <input type="checkbox" id="t_cbox" name="t_type" value="teacher">
     <label for="pupil" style="color:black;">Учень:</label>
     <input type="checkbox" id="p_cbox" name="p_type" value="pupil" checked="checked" style="color:black;"><br>
-    <button type="submit" class="btn btn-default btn-sm" id="auth_send" style="width:120px;" onclick="allowTrustUsers()">Вхід</button>  <!-- test code 21.11.2018 -->
-    <button type="submit" class="btn btn-default btn-sm" id="reg_send" style="width:120px;" onclick="getUserAttrib()">Реєстрація</button> <!-- new 19.09.2018 -->
+    <button type="submit" class="btn btn-default btn-sm" id="auth_send" style="width:120px;" onclick="allowTrustUsers()">Вхід</button> 
+    <button type="submit" class="btn btn-default btn-sm" id="reg_send" style="width:120px;" onclick="getUserAttrib()">Реєстрація</button>
          </form>
     </div>
      </div>
        </div>
     </div>
   </div>
-     <!-- new code 05.12.2018 -->
      <!-- Pupil is default role. Pupil don't have ability to create a new lesson -->
    <script>
    $(document).ready(function(){
@@ -135,6 +130,5 @@
         $('#creator').click(function(e) { e.preventDefault(); }); // disabled link
       });
    </script> 
-   <!-- -->
- </body>
+   </body>
 </html>
