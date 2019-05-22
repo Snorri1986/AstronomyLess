@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Фев 26 2019 г., 22:17
+-- Время создания: Май 22 2019 г., 21:15
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -26,6 +26,14 @@ DELIMITER $$
 --
 -- Процедуры
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getCurrentAnswer` (IN `ln` INT(1), IN `num_id` INT(2), OUT `txt` TEXT CHARSET utf8)  NO SQL
+BEGIN
+select description into txt
+from answers
+where lesson_num = ln
+and id = num_id;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getImagePath` (IN `id` VARCHAR(10), IN `ft` VARCHAR(1), IN `lesson_num` VARCHAR(10), OUT `fpath` VARCHAR(100))  begin
 select filepath
        into fpath
@@ -34,6 +42,16 @@ where objname = id
 and lessonnum = lesson_num
 and filetype = ft;
 end$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getTextAnswerHtml` (IN `qid` INT, IN `ln` INT, IN `num` INT, OUT `txt` TEXT CHARSET utf8)  NO SQL
+BEGIN
+select html_tag 
+         into txt
+from answers 
+where question_id = qid
+and lesson_num = ln
+and id = num;
+END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GetUser` (IN `req_name` VARCHAR(30), IN `reg_surname` VARCHAR(30), IN `reg_email` VARCHAR(30), IN `reg_password` VARCHAR(30), OUT `our_name` VARCHAR(30), OUT `our_surname` VARCHAR(30), OUT `our_type` VARCHAR(30))  BEGIN
 
@@ -53,6 +71,81 @@ and user_pass = reg_password;
 END$$
 
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `answers`
+--
+
+CREATE TABLE `answers` (
+  `id` int(11) NOT NULL COMMENT 'answer id',
+  `question_id` int(11) NOT NULL COMMENT 'question id',
+  `description` text NOT NULL COMMENT 'text of answer',
+  `flag` int(11) NOT NULL COMMENT 'mark of correction',
+  `lesson_num` int(11) NOT NULL COMMENT 'lesson num',
+  `html_tag` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `answers`
+--
+
+INSERT INTO `answers` (`id`, `question_id`, `description`, `flag`, `lesson_num`, `html_tag`) VALUES
+(1, 1, 'Колорис', 1, 0, '<button type=\"button\" title=\"1\" class=\"btn btn-info btn-sm btn-block\" id=\"q1a1\" value=\"Колорис\" onclick=\"chkAnswers(\'Колорис\',10,\'q1a1\')\">'),
+(2, 1, 'Дискавері', 0, 0, '<button type=\"button\" title=\"2\" class=\"btn btn-info btn-sm btn-block\" id=\"q1a2\" value=\"Дискавері\" onclick=\"chkAnswers(\'Дискавері\')\">'),
+(3, 1, 'Опортуніті', 0, 0, '<button type=\"button\" title=\"3\" class=\"btn btn-info btn-sm btn-block\" id=\"q1a3\" value=\"Опортуніті\" onclick=\"chkAnswers(\'Опортуніті\')\">'),
+(4, 2, '280', 0, 0, '<button type=\"button\" title=\"4\" class=\"btn btn-info btn-sm btn-block\" id=\"q2a1\" value=\"280\" onclick=\"chkAnswers(\'280\')\">'),
+(5, 2, '243', 1, 0, '<button type=\"button\" title=\"5\" class=\"btn btn-info btn-sm btn-block\" id=\"q2a2\" value=243\" onclick=\"chkAnswers(\'243\',10,\'q2a2\')\">'),
+(6, 2, '10', 0, 0, '<button type=\"button\" title=\"6\" class=\"btn btn-info btn-sm btn-block\" id=\"q2a3\" value=\"10\" onclick=\"chkAnswers(\'10\')\">'),
+(7, 3, 'Байкал', 0, 0, '<button type=\"button\" title=\"7\" class=\"btn btn-info btn-sm btn-block\" id=\"q3a1\" value=\"Байкал\" onclick=\"chkAnswers(\'Байкал\')\">'),
+(8, 3, 'МонБлан', 0, 0, '<button type=\"button\" title=\"8\" class=\"btn btn-info btn-sm btn-block\" id=\"q3a2\" value=\"МонБлан\" onclick=\"chkAnswers(\'МонБлан\')\">'),
+(9, 3, 'Маріанська', 1, 0, '<button type=\"button\" title=\"9\" class=\"btn btn-info btn-sm btn-block\" id=\"q3a3\" value=\"Маріанська\" onclick=\"chkAnswers(\'Маріанська\',10,\'q3a3\')\">'),
+(10, 4, 'Магній', 0, 0, '<button type=\"button\" title=\"10\" class=\"btn btn-info btn-sm btn-block\" id=\"q4a1\" value=\"Магній\" onclick=\"chkAnswers(\'Магній\')\">'),
+(11, 4, 'Спирт', 0, 0, '<button type=\"button\" title=\"11\" class=\"btn btn-info btn-sm btn-block\" id=\"q4a2\" value=\"Спирт\" onclick=\"chkAnswers(\'Спирт\')\">'),
+(12, 4, 'Оксид Заліза', 1, 0, '<button type=\"button\" title=\"12\" class=\"btn btn-info btn-sm btn-block\" id=\"q4a3\" value=\"Оксид заліза\" onclick=\"chkAnswers(\'Оксид заліза\',10,\'q4a3\')\">'),
+(13, 5, 'Венера', 0, 0, '<button type=\"button\" title=\"13\" class=\"btn btn-info btn-sm btn-block\" id=\"q5a1\" value=\"Венера\" onclick=\"chkAnswers(\'Венера\')\">'),
+(14, 5, 'Юнона', 1, 0, '<button type=\"button\" title=\"14\" class=\"btn btn-info btn-sm btn-block\" id=\"q5a2\" value=\"Юнона\" onclick=\"chkAnswers(\'Юнона\',10,\'q5a2\')\">'),
+(15, 5, 'Зевс', 0, 0, '<button type=\"button\" title=\"15\" class=\"btn btn-info btn-sm btn-block\" id=\"q5a3\" value=\"Зевс\" onclick=\"chkAnswers(\'Зевс\')\">'),
+(16, 6, 'Водневу', 0, 0, '<button type=\"button\" title=\"16\" class=\"btn btn-info btn-sm btn-block\" id=\"q6a1\" value=\"Водневу\" onclick=\"chkAnswers(\'Водневу\')\">'),
+(17, 6, 'Тверду', 0, 0, '<button type=\"button\" title=\"17\" class=\"btn btn-info btn-sm btn-block\" id=\"q6a2\" value=\"Тверду\" onclick=\"chkAnswers(\'Тверду\')\">'),
+(18, 6, 'Газоподібну', 1, 0, '<button type=\"button\" title=\"18\" class=\"btn btn-info btn-sm btn-block\" id=\"q6a3\" value=\"Газоподібну\" onclick=\"chkAnswers(\'Газоподібну\',10,\'q6a3\')\">'),
+(19, 7, 'Вісь обертання', 1, 0, '<button type=\"button\" title=\"19\" class=\"btn btn-info btn-sm btn-block\" id=\"q7a1\" value=\"Вісь обертнання\" onclick=\"chkAnswers(\'Вісь обертнання\',10,\'q7a1\')\">'),
+(20, 7, 'Кільця', 0, 0, '<button type=\"button\" title=\"20\" class=\"btn btn-info btn-sm btn-block\" id=\"q7a2\" value=\"Кільця\" onclick=\"chkAnswers(\'Кільця\')\">'),
+(21, 7, 'Супутники', 0, 0, '<button type=\"button\" title=\"21\" class=\"btn btn-info btn-sm btn-block\" id=\"q7a3\" value=\"Супутники\" onclick=\"chkAnswers(\'Супутники\')\">'),
+(22, 8, 'Математичних', 1, 0, '<button type=\"button\" title=\"22\" class=\"btn btn-info btn-sm btn-block\" id=\"q8a1\" value=\"Математичних\" onclick=\"chkAnswers(\'Математичних\',10,\'q8a1\')\">'),
+(23, 8, 'Емпіричних', 0, 0, '<button type=\"button\" title=\"23\"  class=\"btn btn-info btn-sm btn-block\" id=\"q8a2\" value=\"Емпіричних\" onclick=\"chkAnswers(\'Емпіричних\')\">'),
+(24, 8, 'Спостережень', 0, 0, '<button type=\"button\" title=\"24\" class=\"btn btn-info btn-sm btn-block\" id=\"q8a3\" value=\"Спостережень\" onclick=\"chkAnswers(\'Спостережень\')\">'),
+(25, 9, 'Енцелад', 0, 0, '<button type=\"button\" title=\"25\" class=\"btn btn-info btn-sm btn-block\" id=\"q9a1\" value=\"Енцелад\" onclick=\"chkAnswers(\'Енцелад\')\">'),
+(26, 9, 'Харон', 1, 0, '<button type=\"button\" title=\"26\" class=\"btn btn-info btn-sm btn-block\" id=\"q9a2\" value=\"Харон\" onclick=\"chkAnswers(\'Харон\',10,\'q9a2\')\">'),
+(27, 9, 'Аріель', 0, 0, '<button type=\"button\" title=\"27\" class=\"btn btn-info btn-sm btn-block\" id=\"q9a3\" value=\"Аріель\" onclick=\"chkAnswers(\'Аріель\')\">'),
+(28, 10, 'Дискавері', 1, 0, '<button type=\"button\" title=\"28\" class=\"btn btn-info btn-sm btn-block\" id=\"q1a1\" value=\"Дискавері\" onclick=\"chkAnswers(\'Дискавері\',10,\'q1a1\')\">'),
+(29, 10, 'Марінер', 0, 0, '<button type=\"button\" title=\"29\" class=\"btn btn-info btn-sm btn-block\" id=\"q1a2\" value=\"Марінер\" onclick=\"chkAnswers(\'Марінер\')\">'),
+(30, 10, 'Олімп', 0, 0, '<button type=\"button\" title=\"30\" class=\"btn btn-info btn-sm btn-block\" id=\"q1a3\" value=\"Олімп\" onclick=\"chkAnswers(\'Олімп\')\">'),
+(31, 11, 'Ураганів', 1, 0, '<button type=\"button\" title=\"31\" class=\"btn btn-info btn-sm btn-block\" id=\"q2a2\" value=\"Ураганів\" onclick=\"chkAnswers(\'Ураганів\',10,\'q2a2\')\">'),
+(32, 11, 'Кратерів', 0, 0, '<button type=\"button\" title=\"32\" class=\"btn btn-info btn-sm btn-block\" id=\"q2a1\" value=\"Кратерів\" onclick=\"chkAnswers(\'Кратерів\')\">'),
+(33, 11, 'Вулканів', 0, 0, '<button type=\"button\" title=\"33\" class=\"btn btn-info btn-sm btn-block\" id=\"q2a3\" value=\"Вулканів\" onclick=\"chkAnswers(\'Вулканів\')\">'),
+(34, 12, 'Говерла', 0, 0, '<button type=\"button\" title=\"34\" class=\"btn btn-info btn-sm btn-block\" id=\"q3a1\" value=\"Говерла\" onclick=\"chkAnswers(\'Говерла\')\">'),
+(35, 12, 'МонБлан', 0, 0, '<button type=\"button\" title=\"35\" class=\"btn btn-info btn-sm btn-block\" id=\"q3a2\" value=\"МонБлан\" onclick=\"chkAnswers(\'МонБлан\')\">'),
+(36, 12, 'Еверест', 1, 0, '<button type=\"button\" title=\"36\" class=\"btn btn-info btn-sm btn-block\" id=\"q3a3\" value=\"Еверест\" onclick=\"chkAnswers(\'Еверест\',10,\'q3a3\')\">'),
+(37, 13, 'Махава', 1, 0, '<button type=\"button\" title=\"37\" class=\"btn btn-info btn-sm btn-block\" id=\"q4a3\" value=\"Махава\" onclick=\"chkAnswers(\'Махава\',10,\'q4a3\')\">'),
+(38, 13, 'Сахара', 0, 0, '<button type=\"button\" title=\"38\" class=\"btn btn-info btn-sm btn-block\" id=\"q4a2\" value=\"Сахара\" onclick=\"chkAnswers(\'Сахара\')\">'),
+(39, 13, 'АсканіяНова', 0, 0, '<button type=\"button\" title=\"39\" class=\"btn btn-info btn-sm btn-block\" id=\"q4a1\" value=\"Асканія Нова\" onclick=\"chkAnswers(\'Асканія Нова\')\">'),
+(40, 14, '24', 0, 0, '<button type=\"button\" title=\"40\" class=\"btn btn-info btn-sm btn-block\" id=\"q5a1\" value=\"24\" onclick=\"chkAnswers(24)\">'),
+(41, 14, '10', 1, 0, '<button type=\"button\" title=\"41\" class=\"btn btn-info btn-sm btn-block\" id=\"q5a2\" value=\"10\" onclick=\"chkAnswers(10,10,\'q5a2\')\">'),
+(42, 14, '48', 0, 0, '<button type=\"button\" title=\"42\" class=\"btn btn-info btn-sm btn-block\" id=\"q5a3\" value=\"48\" onclick=\"chkAnswers(48)\">'),
+(43, 15, '50000', 0, 0, '<button type=\"button\" title=\"43\" class=\"btn btn-info btn-sm btn-block\" id=\"q6a1\" value=\"50000\" onclick=\"chkAnswers(50000)\">'),
+(44, 15, '300000', 1, 0, '<button type=\"button\" title=\"44\" class=\"btn btn-info btn-sm btn-block\" id=\"q6a3\" value=\"300000\" onclick=\"chkAnswers(300000,10,\'q6a3\')\">'),
+(45, 15, '100000', 0, 0, '<button type=\"button\" title=\"45\" class=\"btn btn-info btn-sm btn-block\" id=\"q6a2\" value=\"100000\" onclick=\"chkAnswers(100000)\">'),
+(46, 16, 'Галілео Галілей', 0, 0, '<button type=\"button\" title=\"46\" class=\"btn btn-info btn-sm btn-block\" id=\"q7a3\" value=\"Галілео Галілей\" onclick=\"chkAnswers(\'Галілео Галілей\')\">'),
+(47, 16, 'Ісак Ньютон', 0, 0, '<button type=\"button\" title=\"47\" class=\"btn btn-info btn-sm btn-block\" id=\"q7a2\" value=\"Ісаак Ньютон\" onclick=\"chkAnswers(\'Ісаак Ньютон\')\">'),
+(48, 16, 'Вільям Гершель', 1, 0, '<button type=\"button\" title=\"48\" class=\"btn btn-info btn-sm btn-block\" id=\"q7a1\" value=\"Вільям Гершель\" onclick=\"chkAnswers(\'Вільям Гершель\',10,\'q7a1\')\">'),
+(49, 17, 'Меркурій', 0, 0, '<button type=\"button\" title=\"49\" class=\"btn btn-info btn-sm btn-block\" id=\"q8a2\" value=\"Меркурій\" onclick=\"chkAnswers(\'Меркурій\')\">'),
+(50, 17, 'Вояджер-2', 1, 0, '<button type=\"button\" title=\"50\" class=\"btn btn-info btn-sm btn-block\" id=\"q8a1\" value=\"Вояджер-2\" onclick=\"chkAnswers(\'Вояджер-2\',10,\'q8a1\')\">'),
+(51, 17, 'Венера-12', 0, 0, '<button type=\"button\" title=\"51\" class=\"btn btn-info btn-sm btn-block\" id=\"q8a3\" value=\"Венера-12\" onclick=\"chkAnswers(\'Венера-12\')\">'),
+(52, 18, 'Вікінг', 0, 0, '<button type=\"button\" title=\"52\" class=\"btn btn-info btn-sm btn-block\" id=\"q9a1\" value=\"Вікінг\" onclick=\"chkAnswers(\'Вікінг\')\">'),
+(53, 18, 'Скіапареллі', 0, 0, '<button type=\"button\" title=\"53\" class=\"btn btn-info btn-sm btn-block\" id=\"q9a3\" value=\"Скіапареллі\" onclick=\"chkAnswers(\'Скіапареллі\')\">'),
+(54, 18, 'нові горизонти', 1, 0, '<button type=\"button\" title=\"54\" class=\"btn btn-info btn-sm btn-block\" id=\"q9a2\" value=\"Нові горизонти\" onclick=\"chkAnswers(\'Нові горизонти\',10,\'q9a2\')\">');
 
 -- --------------------------------------------------------
 
@@ -583,6 +676,42 @@ INSERT INTO `pluto` (`Text`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `questions`
+--
+
+CREATE TABLE `questions` (
+  `id` int(11) NOT NULL COMMENT 'question id',
+  `text` text NOT NULL COMMENT 'text of question',
+  `lesson_num` int(11) NOT NULL COMMENT 'number of lesson'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `questions`
+--
+
+INSERT INTO `questions` (`id`, `text`, `lesson_num`) VALUES
+(1, 'Назвіть, будь-ласка, найбільший кратер на поверхні Меркурія?', 0),
+(2, 'Скільки земних днів триває один день на Венері?', 0),
+(3, 'Яку назву має найбільша морська западина на Землі?', 0),
+(4, 'Який хімічний елемент робить Марс червоним ?', 0),
+(5, 'Яку назву має орбітальний зонд, який сьогодні вивчає Юпітер ?', 0),
+(6, 'Яку геологічну структуру має Сатурн ?', 0),
+(7, 'Яка характерна ознака відрізняє Уран від інших планет Сонячної системи ?', 0),
+(8, 'За допомогою яких дослідницьких методів було відкрито планету Нептун ?', 0),
+(9, 'Назвіть найбільший супутник Плутона, який утворює з планетою єдине магнітне поле ?', 0),
+(10, 'Яку назву має найбільший пагорб на Меркурії ?', 0),
+(11, 'Вивчення яких кліматичних явищь викликає найбільший інтерес у вчених при дослідженнях Венери ?', 0),
+(12, 'Яка найбільша гірська вершина на Землі ?', 0),
+(13, 'Яку назву має пустеля, яка за хімічних складом поверхні нагадує Марс ?', 0),
+(14, 'Скільки годин триває доба на Юпітері ?', 0),
+(15, 'Довжина кілець Сатурна в кілометрах ?', 0),
+(16, 'Який вчений вперше відкрив Уран за допомогою оптичного телескопу ?', 0),
+(17, 'Яку назву має автоматична міжпланетна станція, яка здійснила обліт повз планету Нептун ?', 0),
+(18, 'Яка автоматична міжпланетна станція вивчала Плутон ?', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `saturn`
 --
 
@@ -673,6 +802,12 @@ INSERT INTO `venus` (`Text`) VALUES
 --
 ALTER TABLE `employee_num`
   ADD PRIMARY KEY (`e_num`);
+
+--
+-- Индексы таблицы `questions`
+--
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `users`
