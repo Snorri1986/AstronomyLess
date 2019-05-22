@@ -8,9 +8,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <script src="scripts/adm_servs.js"></script> 
+  <script src="scripts/adm_servs.js"></script>
+  <script src="scripts/field_checker.js"></script> 
 </head>
-<body>
+<body onload="isNullOnField()"> 
 	<!-- Choice new file path to upload on database -->
 	<div class="container" id="upload_images_num_1">
           <h2 class="main_title">Upload new main images</h2>
@@ -231,44 +232,53 @@
     <!-- new name of buttons --> 
     <div class="container" id="btn_images">
         <h2 class="main_title">Change name of buttons</h2>
-          <div class="row">
+    <div class="row">
         <!-- Button #1 in lections.html -->
             <div class="col-md-3">
                 <h4>Write new name of button #1 in lection</h4>
-                <form method="get" enctype="text/plain" id="image_descr_1"> 
+                
+                <form method="get" id="image_descr_1" action="http://localhost:8080/AdminMain"> 
            <div class="form-group">
-                <input class="black" type="text" id="name_image_descr_1"> 
-            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_1">Upload</button>
+              
+                <input class="black" type="text" id="name_image_descr_1" name="b1">  
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_1" disabled>Upload</button>
            </div>
        </form> 
            </div>
         <!-- Button #2 in lections.html -->
         <div class="col-md-3">
                 <h4>Write new name of button #2 in lection</h4>
-                <form method="get" enctype="text/plain" id="image_descr_2"> 
+              
+                <form method="get" id="image_descr_2" action="http://localhost:8080/AdminMain"> 
            <div class="form-group">
-                <input class="black" type="text" id="name_image_descr_2"> 
-            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_2">Upload</button>
+             
+                <input class="black" type="text" id="name_image_descr_2" name="b2"> 
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_2" disabled>Upload</button>
            </div>
         </form> 
            </div>
           <!-- Button #3 in lections.html -->
         <div class="col-md-3">
                 <h4>Write new name of button #3 in lection</h4>
-                <form method="get" enctype="text/plain" id="image_descr_3"> 
+                
+                <form method="get"  id="image_descr_3" action="http://localhost:8080/AdminMain">
            <div class="form-group">
-                <input class="black" type="text" id="name_image_descr_3"> 
-            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_3">Upload</button>
-           </div>
+               
+                <input class="black" type="text" id="name_image_descr_3" name="b3">
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_3" disabled>Upload</button> 
+           </div> 
         </form> 
            </div>
            <!-- Button #4 in lections.html -->
         <div class="col-md-3">
                 <h4>Write new name of button #4 in lection</h4>
-                <form method="get" enctype="text/plain" id="image_descr_4"> 
+             
+                <form method="get" id="image_descr_4" action="http://localhost:8080/AdminMain">
            <div class="form-group">
-                <input class="black" type="text" id="name_image_descr_4"> 
-            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_4">Upload</button>
+                
+                <input class="black" type="text" id="name_image_descr_4" name="b4">
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_4" disabled>Upload</button>
+            
            </div>
         </form> 
            </div>
@@ -277,54 +287,87 @@
         <!-- Button #5 in lections.html -->
            <div class="col-md-3">
                 <h4>Write new name of button #5 in lection</h4>
-                <form method="get" enctype="text/plain" id="image_descr_5"> 
+                
+                <form method="get" id="image_descr_5" action="http://localhost:8080/AdminMain">
            <div class="form-group">
-                <input class="black" type="text" id="name_image_descr_5"> 
-            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_5">Upload</button>
+                
+                <input class="black" type="text" id="name_image_descr_5" name="b5"> 
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_5" disabled>Upload</button>
+            <
            </div>
         </form> 
            </div>
         <!-- Button #6 in lections.html -->
            <div class="col-md-3">
                 <h4>Write new name of button #6 in lection</h4>
-                <form method="get" enctype="text/plain" id="image_descr_6"> 
+                
+                <form method="get" id="image_descr_6" action="http://localhost:8080/AdminMain"> 
            <div class="form-group">
-                <input class="black" type="text" id="name_image_descr_6"> 
-            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_6">Upload</button>
+                
+                <input class="black" type="text" id="name_image_descr_6" name="b6">  
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_6" disabled>Upload</button>
+        
            </div>
         </form> 
            </div>
         <!-- Button #7 in lections.html -->
         <div class="col-md-3">
                 <h4>Write new name of button #7 in lection</h4>
-                <form method="get" enctype="text/plain" id="image_descr_7"> 
+          
+                <form method="get" id="image_descr_7" action="http://localhost:8080/AdminMain">
            <div class="form-group">
-                <input class="black" type="text" id="name_image_descr_7"> 
-            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_7">Upload</button>
-           </div>
+             
+                <input class="black" type="text" id="name_image_descr_7" name="b7">
+           <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_7" disabled>Upload</button>
+           <          </div>
         </form> 
            </div> 
         <!-- Button #8 in lections.html -->
         <div class="col-md-3">
                 <h4>Write new name of button #8 in lection</h4>
-                <form method="get" enctype="text/plain" id="image_descr_8"> 
+                
+                <form method="get" id="image_descr_8" action="http://localhost:8080/AdminMain"> 
            <div class="form-group">
-                <input class="black" type="text" id="name_image_descr_8"> 
-            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_8">Upload</button>
+                
+                <input class="black" type="text" id="name_image_descr_8" name="b8"> 
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_8" disabled>Upload</button>
+            
            </div>
         </form> 
            </div>
         <!-- Button #9 in lections.html -->
         <div class="col-md-3">
                 <h4>Write new name of button #9 in lection</h4>
-                <form method="get" enctype="text/plain" id="image_descr_9"> 
+               
+                <form method="get" id="image_descr_9" action="http://localhost:8080/AdminMain"> 
            <div class="form-group">
-                <input class="black" type="text" id="name_image_descr_9"> 
-            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_9">Upload</button>
+                 
+                <input class="black" type="text" id="name_image_descr_9" name="b9"> 
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_9" disabled>Upload</button>
+            
            </div>
         </form> 
            </div>
+          
+            <div class="col-md-3">
+              <form method="get" id="dc" action="http://localhost:8080/AdminMain"> 
+              <button type="submit" class="btn btn-warning btn-md" id="discr_btn" name="dc">Discard all changes</button>
+              </form>
+            </div>
+            
+            <!-- ... -->
+            
+             <div class="col-md-3">
+              <form method="get" id="toless" action="http://localhost:8080/AdminMain">
+                <input class="black" type="text" name="lnbn" style="width: 120px;" id="lnf"> Lesson number* 
+                 
+              <button type="submit" class="btn btn-warning btn-md" id="apply_btn" name="apl" disabled>Apply changes
+              </button>
+              </form>
+            </div>
+            <!-- ... -->
         </div>
+        <!-- ... -->
     </div>
          <!-- Button to next admin page -->
     <div class="container" id="but_next_admin_page">

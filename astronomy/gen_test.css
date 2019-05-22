@@ -6,11 +6,14 @@
     background-size:  cover;
     }
 
+    /* delete before release */
     p {
     	color:yellow;
   	  font-style: italic;
     }
+    /*...*/
 
+    /* delete with release  */
     #question1, #question2, #question3, #question4, #question5,
     #question6, #question7, #question8, #question9  {
        border: 2px solid yellow;
@@ -20,8 +23,20 @@
        line-height: normal;
 
     }
+    /* ...  */
+   
+    .db_question {
+       border: 2px solid yellow;
+       border-radius: 5px;
+       width: 360px;
+       height:100px;
+       line-height: normal;
+       color:yellow;
+       font-style: italic;
+    }
+    /**/
 
-  #test_manual {
+    #test_manual {
     color:white;
     font-style: italic;
     margin-left: 10px;
