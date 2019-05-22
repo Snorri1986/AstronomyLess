@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Astronomy Lesson</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="scripts/Local_IssTime.js"></script>
+  <script src="scripts/teach_redirect.js"></script> 
+  <script src="scripts/cookies.js"></script> 
+  <script src="scripts/register.js"></script> 
+  <script src="addnewuser.php"></script> 
+  <script src="welcomeuser.php"></script> 
+</head>
+<body onload="startTimeIss(),startTime()">
+  <div class="container" id="greetings">
+	<div id="hello">
+    <h1>Вітаємо у віртуальному всесвіті!!!</h1> 
+    <button id="auth_click" type="button" class="btn btn-success" data-toggle="modal" data-target="#auth_form"><a href="#">Реєстрація</a></button>  
+    <div id="welcome"></div>  
+    <div id="vinci">
+    <p>"Не сворачивает тот,</p>
+    <p>кто смотрит на звёзды!</p>
+    <p>Леонардо да Винчи"</p>
+  </div>
+
+  <div class="border-box">
+    <p>
+       Юний друже,відсьогодні в тебе
+      є унікальна можливість дізнатися
+      більше про наших сусідів - про 
+      інші планети нашої Сонячної системи.
+      Завдяки досягненням новітніх 
+      web-технологій, процеc твого
+      навчання буде значно відрізнятися 
+      від традиційного - шкільного.
+      Під час проходження короткого 
+      курсу, ти дізнаешся багато
+      цікавого про фізичні 
+      особливості кожної окремої
+      планети, зможеш дізнатися 
+      результати новітніх досліджень 
+      у вивчені їх поверхні у  
+      доступно-стислому форматі, а
+      також перевірти наскільки добре 
+      ти засвоїв новий матеріал 
+      завдяки стислому онлайн-тесту.
+      Тож бажаю Тобі успіху у
+      вивчені Всесвіту!!!
+      З повагою, розробник сайту.
+    </p>
+     <div class="container" id="selectors">
+     <button type="button" class="btn btn-warning"><a href="nl2/lections.html">Лекція</a></button> 
+     <button type="button" class="btn btn-warning"><a href="nl2/general_test.html">Тест</a></button>
+    <button type="button" class="btn btn-warning"><a href="https://www.nasa.gov/multimedia/imagegallery/index.html">Галерея</a></button>
+     <button type="button" class="btn btn-warning" id="creator"><a href="admin.html">Cтворити урок</a></button> 
+    </div>
+   <div class="container" id="add_info">
+    <p>Додаткову інформацію ти зможешь знайти за наступними посиланнями:</p>
+    <!--  Logos with link -->
+    <span id="logos">
+      <a href="http://nasa.gov"><img src="images/other/nasa.jpg"></a>
+      <a href="https://twitter.com/nasa"><img src="images/other/tw.jpg"></a>
+      <a href="https://uk-ua.facebook.com/NASA"><img src="images/other/fb.jpg"></a>
+      <a href="https://www.youtube.com/user/NASAtelevision?hl=ru"><img src="images/other/yt.jpg"></a>
+    </span>
+  </div>
+  </div>
+</div>
+ <!-- Local Time and TimeonISS -->
+<div class="realtime">
+  <div id="LocalTime"></div><br>
+    <div id="LocalTimeISS"></div>
+  <!-- Auth and Register Form(html code)--> 
+ <div class="modal fade" id="auth_form" role="dialog">
+    <div class="modal-dialog modal-sm">
+     <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+        <div class="container">
+          <h2 style="color:black;">Вхід до порталу!!!</h2>
+         <form  method="get" enctype="text/plain" id="use_php"> 
+    <div class="form-group">
+      <label for="fio" style="color:black;">Ім'я:</label>
+      <input type="text" class="form-control" id="auth_name" name="username" style="width:250px;" required> 
+    </div>
+    <div class="form-group">
+      <label for="text" style="color:black;">Прізвище:</label>
+      <input type="text" class="form-control" id="auth_surname"  name="usersurname" style="width:250px;" required>
+    </div>
+         <div class="form-group">
+      <label for="email" style="color:black;">Email:</label>
+      <input type="email" class="form-control" id="email" name="n_email" style="width:250px;" required>
+        </div>
+    <div class="form-group">
+      <label for="password" style="color:black;">Пароль:</label>
+      <input type="password" pattern=".{5,}" class="form-control" id="auth_pass" name="password" style="width:250px;" required> 
+    </div>
+         <!-- test interactid for teacher -->
+    <div class="form-group">
+      <label for="text" style="color:black;">Номер:</label>
+      <input type="text" class="form-control" id="tab_num" name="tabel" style="width:250px;">
+    </div>
+         <!-- -->
+    <label for="teacher" style="color:black;">Вчитель:</label>
+    <input type="checkbox" id="t_cbox" name="t_type" value="teacher">
+    <label for="pupil" style="color:black;">Учень:</label>
+    <input type="checkbox" id="p_cbox" name="p_type" value="pupil" checked="checked" style="color:black;"><br>
+    <button type="submit" class="btn btn-default btn-sm" id="auth_send" style="width:120px;" onclick="allowTrustUsers()">Вхід</button> 
+    <button type="submit" class="btn btn-default btn-sm" id="reg_send" style="width:120px;" onclick="getUserAttrib()">Реєстрація</button>
+         </form>
+    </div>
+     </div>
+       </div>
+    </div>
+  </div>
+     <!-- Pupil is default role. Pupil don't have ability to create a new lesson -->
+   <script>
+   $(document).ready(function(){
+        document.getElementById("creator").classList.add('disabled');
+           var btn = document.getElementById("creator");
+           btn.onclick = null;
+        $('#creator').click(function(e) { e.preventDefault(); }); // disabled link
+      });
+   </script> 
+   </body>
+</html>

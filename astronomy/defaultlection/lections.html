@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Lections</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="lections.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="scripts/enb_buttons.js"></script> 
+  <script src="scripts/allow_mod.js"></script> 
+  <script src="mercury.php"></script> 
+  <script src="mercury.js"></script>
+  <script src="mercury_lection.php"></script> 
+  <script src="mercury_lection.js"></script> 
+  <script src="update_mercury.js"></script>
+  <script src="venus_lection.php"></script> 
+  <script src="venus_lection.js"></script> 
+  <script src="update_venus.js"></script>
+  <script src="earth_lection.php"></script> 
+  <script src="earth_lection.js"></script> 
+  <script src="update_earth.js"></script>
+  <script src="mars_lection.php"></script> 
+  <script src="mars_lection.js"></script> 
+  <script src="update_mars.js"></script>
+  <script src="jupiter_lection.php"></script> 
+  <script src="jupiter_lection.js"></script> 
+  <script src="update_jupiter.js"></script>
+  <script src="saturn_lection.php"></script> 
+  <script src="saturn_lection.js"></script> 
+  <script src="update_saturn.js"></script>
+  <script src="uranus_lection.php"></script> 
+  <script src="uranus_lection.js"></script> 
+  <script src="update_uranus.js"></script> 
+  <script src="neptune_lection.php"></script> 
+  <script src="neptune_lection.js"></script> 
+  <script src="update_neptune.js"></script>
+  <script src="pluto_lection.php"></script> 
+  <script src="pluto_lection.js"></script> 
+  <script src="update_pluto.js"></script>  
+  <script src="venus.php"></script> 
+  <script src="venus.js"></script>  
+  <script src="earth.php"></script> 
+  <script src="earth.js"></script>  
+  <script src="mars.php"></script> 
+  <script src="mars.js"></script>  
+  <script src="jupiter.php"></script> 
+  <script src="jupiter.js"></script>  
+  <script src="saturn.php"></script> 
+  <script src="saturn.js"></script>  
+  <script src="uranus.php"></script> 
+  <script src="uranus.js"></script>  
+  <script src="neptune.php"></script> 
+  <script src="neptune.js"></script>  
+  <script src="pluto.php"></script> 
+  <script src="pluto.js"></script>
+  <script src="scripts/adm_servs.js"></script> 
+  <style>
+  
+  #phys_mercury {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_venus {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_earth {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_mars {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_jupiter {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_saturn {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_uranus {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_neptune {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_pluto {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #mercury {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+   #venus {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+   #earth {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+  #mars {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+  #jupiter {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+  #saturn {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+  #uranus {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+   #neptune {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+   #pluto {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+  #greetings_in_lection {
+    color:yellow;
+    font-style: italic;
+    margin-left: 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+  }
+
+   #navigation_buts
+  {
+    display: block; 
+    margin: 0 auto;
+    text-align: center;
+  }
+  /*****************************************/
+  </style> 
+ </head>
+<body onload="buttsOn(),saveCurrentImagesPath()">  
+  <!-- Instruction -->
+  <div class="container" id="greetings_in_lection">
+    <p>
+      Для читання лексичного матеріалу, потрібно натисни по назві бажаної планити.<br>
+      Для переходу до контрольного тесту, або повернення до головної сторінки,<br>
+      потрібно перейти за посиланнями нижче. 
+    </p>
+  </div>
+  <!-- -->
+  <!-- Navigations butts -->
+  <div class="container" id="navigation_buts">
+    <button type="button" class="btn btn-warning btn-lg"><a href="main.html">Головна сторінка</a></button>
+    <button type="button" class="btn btn-warning btn-lg"><a href="general_test.html">Контрольний тест</a></button>
+    <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#modify_lesson"><a href="#">Змінити урок</a></button> 
+  </div>
+   <div class="modal fade" id="modify_lesson" role="dialog">
+    <div class="modal-dialog modal-sm">
+     <div class="modal-content">
+       <div class="modal-body">
+        <div class="container">
+    <form id="mod_lesson" method="post" enctype="text/plain"> 
+    <div class="form-group">
+      <label for="password" style="color:black;">Пароль:</label>
+      <input type="password" class="form-control" id="pass" name="password" style="width:250px;"> 
+    </div>
+    <button type="submit" class="btn btn-default" id="send" style="width:120px; color:black; font-size: 14px;"
+    onclick="enbButts(document.getElementById('pass').value)">Відправити</button> 
+    <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel" style="width:120px; color:black; font-size: 14px;">Відмінити</button> 
+    </form>
+      </div>
+         </div>
+           </div>
+       </div>
+    </div>
+   <!--  -->
+  <!-- -->
+  <div class="container">
+    <!-- First row of planets -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+         
+          <img src="images/planets/mercury.jpg" alt="Mercury" style="width:100%" id="img1"> 
+        
+          <div class="caption">
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Mercury" value="Mercury">Mercury</button> 
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="images/planets/venus.jpg" alt="Venus" style="width:100%" id="img2"> 
+          <div class="caption">
+            
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Venus" value="Venus">Venus</button> 
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="images/planets/earth.jpg" alt="Earth" style="width:100%" id="img3"> 
+          <div class="caption">
+            
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Earth" value="Earth">Earth</button> 
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Second row of planets -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="images/planets/mars.jpg" alt="Mars" style="width:100%" id="img4"> 
+          <div class="caption">
+            
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Mars" value="Mars">Mars</button>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="images/planets/jupiter.jpg" alt="Jupiter" style="width:100%" id="img5"> 
+          <div class="caption">
+           
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Jupiter" value="Jupiter">Jupiter</button> 
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="images/planets/saturn.jpg" alt="Saturn" style="width:100%" id="img6"> 
+          <div class="caption">
+           
+           <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Saturn" value="Saturn">Saturn</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Third row of planets -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="images/planets/uranus.jpg" alt="Uranus" style="width:100%" id="img7"> 
+          <div class="caption">
+            
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Uranus" value="Uranus">Uranus</button> 
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="images/planets/neptune.jpg" alt="Neptune" style="width:100%" id="img8"> 
+          <div class="caption">
+            
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Neptune" value="Neptune">Neptune</button> 
+          </div>
+        </div>
+      </div>
+       <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="images/planets/pluto.jpg" alt="Pluto" style="width:100%" id="img9"> 
+          <div class="caption">
+            
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Pluto" value="Pluto">Pluto</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Mercury -->
+  <!-- Modal -->
+  <div class="modal fade" id="Mercury" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Mercury</h4>
+        </div>
+        <div class="modal-body">
+          <!-- Carousel -->
+        <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="MercuryCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="images/planets/modal-galery/modal-mercury1.jpg" alt="LittleMercury" style="width:400px" id="img1c1"> 
+                </div>
+
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-mercury2.jpg" alt="LittleMercury2" style="width:400px" id="img1c2"> 
+                </div>
+
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-mercury3.jpg" alt="LittleMercury3" style="width:400px" id="img1c3"> 
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#MercuryCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#MercuryCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+          <div class="container" id="phys_mercury">
+                   <hr class="new_style">
+              </div> 
+          </div>
+        <div class="modal-footer">
+          <!-- lection from DB -->
+           <div id="mercury"></div> 
+         <!-- -->
+         <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_mercury" onclick="updateMercuryLesson()">Замінити урок</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Venus -->
+  <!-- Modal -->
+  <div class="modal fade" id="Venus" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Venus</h4>
+        </div>
+        <div class="modal-body">
+              <!-- Carousel -->
+          <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="VenusCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-venus1.jpg" alt="LittleVenus1" style="width:400px" id="img2c1"> 
+                </div>
+
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-venus2.png" alt="LittleVenus2" style="width:400px" id="img2c2"> 
+                </div>
+
+                <div class="item active">
+                  <img src="images/planets/modal-galery/modal-venus3.jpg" alt="LittleVenus3" style="width:400px" id="img2c3"> <
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#VenusCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#VenusCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+           <div class="container" id="phys_venus">
+                   <hr class="new_style">
+               </div>
+          </div> 
+        <div class="modal-footer">
+          <!-- lection from DB -->
+          <div id="venus"></div>
+        <!-- -->
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_venus" onclick="updateVenusLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Earth -->
+  <!-- Modal -->
+  <div class="modal fade" id="Earth" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Earth</h4>
+        </div>
+        <div class="modal-body">
+              <!-- Carousel -->
+            <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="EarthCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-earth1.jpg" alt="LittleEarth1" style="width:400px" id="img3c1"> 
+                </div>
+
+                <div class="item active">
+                  <img src="images/planets/modal-galery/modal-earth2.jpg" alt="LittleEarth2" style="width:400px" id="img3c2"> 
+                </div>
+
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-earth3.jpg" alt="LittleEarth3" style="width:400px" id="img3c3"> 
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#EarthCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#EarthCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+           <div class="container" id="phys_earth">
+                   <hr class="new_style">
+          </div>
+     </div>
+        <div class="modal-footer">
+          <!-- Lection from DB -->
+           <div id="earth"></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_earth" onclick="updateEarthLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Mars -->
+   <div class="modal fade" id="Mars" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Mars</h4>
+        </div>
+        <div class="modal-body">
+           <!-- Carousel -->
+        <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="MarsCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-mars1.jpg" alt="LittleMars1" style="width:400px" id="img4c1"> 
+                </div>
+
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-mars2.jpg" alt="LittleMars2" style="width:400px" id="img4c2"> 
+                </div>
+
+                <div class="item active">
+                  <img src="images/planets/modal-galery/modal-mars3.jpg" alt="LittleMars3" style="width:400px" id="img4c3"> 
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#MarsCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#MarsCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+            <div class="container" id="phys_mars">
+                   <hr class="new_style">
+          </div>
+      </div>
+        <div class="modal-footer">
+          <!-- Lection from DB -->
+           <div id="mars"></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_mars" onclick="updateMarsLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Jupiter -->
+  <div class="modal fade" id="Jupiter" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Jupiter</h4>
+        </div>
+        <div class="modal-body">
+          <!-- Carousel -->
+        <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="JupiterCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="images/planets/modal-galery/modal-jupiter1.jpg" alt="LittleJupiter1" style="width:400px" id="img5c1">
+                </div>
+
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-jupiter2.jpg" alt="LittleJupiter2" style="width:400px" id="img5c2"> 
+                </div>
+
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-jupiter3.jpg" alt="LittleJupiter3" style="width:400px" id="img5c3"> 
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#JupiterCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#JupiterCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+          <div class="container" id="phys_jupiter">
+                   <hr class="new_style">
+          </div>
+      </div>
+        <div class="modal-footer">
+           <div id="jupiter"></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_jupiter" onclick="updateJupiterLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Saturn -->
+  <div class="modal fade" id="Saturn" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Saturn</h4>
+        </div>
+        <div class="modal-body">
+          <!-- Carousel -->
+        <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="SaturnCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="images/planets/modal-galery/modal-saturn1.jpg" alt="LittleSaturn1" style="width:400px" id="img6c1"> 
+                </div>
+
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-saturn2.jpg" alt="LittleSaturn2" style="width:400px" id="img6c2"> 
+                </div>
+
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-saturn3.jpg" alt="LittleSaturn3" style="width:400px" id="img6c3"> 
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#SaturnCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#SaturnCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+           <div class="container" id="phys_saturn">
+                   <hr class="new_style">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- Lection from DB -->
+           <div id="saturn"></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_saturn" onclick="updateSaturnLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Uranus -->
+  <div class="modal fade" id="Uranus" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Uranus</h4>
+        </div>
+        <div class="modal-body">
+           <!-- Carousel -->
+        <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="UranusCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-uranus1.jpg" alt="LittleUranus1" style="width:400px" id="img7c1"> 
+                </div>
+
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-uranus2.jpg" alt="LittleUranus2" style="width:400px" id="img7c2"> 
+                </div>
+
+                <div class="item active">
+                  <img src="images/planets/modal-galery/modal-uranus3.jpg" alt="LittleUranus3" style="width:400px" id="img7c3"> 
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#UranusCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#UranusCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+          <div class="container" id="phys_uranus">
+                   <hr class="new_style">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- Lection from DB -->
+           <div id="uranus"></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_uranus" onclick="updateUranusLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Neptune -->
+  <div class="modal fade" id="Neptune" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Neptune</h4>
+        </div>
+        <div class="modal-body">
+           <!-- Carousel -->
+        <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="NeptuneCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="images/planets/modal-galery/modal-neptune1.jpg" alt="LittleNeptune1" style="width:400px" id="img8c1"> 
+                </div>
+
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-neptune2.jpg" alt="LittleNeptune2" style="width:400px" id="img8c2"> 
+                </div>
+
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-neptune3.jpg" alt="LittleNeptune3" style="width:400px" id="img8c3"> 
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#NeptuneCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#NeptuneCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+          <div class="container" id="phys_neptune">
+                   <hr class="new_style">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- Lection from DB -->
+           <div id="neptune"></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_neptune" onclick="updateNeptuneLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+      <!-- Pluto -->
+  <div class="modal fade" id="Pluto" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Pluto</h4>
+        </div>
+        <div class="modal-body">
+           <!-- Carousel -->
+          <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="PlutoCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-pluto1.jpg" alt="LittlePluto1" style="width:400px" id="img9c1"> 
+                </div>
+
+                <div class="item">
+                  <img src="images/planets/modal-galery/modal-pluto2.jpg" alt="LittlePluto2" style="width:400px" id="img9c2"> 
+                </div>
+
+                <div class="item active">
+                  <img src="images/planets/modal-galery/modal-pluto3.jpg" alt="LittlePluto3" style="width:400px" id="img9c3"> 
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#PlutoCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#PlutoCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+          <div class="container" id="phys_pluto">
+                   <hr class="new_style">
+          </div>
+          </div>
+        <div class="modal-footer">
+          <!-- Lection from DB -->
+           <div id="pluto"></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_pluto" onclick="updatePlutoLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+     <script>
+   $(document).on('load',function(){
+        // fetch from localStorage
+        //var sid_load = localStorage.getItem("sid");
+        //var img_path = localStorage.getItem("db_path");
+        //$(sid_load).attr('src',img_path); // test code 27.12.2018
+        image_uploader('img1','I','0','#img1'); // test code 17.01.2019
+      });
+   </script>
+      <!--------------------------->
+      </body>
+  </html>

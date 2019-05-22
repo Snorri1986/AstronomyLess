@@ -1,0 +1,28 @@
+.container  {
+	display: inline-block;
+	color: yellow;
+}
+
+body {
+	background-image: url("images/backgrounds/galaxy.jpg");
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+}
+
+.main_title {
+	text-align: center;
+}
+
+.black {
+    color: black;
+}
+
+#but_next_admin_page {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>General Test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="gen_test.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="scripts/checkAnswers.js"></script>
+  <script src="scripts/savepoints.js"></script>
+  <script src="scripts/fillPnt.js"></script> 
+</head>
+<body onload="savePnt()">
+  <?php
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+
+$pupil = $_GET['fio']; 
+$points = $_GET['score']; 
+$mail_teacher = $_GET['email'];
+
+$subject = "Результати учня" . $pupil;
+$txt = "Результати учня" . $pupil . ":" . $points . "балів";
+$back_mail = "From: dionisiy1986@gmail.com";
+
+  mail($mail_teacher, $subject, $txt, $back_mail,$headers);
+?> 
+<!-- Instruction -->
+  <div class="container" id="test_manual">
+    <p>
+      <h3>Вітаю на сторінці підсумкового тесту!!!</h3>
+      Цей тест допоможе тобі засвоїти вивченний матеріал.
+      Потрібно дати відповідь на 18 питань.
+      Кожне запитання має лише одну правильну відповідь.
+      За кожну правильну відповідь, ти отримаєш 10 балів.
+      Якщо ти бажаеш повернутися до головної сторінки, повторити
+      матеріали лекцій або відправити результат тесту викладачу,
+      потрібно перейти за посиланнями нижче.
+    </p>
+  </div>
+  <!-- Navigations butts -->
+  <div class="container" id="navigation_buts_in_test">
+    <!-- ready to commit 11.04.2019 -->
+    <button type="button" class="btn btn-warning btn-lg"><a href="../main.html">Головна сторінка</a></button>
+    <!-- -->
+    <button type="button" class="btn btn-warning btn-lg"><a href="lections.html">Лекції</a></button>
+    <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#send_mail"
+    onclick="fillPnt()"><a href="#">Відправити результат</a></button> 
+    <span><p>Кількість балів:</p><p id="score">0</p></span>
+  </div>
+  <!-- -->
+  <!-- Modal -->
+  <div class="modal fade" id="send_mail" role="dialog">
+    <div class="modal-dialog modal-sm">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+         <div class="container">
+          <h2>Анкета учня</h2>
+       <form action="" method="post" enctype="text/plain">  
+    <div class="form-group">
+      <label for="fio">Прізвище та ім'я:</label>
+      <input type="text" class="form-control" id="pupil" placeholder="name" name="fio" style="width:250px;" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email викладача:</label>
+      <input type="email" class="form-control" id="email_teacher" placeholder="Enter email" name="email" style="width:250px;" required>
+    </div>
+    <div class="form-group">
+      <label for="points">Кількість балів: </label>
+      <input type="text" class="form-control" id="points" name="score" style="width:50px;" maxlength="3" readonly>
+    </div>
+    <button type="submit" class="btn btn-default btn-sm" id="send" name="send_email">Відправити</button> <!-- new -->
+    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" id="cancel">Відмінити</button> <!-- new -->
+    <button type="button" class="btn btn-default btn-sm" id="upload">Завантажити</button> <!-- new 12.09.2018 -->  
+  </form>
+      </div>
+     </div>
+       </div>
+    </div>
+  </div>
+  <!--   -->
+	<div class="container">
+    <!-- First row of questions -->
+    <div class="row">
+      <div class="col-md-4">
+      	<p id="question1">
+          Назвіть, будь-ласка, найбільший кратер на поверхні Меркурія?
+      	</p>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q1a1" onclick="chkAnswers('Колорис',10,'q1a1')">
+         Колорис</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q1a2" onclick="chkAnswers('Дискавері')">
+         Дискавері</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q1a3" onclick="chkAnswers('Опортуніті')">
+         Опортуніті</button>
+      </div> 
+      <div class="col-md-4">
+      	<p id="question2">
+      		Скільки земних днів триває один день на Венері?
+      	</p>
+        <button type="button" class="btn btn-info btn-sm btn-block" id="q2a1" onclick="chkAnswers('280')">
+        280</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q2a2" onclick="chkAnswers('243',10,'q2a2')">
+        243</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q2a3" onclick="chkAnswers('10')">
+        10</button>
+      </div>
+      <div class="col-md-4">
+      	<p id="question3">
+          Яку назву має найбільша морська западина на Землі?
+        </p>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q3a1" onclick="chkAnswers('Байкал')">
+          Байкал</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q3a2" onclick="chkAnswers('МонБлан')">
+          МонБлан</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q3a3" onclick="chkAnswers('Маріанська',10,'q3a3')">
+          Маріанська</button>
+      </div>
+    </div>  
+  </div>   
+    <!-- Second row of questions -->
+    <div class="container">  
+    <div class="row">
+      <div class="col-md-4">
+      	<p id="question4">
+      		Який хімічний елемент робить Марс червоним ?
+      		         </p>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q4a1" onclick="chkAnswers('Магній')">Магній</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q4a2" onclick="chkAnswers('Спирт')">Спирт</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q4a3" onclick="chkAnswers('Оксид заліза',10,'q4a3')">Оксид заліза</button>
+      </div>
+      <div class="col-md-4">
+      	<p id="question5">
+      		Яку назву має орбітальна станція, яка сьогодні вивчає Юпітер ? 
+      		         </p>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q5a1" onclick="chkAnswers('Венера')">Венера</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q5a2" onclick="chkAnswers('Юнона',10,'q5a2')">Юнона</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q5a3" onclick="chkAnswers('Зевс')">Зевс</button>
+      </div>
+      <div class="col-md-4">
+      	<p id="question6">
+      		Яку геологічну структуру має Сатурн ?
+      		         </p>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q6a1" onclick="chkAnswers('Водневу')">Водневу</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q6a2" onclick="chkAnswers('Тверду')">Тверду</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q6a3" onclick="chkAnswers('Газоподібну',10,'q6a3')">Газоподібну</button>
+       </div>
+     </div> 
+   </div> 
+    <!-- Third row of questions -->
+    <div class="container">  
+    <div class="row">
+       <div class="col-md-4">
+       	<p id="question7">
+      		Яка характерна ознака відрізняє Уран від інших планет
+          Сонячної системи ?
+      		         </p>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q7a1" onclick="chkAnswers('Вісь обертнання',10,'q7a1')">Вісь обертання</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q7a2" onclick="chkAnswers('Кільця')">Кільця</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q7a3" onclick="chkAnswers('Супутники')">Супутники</button>
+       </div>
+       <div class="col-md-4">
+       	<p id="question8">
+      		За допомогою яких дослідницьких методів було відкрито планету Нептун ? 
+      		         </p>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q8a1" onclick="chkAnswers('Математичних',10,'q8a1')">Математичних</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q8a2" onclick="chkAnswers('Емпіричних')">Емпіричних</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q8a3" onclick="chkAnswers('Спостережень')">Спостережень</button>
+       </div>
+       <div class="col-md-4">
+       	<p id="question9">
+      		Назвіть найбільший супутник Плутона, який утворює з планетою єдине
+          магнітне поле ?
+      		         </p>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q9a1" onclick="chkAnswers('Енцелад')">Енцелад</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q9a2" onclick="chkAnswers('Харон',10,'q9a2')">Харон</button>
+         <button type="button" class="btn btn-info btn-sm btn-block" id="q9a3" onclick="chkAnswers('Аріель')">Аріель</button>
+       </div>
+    </div>
+     </div>
+    <div class="container" id="but_to_sec_test">
+          <button type="button" class="btn btn-warning btn-lg"><a href="general_test_2.html">Наступна сторінка</a></button>
+        </div> 
+  </body>
+</html>

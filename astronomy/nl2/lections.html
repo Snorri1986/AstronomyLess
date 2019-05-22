@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Lections</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="lections.css"> <!-- done -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="../scripts/enb_buttons.js"></script> <!-- done -->
+  <script src="../scripts/allow_mod.js"></script>  <!-- done -->
+  <!-- done-->
+  <script src="../mercury.php"></script> 
+  <script src="../mercury.js"></script>
+  <script src="../mercury_lection.php"></script> 
+  <script src="../mercury_lection.js"></script> 
+  <script src="../update_mercury.js"></script>
+  <script src="../venus_lection.php"></script> 
+  <script src="../venus_lection.js"></script> 
+  <script src="../update_venus.js"></script>
+  <script src="../earth_lection.php"></script> 
+  <script src="../earth_lection.js"></script> 
+  <script src="../update_earth.js"></script>
+  <script src="../mars_lection.php"></script> 
+  <script src="../mars_lection.js"></script> 
+  <script src="../update_mars.js"></script>
+  <script src="../jupiter_lection.php"></script> 
+  <script src="../jupiter_lection.js"></script> 
+  <script src="../update_jupiter.js"></script>
+  <script src="../saturn_lection.php"></script> 
+  <script src="../saturn_lection.js"></script> 
+  <script src="../update_saturn.js"></script>
+  <script src="../uranus_lection.php"></script> 
+  <script src="../uranus_lection.js"></script> 
+  <script src="../update_uranus.js"></script> 
+  <script src="../neptune_lection.php"></script> 
+  <script src="../neptune_lection.js"></script> 
+  <script src="../update_neptune.js"></script>
+  <script src="../pluto_lection.php"></script> 
+  <script src="../pluto_lection.js"></script> 
+  <script src="../update_pluto.js"></script>  
+  <script src="../venus.php"></script> 
+  <script src="../venus.js"></script>  
+  <script src="../earth.php"></script> 
+  <script src="../earth.js"></script>  
+  <script src="../mars.php"></script> 
+  <script src="../mars.js"></script>  
+  <script src="../jupiter.php"></script> 
+  <script src="../jupiter.js"></script>  
+  <script src="../saturn.php"></script> 
+  <script src="../saturn.js"></script>  
+  <script src="../uranus.php"></script> 
+  <script src="../uranus.js"></script>  
+  <script src="../neptune.php"></script> 
+  <script src="../neptune.js"></script>  
+  <script src="../pluto.php"></script> 
+  <script src="../pluto.js"></script>
+  <script src="../scripts/adm_servs.js"></script> <!-- new code 09.01.2019 -->
+  <!-- ... --> 
+  <style>
+  
+  #phys_mercury {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_venus {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_earth {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_mars {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_jupiter {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_saturn {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_uranus {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_neptune {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #phys_pluto {
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  #mercury {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+   #venus {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+   #earth {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+  #mars {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+  #jupiter {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+  #saturn {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+  #uranus {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+   #neptune {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+   #pluto {
+  text-align: left;
+  text-indent: 30px;
+  }
+
+  #greetings_in_lection {
+    color:yellow;
+    font-style: italic;
+    margin-left: 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+  }
+
+   #navigation_buts
+  {
+    display: block; 
+    margin: 0 auto;
+    text-align: center;
+  }
+  /*****************************************/
+  </style> 
+ </head>
+<body onload="buttsOn(),saveCurrentImagesPath()">  <!-- new code 09.01.2019-->
+  <!-- Instruction -->
+  <div class="container" id="greetings_in_lection">
+    <p>
+      Для читання лексичного матеріалу, потрібно натисни по назві бажаної планити.<br>
+      Для переходу до контрольного тесту, або повернення до головної сторінки,<br>
+      потрібно перейти за посиланнями нижче. 
+    </p>
+  </div>
+  <!-- -->
+  <!-- Navigations butts -->
+  <!-- done -->
+  <div class="container" id="navigation_buts">
+    <button type="button" class="btn btn-warning btn-lg"><a href="../main.html">Головна сторінка</a></button>
+    <button type="button" class="btn btn-warning btn-lg"><a href="../nl1/general_test.html">Контрольний тест</a></button>
+    <!-- ... -->
+    <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#modify_lesson"><a href="#">Змінити урок</a></button> 
+  </div>
+   <div class="modal fade" id="modify_lesson" role="dialog">
+    <div class="modal-dialog modal-sm">
+     <div class="modal-content">
+       <div class="modal-body">
+        <div class="container">
+    <form id="mod_lesson" method="post" enctype="text/plain"> 
+    <div class="form-group">
+      <label for="password" style="color:black;">Пароль:</label>
+      <input type="password" class="form-control" id="pass" name="password" style="width:250px;"> 
+    </div>
+    <button type="submit" class="btn btn-default" id="send" style="width:120px; color:black; font-size: 14px;"
+    onclick="enbButts(document.getElementById('pass').value)">Відправити</button> 
+    <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel" style="width:120px; color:black; font-size: 14px;">Відмінити</button> 
+    </form>
+      </div>
+         </div>
+           </div>
+       </div>
+    </div>
+   <!--  -->
+  <!-- -->
+  <div class="container">
+    <!-- First row of planets -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <!-- done -->
+          <img src="../images/newlesson1/1.jpg" alt="NImage1" style="width:100%" id="img1"> 
+          <!-- -->
+          <div class="caption">
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Mercury" value="Mercury">Mercury</button> <!-- ready to commit 12.03.2019 -->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+        	<!-- done -->
+          <img src="../images/newlesson1/2.jpg" alt="NImage2" style="width:100%" id="img2"> 
+            <!-- ... -->
+          <!-- new 09.01.2019-->
+          <div class="caption">
+            
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Venus" value="Venus">Venus</button> <!-- ready to commit 12.03.2019 -->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+        	<!-- done -->
+          <img src="../images/newlesson1/3.jpg" alt="NImage3" style="width:100%" id="img3"> 
+            <!-- ... -->
+          <!-- new 09.01.2019--> 
+          <div class="caption">
+            
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Earth" value="Earth">Earth</button> <!-- ready to commit 12.03.2019 -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Second row of planets -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+        	<!-- done -->
+          <img src="../images/newlesson1/4.jpg" alt="NImage4" style="width:100%" id="img4"> 
+            <!-- ... -->
+          <!-- new 09.01.2019-->
+          <div class="caption">
+            
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Mars" value="Mars">Mars</button> <!-- ready to commit 12.03.2019 -->
+          </div>
+        </div>
+      </div>
+       <div class="col-md-4">
+        <div class="thumbnail">
+        	<!-- done -->
+          <img src="../images/newlesson1/5.jpg" alt="NImage5" style="width:100%" id="img5"> 
+            <!-- ... -->
+          <!-- new 09.01.2019-->
+          <div class="caption">
+           
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Jupiter" value="Jupiter">Jupiter</button> <!-- ready to commit 12.03.2019 -->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+        	<!-- done -->
+          <img src="../images/newlesson1/6.jpg" alt="NImage6" style="width:100%" id="img6">
+            <!-- ... --> 
+          <!-- new 09.01.2019-->
+          <div class="caption">
+           
+           <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Saturn" value="Saturn">Saturn</button> <!-- ready to commit 12.03.2019 -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Third row of planets -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+        	<!-- done -->
+          <img src="../images/newlesson1/7.jpg" alt="NImage7" style="width:100%" id="img7">
+            <!-- ... -->
+          <!-- new 09.01.2019-->
+          <div class="caption">
+            
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Uranus" value="Uranus">Uranus</button> <!-- ready to commit 12.03.2019 -->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+        	<!-- done -->
+          <img src="../images/newlesson1/8.jpg" alt="NImage8" style="width:100%" id="img8">
+            <!-- ... -->
+          <!-- new 09.01.2019-->
+          <div class="caption">
+            
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Neptune" value="Neptune">Neptune</button> <!-- ready to commit 12.03.2019 -->
+          </div>
+        </div>
+      </div>
+       <div class="col-md-4">
+        <div class="thumbnail">
+        	<!-- done -->
+          <img src="../images/newlesson1/9.jpg" alt="NImage9" style="width:100%" id="img9">
+            <!-- ... -->
+          <!-- new 09.01.2019-->
+          <div class="caption">
+            
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#Pluto" value="Pluto">Pluto</button> <!-- ready to commit 12.03.2019 -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Mercury -->
+  <!-- Modal -->
+  <div class="modal fade" id="Mercury" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- test code 04.04.2019 -->
+          <!-- <h4 class="modal-title">Mercury</h4> -->
+          <!-- ... -->
+        </div>
+        <div class="modal-body">
+          <!-- Carousel -->
+        <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="MercuryCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                	<!-- done -->
+                  <img src="../images/newlesson1/modal-galery/c11.jpg" alt="Carousal11" style="width:400px" id="img1c1"> 
+                    <!-- ... -->
+                  <!-- new 09.01.2019-->
+                </div>
+
+                <div class="item">
+                	<!-- done -->
+                  <img src="../images/newlesson1/modal-galery/c12.jpg" alt="Carousal12" style="width:400px" id="img1c2">
+                    <!-- ... -->
+                  <!-- new 09.01.2019-->
+                </div>
+
+                <div class="item">
+                	 <!-- done -->
+                  <img src="../images/newlesson1/modal-galery/c13.jpg" alt="Carousal13" style="width:400px" id="img1c3"> 
+                  <!-- ... -->
+                  <!-- new 09.01.2019-->
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#MercuryCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#MercuryCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+          <div class="container" id="phys_mercury">
+                   <hr class="new_style">
+              </div> 
+          </div>
+        <div class="modal-footer">
+          <!-- lection from DB -->
+           <div id="mercury"></div> 
+         <!-- -->
+         <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_mercury" onclick="updateMercuryLesson()">Замінити урок</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Venus -->
+  <!-- Modal -->
+  <div class="modal fade" id="Venus" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- test code 04.04.2019 -->
+          <!-- <h4 class="modal-title">Venus</h4> -->
+          <!-- ... -->
+        </div>
+        <div class="modal-body">
+              <!-- Carousel -->
+          <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="VenusCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c21.jpg" alt="Carousal21" style="width:400px" id="img2c1"> <!-- ready to commit 11.04.2019-->
+                </div>
+
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c22.jpg" alt="Carousal22" style="width:400px" id="img2c2"> <!-- ready to commit 11.04.2019-->
+                </div>
+
+                <div class="item active">
+                  <img src="../images/newlesson1/modal-galery/c23.jpg" alt="Carousal22" style="width:400px" id="img2c3"> <!-- ready to commit 11.04.2019-->
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#VenusCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#VenusCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+           <div class="container" id="phys_venus">
+                   <hr class="new_style">
+               </div>
+          </div> 
+        <div class="modal-footer">
+          <!-- lection from DB -->
+          <div id="venus"></div>
+        <!-- -->
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_venus" onclick="updateVenusLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Earth -->
+  <!-- Modal -->
+  <div class="modal fade" id="Earth" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- test code 04.04.2019 -->
+          <!-- <h4 class="modal-title">Earth</h4> -->
+          <!-- ... -->
+        </div>
+        <div class="modal-body">
+              <!-- Carousel -->
+            <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="EarthCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c31.jpg" alt="Carousal31" style="width:400px" id="img3c1"> <!-- ready to commit 11.04.2019 -->
+                </div>
+
+                <div class="item active">
+                  <img src="../images/newlesson1/modal-galery/c32.jpg" alt="Carousal32" style="width:400px" id="img3c2"> <!-- ready to commit 11.04.2019 -->
+                </div>
+
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c33.jpg" alt="Carousal33" style="width:400px" id="img3c3"> <!-- ready to commit 11.04.2019 -->
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#EarthCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#EarthCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+           <div class="container" id="phys_earth">
+                   <hr class="new_style">
+          </div>
+     </div>
+        <div class="modal-footer">
+          <!-- Lection from DB -->
+           <div id="earth"></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_earth" onclick="updateEarthLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Mars -->
+   <div class="modal fade" id="Mars" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- test code 04.04.2019 -->
+          <!-- <h4 class="modal-title">Mars</h4> -->
+          <!-- ... -->
+        </div>
+        <div class="modal-body">
+           <!-- Carousel -->
+        <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="MarsCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c41.jpg" alt="Carousal41" style="width:400px" id="img4c1"> <!-- ready to commit 11.04.2019 -->
+                </div>
+
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c42.jpg" alt="Carousal42" style="width:400px" id="img4c2"> <!-- ready to commit 11.04.2019 -->
+                </div>
+
+                <div class="item active">
+                  <img src="../images/newlesson1/modal-galery/c43.jpg" alt="Carousal43" style="width:400px" id="img4c3"> <!-- ready to commit 11.04.2019 -->
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#MarsCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#MarsCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+            <div class="container" id="phys_mars">
+                   <hr class="new_style">
+          </div>
+      </div>
+        <div class="modal-footer">
+          <!-- Lection from DB -->
+           <div id="mars"></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_mars" onclick="updateMarsLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Jupiter -->
+  <div class="modal fade" id="Jupiter" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- test code 04.04.2019 -->
+          <!-- <h4 class="modal-title">Jupiter</h4> -->
+          <!-- ... -->
+        </div>
+        <div class="modal-body">
+          <!-- Carousel -->
+        <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="JupiterCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="../images/newlesson1/modal-galery/c51.jpg" alt="Carousal51" style="width:400px" id="img5c1"> <!-- ready to commit 11.04.2019 -->
+                </div>
+
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c52.jpg" alt="Carousal52" style="width:400px" id="img5c2"> <!-- ready to commit 11.04.2019 -->
+                </div>
+
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c53.jpg" alt="Carousal53" style="width:400px" id="img5c3"> <!-- ready to commit 11.04.2019 -->
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#JupiterCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#JupiterCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+          <div class="container" id="phys_jupiter">
+                   <hr class="new_style">
+          </div>
+      </div>
+        <div class="modal-footer">
+          <!-- Lection from DB -->
+           <div id="jupiter"></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_jupiter" onclick="updateJupiterLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Saturn -->
+  <div class="modal fade" id="Saturn" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- test code 04.04.2019 -->
+          <!-- <h4 class="modal-title">Saturn</h4> -->
+          <!-- ... -->
+        </div>
+        <div class="modal-body">
+          <!-- Carousel -->
+        <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="SaturnCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="../images/newlesson1/modal-galery/c61.jpg" alt="Carousal61" style="width:400px" id="img6c1"> <!-- ready to commit 11.04.2019 -->
+                </div>
+
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c62.jpg" alt="Carousal62" style="width:400px" id="img6c2"> <!-- ready to commit 11.04.2019 -->
+                </div>
+
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c63.jpg" alt="Carousal62" style="width:400px" id="img6c3"> <!-- ready to commit 11.04.2019 -->
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#SaturnCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#SaturnCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+           <div class="container" id="phys_saturn">
+                   <hr class="new_style">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- Lection from DB -->
+           <div id="saturn"></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_saturn" onclick="updateSaturnLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Uranus -->
+  <div class="modal fade" id="Uranus" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- test code 04.04.2019 -->
+          <!-- <h4 class="modal-title">Uranus</h4> -->
+          <!-- ... -->
+        </div>
+        <div class="modal-body">
+           <!-- Carousel -->
+        <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="UranusCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c71.jpg" alt="Carousal71" style="width:400px" id="img7c1"> <!-- ready to commit 11.04.2019 -->
+                </div>
+
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c72.jpg" alt="Carousal72" style="width:400px" id="img7c2"> <!-- ready to commit 11.04.2019 -->
+                </div>
+
+                <div class="item active">
+                  <img src="../images/newlesson1/modal-galery/c73.jpg" alt="Carousal73" style="width:400px" id="img7c3"> <!-- ready to commit 11.04.2019 -->
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#UranusCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#UranusCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+          <div class="container" id="phys_uranus">
+                   <hr class="new_style">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- Lection from DB -->
+           <div id="uranus"></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_uranus" onclick="updateUranusLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Neptune -->
+  <div class="modal fade" id="Neptune" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- test code 04.04.2019 -->
+          <!-- <h4 class="modal-title">Neptune</h4> -->
+          <!-- ... -->
+        </div>
+        <div class="modal-body">
+           <!-- Carousel -->
+        <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="NeptuneCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="../images/newlesson1/modal-galery/c81.jpg" alt="Carousal81" style="width:400px" id="img8c1"> <!-- ready to commit 11.04.2019 -->
+                </div>
+
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c82.jpg" alt="Carousal82" style="width:400px" id="img8c2"> <!-- ready to commit 11.04.2019 -->
+                </div>
+
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c83.jpg" alt="Carousal83" style="width:400px" id="img8c3"> <!-- ready to commit 11.04.2019 -->
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#NeptuneCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#NeptuneCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+          <div class="container" id="phys_neptune">
+                   <hr class="new_style">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- Lection from DB -->
+           <div id="neptune"></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_neptune" onclick="updateNeptuneLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+      <!-- Pluto -->
+  <div class="modal fade" id="Pluto" role="dialog">
+    <div class="modal-dialog">
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- test code 04.04.2019 -->
+          <!-- <h4 class="modal-title">Pluto</h4> -->
+          <!-- ... -->
+        </div>
+        <div class="modal-body">
+           <!-- Carousel -->
+          <div class="container" style="margin-left:70px;margin-top:0px;position:relative;"> 
+      <div id="PlutoCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
+            <div class="carousel-inner" role="listbox">
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c91.jpg" alt="Carousal91" style="width:400px" id="img9c1"> <!-- ready to commit 11.04.2019 -->
+                </div>
+
+                <div class="item">
+                  <img src="../images/newlesson1/modal-galery/c92.jpg" alt="Carousal92" style="width:400px" id="img9c2"> <!-- ready to commit 11.04.2019 -->
+                </div>
+
+                <div class="item active">
+                  <img src="../images/newlesson1/modal-galery/c93.jpg" alt="Carousal93" style="width:400px" id="img9c3"> <!-- ready to commit 11.04.2019 -->
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+            <a class="left carousel-control" href="#PlutoCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span> 
+        </a>
+            <a class="right carousel-control" href="#PlutoCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span> 
+    </a>
+      </div>
+        </div>
+          <div class="container" id="phys_pluto">
+                   <hr class="new_style">
+          </div>
+          </div>
+        <div class="modal-footer">
+          <!-- Lection from DB -->
+           <div id="pluto"></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-default disabled" id="modify_pluto" onclick="updatePlutoLesson()">Замінити урок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+     <!-- after upload page -->
+     <!-- test code 27.12.2018 -->
+     <script>
+   $(document).on('load',function(){
+        // fetch from localStorage
+        //var sid_load = localStorage.getItem("sid");
+        //var img_path = localStorage.getItem("db_path");
+        //$(sid_load).attr('src',img_path); // test code 27.12.2018
+        image_uploader('img1','I','0','#img1'); // test code 17.01.2019
+      });
+   </script>
+      <!--------------------------->
+      </body>
+  </html>
