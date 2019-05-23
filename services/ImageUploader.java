@@ -1,3 +1,10 @@
+/*
+* Author: Denys Shabelnyk
+* Description: class for working with all images in the site
+* 1) Upload new images for lesson
+* 2) Upload new carousal images for lesson
+* 3) Set new images for lesson(will be available soon)
+ */
 package com.astronomylesson;
 
 import java.io.File;

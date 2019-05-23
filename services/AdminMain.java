@@ -1,3 +1,7 @@
+/*
+* Author: Denys Shabelnyk
+* Description: MainClass for JavaServlet
+*/
 package com.astronomylesson;
 
 import java.io.*;
@@ -13,12 +17,121 @@ public class AdminMain extends HttpServlet  {
 	}
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
+       /*
         response.setContentType("text/html");
 
         // Actual logic
         PrintWriter out = response.getWriter();
-        out.println("<h1>" + message + "</h1>");
+        out.println("<h1>" + message + "</h1>");*/
+
+        // ready to commit 28.02.2019
+        String u_but_descr = " ";
+        String temp = " ";
+        //
+        String id_name = " "; // ready to commit 04.03.2019
+        String les_num = " "; // test code 28.03.2019
+
+        // check button "Discard all changes"
+        // ready to commit 21.03.2019
+        if(request.getParameter("dc") != null) {
+            // ready to commit 02.04.2019
+            ButtonsWorker.discardButtonsName();
+            temp = "All changes are discarded";
+            PrintWriter out_dc = response.getWriter();
+            out_dc.print("<script language='JavaScript'>alert('" + temp + "');</script>");
+            // ...
+        }
+          // ready to commit 02.04.2019
+        else if(request.getParameter("apl") != null) {
+            //Get lesson num from site
+            String l_num_from_site = request.getParameter("lnbn");
+            boolean action_result = AdminLessons.setNewLection(l_num_from_site);
+            // tell user about result
+            if(action_result == true) {
+                PrintWriter out_nb_action_pos = response.getWriter();
+                out_nb_action_pos.print("<script language='JavaScript'>alert('Success');</script>");
+            } else {
+                PrintWriter out_nb_action_neg = response.getWriter();
+                out_nb_action_neg.print("<script language='JavaScript'>alert('Failed');</script>");
+            }
+        }
+        // ...
+        // Change lesson number
+        // ready to commit 17.04.2019
+       else if(request.getParameter("less_btn") != null )   {
+
+            String l_num_from_site = request.getParameter("less_btn");
+            boolean action_result = AdminLessons.setNewLesson(l_num_from_site);
+            // tell user about result
+            if(action_result == true) {
+                PrintWriter out_nb_action_pos = response.getWriter();
+                out_nb_action_pos.print("<script language='JavaScript'>alert('Successfully changed lesson');</script>");
+                out_nb_action_pos.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/main.html\";</script>");
+            } else {
+                PrintWriter out_nb_action_neg = response.getWriter();
+                out_nb_action_neg.print("<script language='JavaScript'>alert('Failed changed lesson');</script>");
+            }
+        }
+
+        // Change answers for general test
+        // test code 14.05.2019
+        else if(request.getParameter("q_id") != null &&
+                request.getParameter("n_id") != null &&
+                request.getParameter("ans") != null &&
+                request.getParameter("lesn") != null) {
+            String question_id = request.getParameter("q_id");
+            String num_id = request.getParameter("n_id");
+            String ans_txt = request.getParameter("ans");
+            String ln = request.getParameter("lesn");
+            String is_cor = request.getParameter("option");
+            // not released
+            // test code 16.05.2019
+            try {
+                boolean action_result = ButtonsWorker.setNewAnswerButtonGenTest(question_id, num_id, ans_txt, ln, is_cor);
+                if (action_result == true) {
+                    PrintWriter out_nb_action_pos = response.getWriter();
+                    out_nb_action_pos.print("<script language='JavaScript'>alert('Successfully changed answer');</script>");
+                    out_nb_action_pos.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/admin2.html\";</script>");
+                } else {
+                    PrintWriter out_nb_action_neg = response.getWriter();
+                    out_nb_action_neg.print("<script language='JavaScript'>alert('Failed changed answer');</script>");
+                }
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            // ... //
+        }
+        // ... //
+        // ... ///
+
+        // analyze which form is not null ready to commit 29.09.2019
+        String[] arr_buttons_name = {"b1", "b2", "b3",
+                "b4", "b5", "b6",
+                "b7", "b8", "b9"};
+
+        for (String i : arr_buttons_name) {
+            temp = request.getParameter(i);
+            if (temp != null) {
+                u_but_descr = temp;
+                id_name = i; // ready to commit 04.03.2019
+                break;  // ready to commit 04.03.2019
+            }
+        }
+
+        // call changer() method
+        temp = ButtonsWorker.changer(id_name,u_but_descr); // ready to commit 04.03.2019
+
+        // show result  test code 28.02.2019
+        PrintWriter out = response.getWriter();
+        //out.print("<script language='JavaScript'>alert('" + u_but_descr + "');</script>"); // add test to show
+        //out.print("<script language='JavaScript'>alert('" + id_name + "');</script>"); // add test to show
+
+        // ready to commit 11.03.2019
+        out.print("<script language='JavaScript'>alert('New button mame is: " + temp + "');</script>");
+
+        // redirect back to the source page ready to commit 28.09.2019
+        out.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/admin.html\";</script>");
+
     }
 
 
