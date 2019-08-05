@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <script src="scripts/adm_servs.js"></script> 
 <style>
 .container  {
 	display: inline-block;
@@ -42,7 +41,7 @@ body {
 
 </style>
 <body>
-	
+
 	<!-- Choice number of lesson  -->
 	<div class="container" id="lesson_buttons">
           <h2 class="main_title">Choice number of lesson:</h2>
@@ -50,7 +49,10 @@ body {
 
     <!-- Button of lesson -->
 <div class="row">
-	  <form method="get" id="ln_btn" action="http://localhost:8080/AdminMain"> 
+	  <!-- test code 02.01.2019 -->
+     <!-- <button type="submit" class="btn btn-warning btn-md" id="lesson_0" onclick="setImages()">0</button> -->
+     <!-- test code 15.04.2019 -->
+     <form method="get" id="ln_btn" action="http://localhost:8080/AdminMain">
      <button type="submit" class="btn btn-warning btn-md" name="l0">0</button>
      <button type="submit" class="btn btn-warning btn-md" name="l1">1</button>
      <button type="submit" class="btn btn-warning btn-md" name="l2">2</button>
@@ -65,41 +67,20 @@ body {
        <input class="black" type="text" name="less_btn" style="width: 120px;" id="lnf"> Lesson number*
      </div>
      </form>
+<!-- -->
 </div>
 
-
- <div class="container">
+  <div class="container">
           <h2 class="main_title">Write text of question below:</h2>
     </div>
-    <form method="get" id="new_question" action="http://localhost:8080/AdminMain">   
+    <form method="get" id="new_question" action="http://localhost:8080/AdminMain">
       <div class="form-group">
       <textarea class="black" rows="4" cols="50" name="ta"></textarea>
-      QuestionID: <input class="black" type="text" name="q_id_q"> 
+      QuestionID: <input class="black" type="text" name="q_id_q">
       Lesson number: <input class="black" type="text" name="ln_q" style="width: 120px;">
-      <button type="submit" class="btn btn-warning btn-md">Upload</button> 
+      <button type="submit" class="btn btn-warning btn-md" name="q_upload">Upload</button>
       <button type="submit" class="btn btn-warning btn-md" name="cback">Restore all changes</button>
-    </div>
+      </div>
 </form>
- 
-
- 
-<!-- Set new answers for general test -->
-<div class="container">
-          <h2 class="main_title">Set new answers and questions: </h2>
-    </div>
-    <form method="get" id="new_leso_answer" action="http://localhost:8080/AdminMain">   
-      <div class="form-group">
-      QuestionID: <input class="black" type="text" name="q_id"> 
-      NumberID: <input class="black" type="text" name="n_id"> 
-      Answer: <input class="black" type="text" name="ans">
-      Lesson number: <input class="black" type="text" name="lesn" style="width: 120px;">
-    
-      <input type="checkbox" name="option" value="Type">Correct answer<br>
-      
-      <button type="submit" class="btn btn-warning btn-md">Upload</button>
-    </div>
-</form>
-   
-
 </body>
 </html>

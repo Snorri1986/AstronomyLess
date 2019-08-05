@@ -16,7 +16,7 @@
        border: 2px solid yellow;
        border-radius: 5px;
        width: 360px;
-       height:100px;  
+       height:100px;
        line-height: normal;
 
     }
@@ -32,7 +32,7 @@
 
     #navigation_buts_in_test
   {
-    display: block; 
+    display: block;
     text-align: center;
   }
 
@@ -44,4 +44,14 @@
     margin-top: 10px;
     text-align: center;
   }
-    /*************/
+
+.db_question {
+       border: 2px solid yellow;
+       border-radius: 5px;
+       width: 360px;
+       height:100px;
+       line-height: normal;
+       color:yellow;
+       font-style: italic;
+    }
+    

@@ -1,4 +1,4 @@
-﻿  // Display question №18 for default lesson
+   // Display question №18 for default lesson
  $(document).ready(function(){
     $.ajax({
     type:'GET',
@@ -9,4 +9,4 @@
     }
 });
 });
- // ... //
+ 

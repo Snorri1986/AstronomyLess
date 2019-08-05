@@ -17,37 +17,28 @@ public class AdminMain extends HttpServlet  {
 	}
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       /*
-        response.setContentType("text/html");
 
-        // Actual logic
-        PrintWriter out = response.getWriter();
-        out.println("<h1>" + message + "</h1>");*/
 
-        // ready to commit 28.02.2019
         String u_but_descr = " ";
         String temp = " ";
-        //
-        String id_name = " "; // ready to commit 04.03.2019
-        String les_num = " "; // test code 28.03.2019
+        String id_name = " ";
+        String les_num = " ";
 
         // check button "Discard all changes"
-        // ready to commit 21.03.2019
-        if(request.getParameter("dc") != null) {
-            // ready to commit 02.04.2019
+        if (request.getParameter("dc") != null) {
             ButtonsWorker.discardButtonsName();
             temp = "All changes are discarded";
             PrintWriter out_dc = response.getWriter();
             out_dc.print("<script language='JavaScript'>alert('" + temp + "');</script>");
-            // ...
+
         }
-          // ready to commit 02.04.2019
-        else if(request.getParameter("apl") != null) {
+
+        else if (request.getParameter("apl") != null) {
             //Get lesson num from site
             String l_num_from_site = request.getParameter("lnbn");
             boolean action_result = AdminLessons.setNewLection(l_num_from_site);
             // tell user about result
-            if(action_result == true) {
+            if (action_result == true) {
                 PrintWriter out_nb_action_pos = response.getWriter();
                 out_nb_action_pos.print("<script language='JavaScript'>alert('Success');</script>");
             } else {
@@ -57,13 +48,13 @@ public class AdminMain extends HttpServlet  {
         }
         // ...
         // Change lesson number
-        // ready to commit 17.04.2019
-       else if(request.getParameter("less_btn") != null )   {
+
+        else if (request.getParameter("less_btn") != null) {
 
             String l_num_from_site = request.getParameter("less_btn");
             boolean action_result = AdminLessons.setNewLesson(l_num_from_site);
             // tell user about result
-            if(action_result == true) {
+            if (action_result == true) {
                 PrintWriter out_nb_action_pos = response.getWriter();
                 out_nb_action_pos.print("<script language='JavaScript'>alert('Successfully changed lesson');</script>");
                 out_nb_action_pos.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/main.html\";</script>");
@@ -73,65 +64,146 @@ public class AdminMain extends HttpServlet  {
             }
         }
 
-        // Change answers for general test
-        // test code 14.05.2019
-        else if(request.getParameter("q_id") != null &&
-                request.getParameter("n_id") != null &&
-                request.getParameter("ans") != null &&
-                request.getParameter("lesn") != null) {
-            String question_id = request.getParameter("q_id");
-            String num_id = request.getParameter("n_id");
-            String ans_txt = request.getParameter("ans");
-            String ln = request.getParameter("lesn");
-            String is_cor = request.getParameter("option");
-            // not released
-            // test code 16.05.2019
-            try {
-                boolean action_result = ButtonsWorker.setNewAnswerButtonGenTest(question_id, num_id, ans_txt, ln, is_cor);
-                if (action_result == true) {
-                    PrintWriter out_nb_action_pos = response.getWriter();
-                    out_nb_action_pos.print("<script language='JavaScript'>alert('Successfully changed answer');</script>");
-                    out_nb_action_pos.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/admin2.html\";</script>");
-                } else {
-                    PrintWriter out_nb_action_neg = response.getWriter();
-                    out_nb_action_neg.print("<script language='JavaScript'>alert('Failed changed answer');</script>");
+        // set new question for general test
+        else if(request.getParameter("q_upload") != null) {
+
+            // data from web-page
+            String ta_txt = request.getParameter("ta");
+            String meta_question = request.getParameter("q_id_q");
+            String less_num = request.getParameter("ln_q");
+
+
+            // call Java method
+            boolean action_result = AdminLessons.setNewQuestion(meta_question,ta_txt,less_num);
+            // tell user about result
+            if (action_result == true) {
+                PrintWriter new_question_res_pos = response.getWriter();
+                new_question_res_pos.print("<script language='JavaScript'>alert('Successfully changed question');</script>");
+                new_question_res_pos.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/main.html\";</script>");
+            } else {
+                PrintWriter new_question_res_err = response.getWriter();
+                new_question_res_err.print("<script language='JavaScript'>alert('Failed changed question');</script>");
+            }
+
+        }
+
+
+        // Authentication.
+          else if (request.getParameter("mail") != null &&
+                request.getParameter("pass") != null) {
+
+            String usr_login = request.getParameter("mail");
+            String pass_phrase = request.getParameter("pass");
+
+            // call current procedure
+            boolean auth_result = AdminUsers.authUser(usr_login, pass_phrase);
+
+            // show result and redirect to main.html
+            if (auth_result) {
+
+                // get data from DB
+                String fl_score = AdminUsers.getFl_Scores(usr_login);
+
+                // make html statement in one string
+                String greeting_str = "<script language='JavaScript'>alert('" + fl_score + "');</script>";
+
+                PrintWriter auth_positive = response.getWriter();
+
+                // greeting message
+                auth_positive.print(greeting_str);
+
+                // redirect to main.html
+                auth_positive.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/main.html\";</script>");
+
+
+            } else
+                   {
+                       PrintWriter auth_negative = response.getWriter();
+                       auth_negative.print("<script language='JavaScript'>alert('Access denied.You must register before entry!');</script>");
+                       auth_negative.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/login.html\";</script>");
+                   }
+        }
+
+        // Add new user.
+        else if (request.getParameter("username") != null &&
+                request.getParameter("usersurname") != null &&
+                request.getParameter("n_email") != null &&
+                request.getParameter("password") != null &&
+                request.getParameter("tabel") != null) {
+            // get user's input
+            String new_user_name = request.getParameter("username");
+            String new_user_surname = request.getParameter("usersurname");
+            String nu_email = request.getParameter("n_email");
+            String nu_pass = request.getParameter("password");
+            String nu_tab = request.getParameter("tabel");
+            String nu_type;
+            if (request.getParameter("t_type") == null) {
+                nu_type = "P";
+            } else {
+                nu_type = "T";
+            }
+
+            // call method
+            boolean method_result = AdminUsers.addNewUser(new_user_name,
+                    new_user_surname, nu_email, nu_pass, "NULL", nu_tab, nu_type);
+
+            // analyze result
+            if (method_result) {
+                PrintWriter db_out = response.getWriter();
+                db_out.print("<script language='JavaScript'>alert('New system user is successfully added');</script>");
+                // redirect to main.html
+                db_out.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/main.html\";</script>");
+            } else {
+                PrintWriter db_out_err = response.getWriter();
+                db_out_err.print("<script language='JavaScript'>alert('Error.User email have already added');</script>");
+                db_out_err.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/login.html\";</script>");
+            }
+        }
+
+        // Save user's score into DataBase
+        else if(request.getParameter("success_score") != null ) {
+
+            // get scores
+            int user_scores = Integer.parseInt(request.getParameter("success_score"));
+
+            //save in database
+           try {
+               AdminLessons.saveScoreinDb(user_scores);
+           } catch (ClassNotFoundException e) {
+               e.printStackTrace();
+           }
+
+            PrintWriter scores_out = response.getWriter();
+            scores_out.print("<script language='JavaScript'>alert('Point have successfully saved');</script>");
+            // redirect to main.html
+            scores_out.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/main.html\";</script>");
+        }
+
+        else {
+
+
+            // analyze which form is not null
+            String[] arr_buttons_name = {"b1", "b2", "b3",
+                    "b4", "b5", "b6",
+                    "b7", "b8", "b9"};
+
+            for (String i : arr_buttons_name) {
+                temp = request.getParameter(i);
+                if (temp != null) {
+                    u_but_descr = temp;
+                    id_name = i;
+                    break;
                 }
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             }
-            // ... //
+
+            // call changer() method
+            temp = ButtonsWorker.changer(id_name, u_but_descr);
+            PrintWriter out = response.getWriter();
+            out.print("<script language='JavaScript'>alert('New button mame is: " + temp + "');</script>");
+            // redirect back to the source page
+            out.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/admin.html\";</script>");
+
         }
-        // ... //
-        // ... ///
-
-        // analyze which form is not null ready to commit 29.09.2019
-        String[] arr_buttons_name = {"b1", "b2", "b3",
-                "b4", "b5", "b6",
-                "b7", "b8", "b9"};
-
-        for (String i : arr_buttons_name) {
-            temp = request.getParameter(i);
-            if (temp != null) {
-                u_but_descr = temp;
-                id_name = i; // ready to commit 04.03.2019
-                break;  // ready to commit 04.03.2019
-            }
-        }
-
-        // call changer() method
-        temp = ButtonsWorker.changer(id_name,u_but_descr); // ready to commit 04.03.2019
-
-        // show result  test code 28.02.2019
-        PrintWriter out = response.getWriter();
-        //out.print("<script language='JavaScript'>alert('" + u_but_descr + "');</script>"); // add test to show
-        //out.print("<script language='JavaScript'>alert('" + id_name + "');</script>"); // add test to show
-
-        // ready to commit 11.03.2019
-        out.print("<script language='JavaScript'>alert('New button mame is: " + temp + "');</script>");
-
-        // redirect back to the source page ready to commit 28.09.2019
-        out.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/admin.html\";</script>");
-
     }
 
 

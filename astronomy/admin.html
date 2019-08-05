@@ -4,44 +4,43 @@
   <title>Admin Part</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="admin_style.css"> 
+  <link rel="stylesheet" type="text/css" href="admin_style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <script src="scripts/adm_servs.js"></script>
-  <script src="scripts/field_checker.js"></script> 
+  <script src="scripts/field_checker.js"></script>
 </head>
-<body onload="isNullOnField()"> 
+<body onload="isNullOnField()">
 	<!-- Choice new file path to upload on database -->
 	<div class="container" id="upload_images_num_1">
           <h2 class="main_title">Upload new main images</h2>
 		<div class="row">
 			<div class="col-md-4">
 	<h4>Upload new image #1 for new lesson</h4>
-  <form  method="post" id="java_upload_image_1" action="http://localhost:8080/AdminMain">  
+  <form  method="post" id="java_upload_image_1" action="http://localhost:8080/AdminMain">
     <div class="form-group">
-    	<input type="file" name="img1" id="i1"> 
-      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number 
-        <button type="submit" class="btn btn-warning btn-md" id="btn_image_1">Upload</button> 
-    </div> 
+    	<input type="file" name="img1" id="i1">
+      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
+        <button type="submit" class="btn btn-warning btn-md" id="btn_image_1">Upload</button>
+    </div>
 </form>
 </div>
     <div class="col-md-4">
     <h4>Upload new image #2 for new lesson</h4>
-<form  method="post" id="java_upload_image_2" action="http://localhost:8080/AdminMain"> 
+<form  method="post" id="java_upload_image_2" action="http://localhost:8080/AdminMain">
     <div class="form-group">
-    	<input type="file" name="img2" id="i2"> 
-      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number 
-      <button type="submit" class="btn btn-warning btn-md" id="btn_image_2">Upload</button> 
+    	<input type="file" name="img2" id="i2">
+      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
+      <button type="submit" class="btn btn-warning btn-md" id="btn_image_2">Upload</button>
     </div>
 </form>
 </div>
     <div class="col-md-4">
     <h4>Upload new image #3 for new lesson</h4>
-<form  method="post" id="java_upload_image_3" action="http://localhost:8080/AdminMain"> 
+<form  method="post" id="java_upload_image_3" action="http://localhost:8080/AdminMain">
     <div class="form-group">
-    	<input type="file" name="img3" id="i3"> 
-      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number 
+    	<input type="file" name="img3" id="i3">
+      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
         <button type="submit" class="btn btn-warning btn-md" id="btn_image_3">Upload</button>
     </div>
 </form>
@@ -50,31 +49,31 @@
    <div class="row">
    	<div class="col-md-4">
     <h4>Upload new image #4 for new lesson</h4>
-<form  method="post" id="java_upload_image_4" action="http://localhost:8080/AdminMain"> 
+<form  method="post" id="java_upload_image_4" action="http://localhost:8080/AdminMain">
     <div class="form-group">
-    	<input type="file" name="img4" id="i4"> 
-      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number 
-        <button type="submit" class="btn btn-warning btn-md" id="btn_image_4">Upload</button> 
+    	<input type="file" name="img4" id="i4">
+      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
+        <button type="submit" class="btn btn-warning btn-md" id="btn_image_4">Upload</button>
     </div>
 </form>
 </div>
   <div class="col-md-4">
     <h4>Upload new image #5 for new lesson</h4>
-<form  method="post" id="java_upload_image_5" action="http://localhost:8080/AdminMain"> 
+<form  method="post" id="java_upload_image_5" action="http://localhost:8080/AdminMain">
     <div class="form-group">
-    	<input type="file" name="img5" id="i5"> 
-      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number 
+    	<input type="file" name="img5" id="i5">
+      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
         <button type="submit" class="btn btn-warning btn-md" id="btn_image_5">Upload</button>
     </div>
 </form>
 </div>
     <div class="col-md-4">
     <h4>Upload new image #6 for new lesson</h4>
-<form method="post" id="java_upload_image_6" action="http://localhost:8080/AdminMain"> 
+<form method="post" id="java_upload_image_6" action="http://localhost:8080/AdminMain">
     <div class="form-group">
-    	<input type="file" name="img6" id="i6"> 
-      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number 
-        <button type="submit" class="btn btn-warning btn-md" id="btn_image_6">Upload</button> 
+    	<input type="file" name="img6" id="i6">
+      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
+        <button type="submit" class="btn btn-warning btn-md" id="btn_image_6">Upload</button>
     </div>
 </form>
       </div>
@@ -82,30 +81,30 @@
     <div class="row">
     	<div class="col-md-4">
     <h4>Upload new image #7 for new lesson</h4>
-<form  method="post" id="java_upload_image_7" action="http://localhost:8080/AdminMain"> 
+<form  method="post" id="java_upload_image_7" action="http://localhost:8080/AdminMain">
     <div class="form-group">
     	<input type="file" name="img7" id="i7">
-      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number 
+      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
         <button type="submit" class="btn btn-warning btn-md" id="btn_image_7">Upload</button>
     </div>
 </form>
       </div>
     <div class="col-md-4">
 <h4>Upload new image #8 for new lesson</h4>
-<form  method="post" id="php_upload_image_8" action="http://localhost:8080/AdminMain"> 
+<form  method="post" id="php_upload_image_8" action="http://localhost:8080/AdminMain">
     <div class="form-group">
-    	<input type="file" name="img8" id="i8"> 
-      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number 
+    	<input type="file" name="img8" id="i8">
+      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
         <button type="submit" class="btn btn-warning btn-md" id="btn_image_8">Upload</button>
     </div>
 </form>
       </div>
     <div class="col-md-4">
 <h4>Upload new image #9 for new lesson</h4>
-<form  method="post" id="java_upload_image_9" action="http://localhost:8080/AdminMain"> 
+<form  method="post" id="java_upload_image_9" action="http://localhost:8080/AdminMain">
     <div class="form-group">
-    	<input type="file" name="img9" id="i9"> 
-      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number 
+    	<input type="file" name="img9" id="i9">
+      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
         <button type="submit" class="btn btn-warning btn-md" id="btn_image_9">Upload</button>
     </div>
 </form>
@@ -116,13 +115,13 @@
 <div class="row">
 	<div class="col-md-4">
 		<h4>Upload new carousel images for #1</h4>
-<form method="post" id="java_carousel_image_1" action="http://localhost:8080/AdminMain">     
+<form method="post" id="java_carousel_image_1" action="http://localhost:8080/AdminMain">
     <div class="form-group">
-    	<input type="file" name="img11" id="1c">   
-    	<input type="file" name="img12" id="1cc">  
-    	<input type="file" name="img13" id="1ccc"> 
+    	<input type="file" name="img11" id="1c">
+    	<input type="file" name="img12" id="1cc">
+    	<input type="file" name="img13" id="1ccc">
       <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
-      <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_1">Upload</button> 
+      <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_1">Upload</button>
     </div>
 </form>
       </div>
@@ -130,23 +129,23 @@
 		<h4>Upload new carousel images for #2</h4>
 <form method="post" id="java_carousel_image_2" action="http://localhost:8080/AdminMain">
   <div class="form-group">
-    	<input type="file" name="img11" id="2c">  
-    	<input type="file" name="img12" id="2cc"> 
-    	<input type="file" name="img13" id="2ccc"> 
-      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number 
-      <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_2">Upload</button> 
+    	<input type="file" name="img11" id="2c">
+    	<input type="file" name="img12" id="2cc">
+    	<input type="file" name="img13" id="2ccc">
+      <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
+      <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_2">Upload</button>
     </div>
 </form>
       </div>
       <div class="col-md-4">
 		<h4>Upload new carousel images for #3</h4>
-<form method="post" id="java_carousel_image_3" action="http://localhost:8080/AdminMain"> 
+<form method="post" id="java_carousel_image_3" action="http://localhost:8080/AdminMain">
     <div class="form-group">
-    	<input type="file" name="img11" id="3c"> 
-    	<input type="file" name="img12" id="3cc"> 
-    	<input type="file" name="img13" id="3ccc"> 
+    	<input type="file" name="img11" id="3c">
+    	<input type="file" name="img12" id="3cc">
+    	<input type="file" name="img13" id="3ccc">
       <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
-      <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_3">Upload</button> 
+      <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_3">Upload</button>
     </div>
 </form>
       </div>
@@ -154,25 +153,25 @@
 <div class="row">
 	<div class="col-md-4">
 		<h4>Upload new carousel images for #4</h4>
-<form method="post" id="java_carousel_image_4" action="http://localhost:8080/AdminMain">   
+<form method="post" id="java_carousel_image_4" action="http://localhost:8080/AdminMain">
   <div class="form-group">
-    	<input type="file" name="img11" id="4c"> 
-    	<input type="file" name="img12" id="4cc"> 
-    	<input type="file" name="img13" id="4ccc"> 
+    	<input type="file" name="img11" id="4c">
+    	<input type="file" name="img12" id="4cc">
+    	<input type="file" name="img13" id="4ccc">
       <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
-        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_4">Upload</button> 
+        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_4">Upload</button>
     </div>
 </form>
       </div>
     <div class="col-md-4">
 		<h4>Upload new carousel images for #5</h4>
-<form method="post" id="java_carousel_image_5" action="http://localhost:8080/AdminMain">   
+<form method="post" id="java_carousel_image_5" action="http://localhost:8080/AdminMain">
       <div class="form-group">
-    	<input type="file" name="img11" id="5c"> 
-    	<input type="file" name="img12" id="5cc"> 
-    	<input type="file" name="img13" id="5ccc"> 
+    	<input type="file" name="img11" id="5c">
+    	<input type="file" name="img12" id="5cc">
+    	<input type="file" name="img13" id="5ccc">
       <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
-        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_5">Upload</button> 
+        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_5">Upload</button>
     </div>
 </form>
       </div>
@@ -180,11 +179,11 @@
 		<h4>Upload new carousel images for #6</h4>
 <form method="post" id="java_carousel_image_6" action="http://localhost:8080/AdminMain">
     <div class="form-group">
-    	<input type="file" name="img11" id="6c"> 
+    	<input type="file" name="img11" id="6c">
     	<input type="file" name="img12" id="6cc">
-    	<input type="file" name="img13" id="6ccc"> 
+    	<input type="file" name="img13" id="6ccc">
       <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
-        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_6">Upload</button> 
+        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_6">Upload</button>
     </div>
 </form>
       </div>
@@ -194,11 +193,11 @@
 	<h4>Upload new carousel images for #7</h4>
 <form method="post" id="java_carousel_image_7" action="http://localhost:8080/AdminMain">
       <div class="form-group">
-    	<input type="file" name="img11" id="7c"> 
-    	<input type="file" name="img12" id="7cc"> 
-    	<input type="file" name="img13" id="7ccc"> 
+    	<input type="file" name="img11" id="7c">
+    	<input type="file" name="img12" id="7cc">
+    	<input type="file" name="img13" id="7ccc">
       <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
-        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_7">Upload</button> 
+        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_7">Upload</button>
     </div>
 </form>
      </div>
@@ -206,9 +205,9 @@
 	<h4>Upload new carousel images for #8</h4>
 <form method="post" id="java_carousel_image_8" action="http://localhost:8080/AdminMain">
     <div class="form-group">
-    	<input type="file" name="img11" id="8c"> 
-    	<input type="file" name="img12" id="8cc"> 
-    	<input type="file" name="img13" id="8ccc"> 
+    	<input type="file" name="img11" id="8c">
+    	<input type="file" name="img12" id="8cc">
+    	<input type="file" name="img13" id="8ccc">
       <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
         <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_8">Upload</button>
     </div>
@@ -218,156 +217,126 @@
 	<h4>Upload new carousel images for #9</h4>
 <form method="post" id="java_carousel_image_9" action="http://localhost:8080/AdminMain">
     <div class="form-group">
-    	<input type="file" name="img11" id="9c"> 
-    	<input type="file" name="img12" id="9cc"> 
-    	<input type="file" name="img13" id="9ccc"> 
+    	<input type="file" name="img11" id="9c">
+    	<input type="file" name="img12" id="9cc">
+    	<input type="file" name="img13" id="9ccc">
       <input class="black" type="text" name="ln" style="width: 120px;"> Lesson number
-        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_9">Upload</button> 
+        <button type="submit" class="btn btn-warning btn-md" id="btn_carousel_image_9">Upload</button>
     </div>
 </form>
      </div>
         </div>
 <hr>
-</div> 
-    <!-- new name of buttons --> 
+</div>
+    <!-- new name of buttons -->
     <div class="container" id="btn_images">
         <h2 class="main_title">Change name of buttons</h2>
-    <div class="row">
+        <div class="row">
         <!-- Button #1 in lections.html -->
             <div class="col-md-3">
                 <h4>Write new name of button #1 in lection</h4>
-                
-                <form method="get" id="image_descr_1" action="http://localhost:8080/AdminMain"> 
+                <form method="get" id="image_descr_1" action="http://localhost:8080/AdminMain">
            <div class="form-group">
-              
-                <input class="black" type="text" id="name_image_descr_1" name="b1">  
+                <input class="black" type="text" id="name_image_descr_1" name="b1">
             <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_1" disabled>Upload</button>
            </div>
-       </form> 
+       </form>
            </div>
         <!-- Button #2 in lections.html -->
         <div class="col-md-3">
                 <h4>Write new name of button #2 in lection</h4>
-              
-                <form method="get" id="image_descr_2" action="http://localhost:8080/AdminMain"> 
+                <form method="get" id="image_descr_2" action="http://localhost:8080/AdminMain">
            <div class="form-group">
-             
-                <input class="black" type="text" id="name_image_descr_2" name="b2"> 
+              <input class="black" type="text" id="name_image_descr_2" name="b2">
             <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_2" disabled>Upload</button>
            </div>
-        </form> 
+        </form>
            </div>
           <!-- Button #3 in lections.html -->
         <div class="col-md-3">
                 <h4>Write new name of button #3 in lection</h4>
-                
                 <form method="get"  id="image_descr_3" action="http://localhost:8080/AdminMain">
            <div class="form-group">
-               
                 <input class="black" type="text" id="name_image_descr_3" name="b3">
-            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_3" disabled>Upload</button> 
-           </div> 
-        </form> 
+            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_3" disabled>Upload</button>
+        </div>
+        </form>
            </div>
            <!-- Button #4 in lections.html -->
         <div class="col-md-3">
                 <h4>Write new name of button #4 in lection</h4>
-             
                 <form method="get" id="image_descr_4" action="http://localhost:8080/AdminMain">
            <div class="form-group">
-                
                 <input class="black" type="text" id="name_image_descr_4" name="b4">
             <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_4" disabled>Upload</button>
-            
-           </div>
-        </form> 
+          </div>
+        </form>
            </div>
         </div>
         <div class="row">
         <!-- Button #5 in lections.html -->
            <div class="col-md-3">
                 <h4>Write new name of button #5 in lection</h4>
-                
-                <form method="get" id="image_descr_5" action="http://localhost:8080/AdminMain">
+           <form method="get" id="image_descr_5" action="http://localhost:8080/AdminMain">
            <div class="form-group">
-                
-                <input class="black" type="text" id="name_image_descr_5" name="b5"> 
-            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_5" disabled>Upload</button>
-            <
-           </div>
-        </form> 
+           <input class="black" type="text" id="name_image_descr_5" name="b5">
+           <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_5" disabled>Upload</button>
+        </div>
+        </form>
            </div>
         <!-- Button #6 in lections.html -->
            <div class="col-md-3">
                 <h4>Write new name of button #6 in lection</h4>
-                
-                <form method="get" id="image_descr_6" action="http://localhost:8080/AdminMain"> 
+           <form method="get" id="image_descr_6" action="http://localhost:8080/AdminMain">
            <div class="form-group">
-                
-                <input class="black" type="text" id="name_image_descr_6" name="b6">  
+           <input class="black" type="text" id="name_image_descr_6" name="b6">
             <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_6" disabled>Upload</button>
-        
-           </div>
-        </form> 
+        </div>
+        </form>
            </div>
         <!-- Button #7 in lections.html -->
         <div class="col-md-3">
                 <h4>Write new name of button #7 in lection</h4>
-          
-                <form method="get" id="image_descr_7" action="http://localhost:8080/AdminMain">
+       <form method="get" id="image_descr_7" action="http://localhost:8080/AdminMain">
            <div class="form-group">
-             
-                <input class="black" type="text" id="name_image_descr_7" name="b7">
+           <input class="black" type="text" id="name_image_descr_7" name="b7">
            <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_7" disabled>Upload</button>
-           <          </div>
-        </form> 
-           </div> 
+           </div>
+       </form>
+           </div>
         <!-- Button #8 in lections.html -->
         <div class="col-md-3">
                 <h4>Write new name of button #8 in lection</h4>
-                
-                <form method="get" id="image_descr_8" action="http://localhost:8080/AdminMain"> 
-           <div class="form-group">
-                
-                <input class="black" type="text" id="name_image_descr_8" name="b8"> 
+                <form method="get" id="image_descr_8" action="http://localhost:8080/AdminMain">
+        <div class="form-group">
+                <input class="black" type="text" id="name_image_descr_8" name="b8">
             <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_8" disabled>Upload</button>
-            
-           </div>
-        </form> 
+        </div>
+        </form>
            </div>
         <!-- Button #9 in lections.html -->
         <div class="col-md-3">
                 <h4>Write new name of button #9 in lection</h4>
-               
-                <form method="get" id="image_descr_9" action="http://localhost:8080/AdminMain"> 
+                <form method="get" id="image_descr_9" action="http://localhost:8080/AdminMain">
            <div class="form-group">
-                 
-                <input class="black" type="text" id="name_image_descr_9" name="b9"> 
+                <input class="black" type="text" id="name_image_descr_9" name="b9">
             <button type="submit" class="btn btn-warning btn-md" id="btn_name_image_descr_9" disabled>Upload</button>
-            
            </div>
-        </form> 
+        </form>
            </div>
-          
-            <div class="col-md-3">
-              <form method="get" id="dc" action="http://localhost:8080/AdminMain"> 
+           <div class="col-md-3">
+              <form method="get" id="dc" action="http://localhost:8080/AdminMain">
               <button type="submit" class="btn btn-warning btn-md" id="discr_btn" name="dc">Discard all changes</button>
               </form>
             </div>
-            
-            <!-- ... -->
-            
-             <div class="col-md-3">
+        <div class="col-md-3">
               <form method="get" id="toless" action="http://localhost:8080/AdminMain">
-                <input class="black" type="text" name="lnbn" style="width: 120px;" id="lnf"> Lesson number* 
-                 
+        <input class="black" type="text" name="lnbn" style="width: 120px;" id="lnf"> Lesson number*
               <button type="submit" class="btn btn-warning btn-md" id="apply_btn" name="apl" disabled>Apply changes
               </button>
               </form>
-            </div>
-            <!-- ... -->
         </div>
-        <!-- ... -->
+        </div>
     </div>
          <!-- Button to next admin page -->
     <div class="container" id="but_next_admin_page">

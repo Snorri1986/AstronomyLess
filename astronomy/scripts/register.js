@@ -4,8 +4,6 @@ Date: 17.09.2018
 Description: functions for register users
 */
 
-/* Go register !!! */
-
 /* Get user attributes and analyze it  */
 function getUserAttrib() {
 	var u_type, cbox;
@@ -46,7 +44,7 @@ if(attr_array[3] == 'teacher') {
         window.localStorage.removeItem("not_allow_duplicate");
         return;
       }
-     
+
 
     alert("The new teacher was successfully uploaded");
       reg_result = 1;
@@ -55,7 +53,7 @@ if(attr_array[3] == 'teacher') {
       window.localStorage.setItem("u_type",user_type);
       var prev_user = attr_array[1];
       window.localStorage.setItem("not_allow_duplicate",prev_user);
-      
+
     }
 else if(attr_array[3] == 'pupil') {
       var pv_user = localStorage.getItem("not_allow_duplicate");
@@ -64,7 +62,7 @@ else if(attr_array[3] == 'pupil') {
         window.localStorage.removeItem("not_allow_duplicate");
         return;
       }
-       
+
     alert("The new pupil was successfully uploaded");
       reg_result = 1;
       user_type = "p";
@@ -72,7 +70,7 @@ else if(attr_array[3] == 'pupil') {
       window.localStorage.setItem("u_type",user_type);
       var prev_user = attr_array[1];
       window.localStorage.setItem("not_allow_duplicate",prev_user);
-      
+
     }
 
     // instead of action in <form>
@@ -93,29 +91,29 @@ function allowTrustUsers() {
     var u_surname = document.getElementById("auth_surname").value;
     var u_passphrase = document.getElementById("auth_pass").value;
     var e_mail = document.getElementById("email").value;
-    
 
-  $(window).ready(function(){ 
+
+  $(window).ready(function(){
     $.ajax({
-    type:"GET",  
+    type:"GET",
     url: "welcomeuser.php",
     data: {
-      username: u_name,  
-      usersurname: u_surname, 
-      n_email: e_mail, 
-      password: u_passphrase 
+      username: u_name,
+      usersurname: u_surname,
+      n_email: e_mail,
+      password: u_passphrase
     },
-    datatype:"text", 
+    datatype:"text",
     success: function(data){ // data is string
-    $("button.btn-success").replaceWith($("#welcome").html(data)); 
-      localStorage.setItem("trus_user",data); 
+    $("button.btn-success").replaceWith($("#welcome").html(data));
+      localStorage.setItem("trus_user",data);
     }
-}); 
+});
 });
 
   // Authorized trusted user and give it site permissions
-  
-  var from_db = localStorage.getItem("trus_user"); 
+
+  var from_db = localStorage.getItem("trus_user");
   var user_type = from_db.substring(0,1); // analyze only first symbol
 
   switch(user_type) {
@@ -126,17 +124,11 @@ function allowTrustUsers() {
 
      // only teacher can create a new lesson (admin = teacher)
     case 'T': {
-       document.getElementById("creator").classList.remove('disabled'); 
+       document.getElementById("creator").classList.remove('disabled');
        $('#creator').on('click',function() {
-           window.location = "admin.html"; 
+           window.location = "admin.html";
         });
        break;
     }
   }
 }
-
-
-
-
-
-

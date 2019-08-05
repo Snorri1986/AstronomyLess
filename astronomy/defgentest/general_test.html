@@ -13,116 +13,61 @@
   <script src="scripts/checkAnswers.js"></script>
   <script src="scripts/savepoints.js"></script>
   <script src="scripts/fillPnt.js"></script>
-  <script src="q1l0.js"></script> 
+  <script src="q1l0.js"></script>
   <script src="q1l0.php"></script>
-  <script src="q2l0.js"></script> 
+  <script src="q2l0.js"></script>
   <script src="q2l0.php"></script>
-  <script src="q3l0.js"></script> 
+  <script src="q3l0.js"></script>
   <script src="q3l0.php"></script>
-  <script src="q4l0.js"></script> 
+  <script src="q4l0.js"></script>
   <script src="q4l0.php"></script>
-  <script src="q5l0.js"></script> 
+  <script src="q5l0.js"></script>
   <script src="q5l0.php"></script>
-  <script src="q6l0.js"></script> 
+  <script src="q6l0.js"></script>
   <script src="q6l0.php"></script>
-
-  <script src="q7l0.js"></script> 
+  <script src="q7l0.js"></script>
   <script src="q7l0.php"></script>
-
-  <script src="q8l0.js"></script> 
+  <script src="q8l0.js"></script>
   <script src="q8l0.php"></script>
- 
-  <script src="q9l0.js"></script> 
+  <script src="q9l0.js"></script>
   <script src="q9l0.php"></script>
- 
 </head>
 <body onload="savePnt()">
-  <?php
-$headers  = 'MIME-Version: 1.0' . "\r\n";
-$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-
-$pupil = $_GET['fio']; 
-$points = $_GET['score']; 
-$mail_teacher = $_GET['email'];
-
-$subject = "Результати учня" . $pupil;
-$txt = "Результати учня" . $pupil . ":" . $points . "балів";
-$back_mail = "From: dionisiy1986@gmail.com";
-
-  mail($mail_teacher, $subject, $txt, $back_mail,$headers);
-?> 
 <!-- Instruction -->
   <div class="container" id="test_manual">
     <p>
-      <h3>Вітаю на сторінці підсумкового тесту!!!</h3>
-      Цей тест допоможе тобі засвоїти вивченний матеріал.
-      Потрібно дати відповідь на 18 питань.
-      Кожне запитання має лише одну правильну відповідь.
-      За кожну правильну відповідь, ти отримаєш 10 балів.
-      Якщо ти бажаеш повернутися до головної сторінки, повторити
-      матеріали лекцій або відправити результат тесту викладачу,
-      потрібно перейти за посиланнями нижче.
+      <h3>Welcome to the final test page !!!
+        This test will help you learn the material you have learned.
+        18 questions should be answered. Each question has only one correct answer.
+        For each correct answer, you will receive 10 points.
+        If you want to return to the homepage, repeat
+        lecture materials are available at the links below.</h3>
     </p>
   </div>
   <!-- Navigations butts -->
   <div class="container" id="navigation_buts_in_test">
-    <button type="button" class="btn btn-warning btn-lg"><a href="main.html">Головна сторінка</a></button>
-    <button type="button" class="btn btn-warning btn-lg"><a href="lections.html">Лекції</a></button>
-    <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#send_mail"
-    onclick="fillPnt()"><a href="#">Відправити результат</a></button> 
-    <span><p>Кількість балів:</p><p id="score">0</p></span>
+    <button type="button" class="btn btn-warning btn-lg"><a href="main.html">Main page</a></button>
+    <button type="button" class="btn btn-warning btn-lg"><a href="lections.html">Lections</a></button>
+    <span><p>Score count:</p><p id="score">0</p></span>
+    <form method="get" action="http://localhost:8080/AdminMain">
+    <button type="submit" class="btn btn-warning btn-sm">Save result</button>
+    <input type="text" name="success_score">
+    </form>
   </div>
-  <!-- -->
-  <!-- Modal -->
-  <div class="modal fade" id="send_mail" role="dialog">
-    <div class="modal-dialog modal-sm">
-     <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-         <div class="container">
-          <h2>Анкета учня</h2>
-       <form action="" method="post" enctype="text/plain">  
-    <div class="form-group">
-      <label for="fio">Прізвище та ім'я:</label>
-      <input type="text" class="form-control" id="pupil" placeholder="name" name="fio" style="width:250px;" required>
-    </div>
-    <div class="form-group">
-      <label for="email">Email викладача:</label>
-      <input type="email" class="form-control" id="email_teacher" placeholder="Enter email" name="email" style="width:250px;" required>
-    </div>
-    <div class="form-group">
-      <label for="points">Кількість балів: </label>
-      <input type="text" class="form-control" id="points" name="score" style="width:50px;" maxlength="3" readonly>
-    </div>
-    <button type="submit" class="btn btn-default btn-sm" id="send" name="send_email">Відправити</button> 
-    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" id="cancel">Відмінити</button> 
-    <button type="button" class="btn btn-default btn-sm" id="upload">Завантажити</button> 
-  </form>
-      </div>
-     </div>
-       </div>
-    </div>
-  </div>
-  <!--   -->
-	<div class="container">
+  <div class="container">
     <!-- First row of questions -->
     <div class="row">
       <div class="col-md-4">
       	<div class="db_question" id="question1"></div>
-      	<!-- -->
-      	<button type="button" title="1" class="btn btn-info btn-sm btn-block" id="q1a1" value="Колорис" onclick="chkAnswers('Колорис',10,'q1a1')">
-         Колорис</button> 
-         <button type="button" title="2" class="btn btn-info btn-sm btn-block" id="q1a2" value="Дискавері" onclick="chkAnswers('Дискавері')">
-         Дискавері</button> 
-         <button type="button" title="3" class="btn btn-info btn-sm btn-block" id="q1a3" value="Опортуніті" onclick="chkAnswers('Опортуніті')">
-         Опортуніті</button> 
-      </div> 
+        <button type="submit" title="1" class="btn btn-info btn-sm btn-block" name="1" id="q1a1" value="Coloris" onclick="chkAnswers('Coloris',10,'q1a1')">
+          Coloris</button>
+         <button type="submit" title="2" class="btn btn-info btn-sm btn-block" name="2" id="q1a2" value="Discovery" onclick="chkAnswers('Discovery')">
+         Discovery</button>
+         <button type="submit" title="3" class="btn btn-info btn-sm btn-block" name="3" id="q1a3" value="Opportunity" 3. onclick="chkAnswers('Opportunity')">
+         Opportunity</button>
+      </div>
       <div class="col-md-4">
-        <div class="db_question" id="question2"></div>
-      	<!-- -->
+      	<div class="db_question" id="question2"></div>
       	<button type="button" title="4" class="btn btn-info btn-sm btn-block" id="q2a1" value="280" onclick="chkAnswers('280')">
         280</button>
          <button type="button" title="5" class="btn btn-info btn-sm btn-block" id="q2a2" value="243" onclick="chkAnswers('243',10,'q2a2')">
@@ -132,65 +77,63 @@ $back_mail = "From: dionisiy1986@gmail.com";
       </div>
       <div class="col-md-4">
         <div class="db_question" id="question3"></div>
-      	
-        <button type="button" title="7" class="btn btn-info btn-sm btn-block" id="q3a1" value="Байкал" onclick="chkAnswers('Байкал')">
-          Байкал</button>
-         <button type="button" title="8" class="btn btn-info btn-sm btn-block" id="q3a2" value="МонБлан" onclick="chkAnswers('МонБлан')">
-          МонБлан</button>
-         <button type="button" title="9" class="btn btn-info btn-sm btn-block" id="q3a3" value="Маріанська" onclick="chkAnswers('Маріанська',10,'q3a3')">
-          Маріанська</button>
+         <button type="button" title="7" class="btn btn-info btn-sm btn-block" id="q3a1" value="Baykal" onclick="chkAnswers('Baykal')">
+          Baykal</button>
+         <button type="button" title="8" class="btn btn-info btn-sm btn-block" id="q3a2" value="MonBlanc" onclick="chkAnswers('MonBlanc')">
+          MonBlanc</button>
+         <button type="button" title="9" class="btn btn-info btn-sm btn-block" id="q3a3" value="Marian" onclick="chkAnswers('Marian',10,'q3a3')">
+          Marian</button>
       </div>
-    </div>  
-  </div>   
+    </div>
+  </div>
     <!-- Second row of questions -->
-    <div class="container">  
+    <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <div class="db_question" id="question4"></div>
-       <button type="button" title="10" class="btn btn-info btn-sm btn-block" id="q4a1" value="Магній" onclick="chkAnswers('Магній')">Магній</button>
-         <button type="button" title="11" class="btn btn-info btn-sm btn-block" id="q4a2" value="Спирт" onclick="chkAnswers('Спирт')">Спирт</button>
-         <button type="button" title="12" class="btn btn-info btn-sm btn-block" id="q4a3" value="Оксид заліза"onclick="chkAnswers('Оксид заліза',10,'q4a3')">Оксид заліза</button>
+      	<div class="db_question" id="question4"></div>
+      	 <button type="button" title="10" class="btn btn-info btn-sm btn-block" id="q4a1" value="Magnesium" onclick="chkAnswers('Magnesium')">Magnesium</button>
+         <button type="button" title="11" class="btn btn-info btn-sm btn-block" id="q4a2" value="Alcohol" onclick="chkAnswers('Alcohol')">Alcohol</button>
+         <button type="button" title="12" class="btn btn-info btn-sm btn-block" id="q4a3" value="Iron oxid" onclick="chkAnswers('Iron oxid',10,'q4a3')">Iron oxid</button>
       </div>
       <div class="col-md-4">
-      <div class="db_question" id="question5"></div>
-      	
-         <button type="button" title="13" class="btn btn-info btn-sm btn-block" id="q5a1" value="Венера" onclick="chkAnswers('Венера')">Венера</button>
-         <button type="button" title="14" class="btn btn-info btn-sm btn-block" id="q5a2" value="Юнона" onclick="chkAnswers('Юнона',10,'q5a2')">Юнона</button>
-         <button type="button" title="15" class="btn btn-info btn-sm btn-block" id="q5a3" value="Зевс" onclick="chkAnswers('Зевс')">Зевс</button>
+      	<div class="db_question" id="question5"></div>
+      	  <button type="button" title="13" class="btn btn-info btn-sm btn-block" id="q5a1" value="Venus" onclick="chkAnswers('Venus')">Venus</button>
+         <button type="button" title="14" class="btn btn-info btn-sm btn-block" id="q5a2" value="Juno" onclick="chkAnswers('Juno',10,'q5a2')">Juno</button>
+         <button type="button" title="15" class="btn btn-info btn-sm btn-block" id="q5a3" value="Zevs" onclick="chkAnswers('Zevs')">Zevs</button>
       </div>
       <div class="col-md-4">
       <div class="db_question" id="question6"></div>
-     <button type="button" title="16" class="btn btn-info btn-sm btn-block" id="q6a1" value="Водневу" onclick="chkAnswers('Водневу')">Водневу</button>
-         <button type="button" title="17" class="btn btn-info btn-sm btn-block" id="q6a2" value="Тверду" onclick="chkAnswers('Тверду')">Тверду</button>
-         <button type="button" title="18" class="btn btn-info btn-sm btn-block" id="q6a3" value="Газоподібну" onclick="chkAnswers('Газоподібну',10,'q6a3')">Газоподібну</button>
+      <button type="button" title="16" class="btn btn-info btn-sm btn-block" id="q6a1" value="Water" onclick="chkAnswers('Water')">Water</button>
+         <button type="button" title="17" class="btn btn-info btn-sm btn-block" id="q6a2" value="Solid" onclick="chkAnswers('Solid')">Solid</button>
+         <button type="button" title="18" class="btn btn-info btn-sm btn-block" id="q6a3" value="Gaseous" onclick="chkAnswers('Gaseous',10,'q6a3')">Gaseous</button>
        </div>
-     </div> 
-   </div> 
+     </div>
+   </div>
     <!-- Third row of questions -->
-    <div class="container">  
+    <div class="container">
     <div class="row">
        <div class="col-md-4">
        	<div class="db_question" id="question7"></div>
-        <button type="button" title="19" class="btn btn-info btn-sm btn-block" id="q7a1" value="Вісь обертнання" onclick="chkAnswers('Вісь обертнання',10,'q7a1')">Вісь обертання</button>
-         <button type="button" title="20" class="btn btn-info btn-sm btn-block" id="q7a2" value="Кільця" onclick="chkAnswers('Кільця')">Кільця</button>
-         <button type="button" title="21" class="btn btn-info btn-sm btn-block" id="q7a3" value="Супутники" onclick="chkAnswers('Супутники')">Супутники</button>
+         <button type="button" title="19" class="btn btn-info btn-sm btn-block" id="q7a1" value="'Axis of rotation" onclick="chkAnswers(''Axis of rotation',10,'q7a1')">'Axis of rotation</button>
+         <button type="button" title="20" class="btn btn-info btn-sm btn-block" id="q7a2" value="Roundes" onclick="chkAnswers('Roundes')">Roundes</button>
+         <button type="button" title="21" class="btn btn-info btn-sm btn-block" id="q7a3" value="Satellites" onclick="chkAnswers('Satellites')">Satellites</button>
        </div>
        <div class="col-md-4">
        	 <div class="db_question" id="question8"></div>
-          <button type="button" title="22" class="btn btn-info btn-sm btn-block" id="q8a1" value="Математичних" onclick="chkAnswers('Математичних',10,'q8a1')">Математичних</button>
-         <button type="button" title="23"  class="btn btn-info btn-sm btn-block" id="q8a2" value="Емпіричних" onclick="chkAnswers('Емпіричних')">Емпіричних</button>
-         <button type="button" title="24" class="btn btn-info btn-sm btn-block" id="q8a3" value="Спостережень" onclick="chkAnswers('Спостережень')">Спостережень</button>
+         <button type="button" title="22" class="btn btn-info btn-sm btn-block" id="q8a1" value="Math" onclick="chkAnswers('Math',10,'q8a1')">Math</button>
+         <button type="button" title="23"  class="btn btn-info btn-sm btn-block" id="q8a2" value="Emperic" onclick="chkAnswers('Emperic')">Emperic</button>
+         <button type="button" title="24" class="btn btn-info btn-sm btn-block" id="q8a3" value="Observations" onclick="chkAnswers('Observations')">Observations</button>
        </div>
        <div class="col-md-4">
          <div class="db_question" id="question9"></div>
-         <button type="button" title="25" class="btn btn-info btn-sm btn-block" id="q9a1" value="Енцелад" onclick="chkAnswers('Енцелад')">Енцелад</button>
-         <button type="button" title="26" class="btn btn-info btn-sm btn-block" id="q9a2" value="Харон" onclick="chkAnswers('Харон',10,'q9a2')">Харон</button>
-         <button type="button" title="27" class="btn btn-info btn-sm btn-block" id="q9a3" value="Аріель" onclick="chkAnswers('Аріель')">Аріель</button>
+         <button type="button" title="25" class="btn btn-info btn-sm btn-block" id="q9a1" value="Encelad" onclick="chkAnswers('Encelad')">Encelad</button>
+         <button type="button" title="26" class="btn btn-info btn-sm btn-block" id="q9a2" value="Charon" onclick="chkAnswers('Charon',10,'q9a2')">Charon</button>
+         <button type="button" title="27" class="btn btn-info btn-sm btn-block" id="q9a3" value="Ariel" onclick="chkAnswers('Ariel')">Ariel</button>
        </div>
     </div>
      </div>
     <div class="container" id="but_to_sec_test">
-          <button type="button" class="btn btn-warning btn-lg"><a href="general_test_2.html">Наступна сторінка</a></button>
-        </div> 
+          <button type="button" class="btn btn-warning btn-lg"><a href="general_test_2.html">Next page</a></button>
+        </div>
   </body>
 </html>

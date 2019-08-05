@@ -1,6 +1,5 @@
 <?php
-
-// Get 17st question for default lesson
+ // Get 17st question for default lesson
 
 $user = 'spaceman';
 $pass = 'mask';
@@ -12,7 +11,7 @@ mysqli_query($conn,"SET NAMES 'utf8'");
 $sql = "select text from questions where id = 17 and lesson_num = 0";
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
 
 $result = $conn->query($sql);
 

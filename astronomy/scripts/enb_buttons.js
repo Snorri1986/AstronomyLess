@@ -1,12 +1,12 @@
 function enbButts(pwd) {
 	var corPwd = 123;
-	if (pwd == corPwd) 
+	if (pwd == corPwd)
 	{
 	    var flag = 'yes';
 	    window.localStorage.setItem("mark",flag);
       }
-	else 
+	else
    {
-       	alert("Вам не дозволено змінювати зміст уроків");
+       	alert("You don't have permissions to change lesson");
     }
 }

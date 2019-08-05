@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 22 2019 г., 21:15
+-- Время создания: Авг 05 2019 г., 22:43
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -26,13 +26,18 @@ DELIMITER $$
 --
 -- Процедуры
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getCurrentAnswer` (IN `ln` INT(1), IN `num_id` INT(2), OUT `txt` TEXT CHARSET utf8)  NO SQL
-BEGIN
-select description into txt
-from answers
-where lesson_num = ln
-and id = num_id;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CheckEmail` (IN `nu_mail` VARCHAR(30), OUT `res` VARCHAR(30))  BEGIN
+select email
+    into res
+from users
+where email = nu_mail;
 END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getFlScores` (IN `lg` VARCHAR(50), OUT `ans` VARCHAR(100))  select 
+concat('Welcome on board ',u.name,' ',u.surname,'. Your`s Scores is ',u.scores,'.')
+      into ans
+from users u
+where u.email = lg$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getImagePath` (IN `id` VARCHAR(10), IN `ft` VARCHAR(1), IN `lesson_num` VARCHAR(10), OUT `fpath` VARCHAR(100))  begin
 select filepath
@@ -53,22 +58,31 @@ and lesson_num = ln
 and id = num;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetUser` (IN `req_name` VARCHAR(30), IN `reg_surname` VARCHAR(30), IN `reg_email` VARCHAR(30), IN `reg_password` VARCHAR(30), OUT `our_name` VARCHAR(30), OUT `our_surname` VARCHAR(30), OUT `our_type` VARCHAR(30))  BEGIN
-
-select name, 
-       surname,
-case type
-    when 'P' then 'Pupil'
-    when 'T' then 'Teacher'
-END as type
-    into our_name, our_surname,our_type
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetUser` (IN `reg_email` VARCHAR(50) CHARSET utf8, IN `reg_password` VARCHAR(50) CHARSET utf8, OUT `flag` INT(1))  BEGIN
+select COUNT(IFNULL(email,2))
+    into flag
 from users
-where name = req_name 
-and surname = reg_surname
-and email = reg_email
-and user_pass = reg_password;
-
+where email = reg_email
+and user_pass = reg_password
+and is_activ = 'Y';
 END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getYoungestLogin` (OUT `login` TEXT CHARSET utf8)  SELECT `email` into login
+from `users`
+where `lastlogin` in 
+(
+    select max(lastlogin) from `users`
+)$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `saveScores` (IN `urss` INT, IN `login` VARCHAR(50) CHARSET utf8)  update `users` set scores = urss + scores
+where email = login$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SetLoginDate` (IN `lg` VARCHAR(50))  update users u set u.lastlogin =  CURRENT_TIMESTAMP()
+where u.email = lg$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `setNewQuestion` (IN `id` INT, IN `q_text` TEXT CHARSET utf8, IN `l_num` INT)  update questions q set q.text = q_text
+where q.id = id
+and q.lesson_num = l_num$$
 
 DELIMITER ;
 
@@ -690,24 +704,24 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`id`, `text`, `lesson_num`) VALUES
-(1, 'Назвіть, будь-ласка, найбільший кратер на поверхні Меркурія?', 0),
-(2, 'Скільки земних днів триває один день на Венері?', 0),
-(3, 'Яку назву має найбільша морська западина на Землі?', 0),
-(4, 'Який хімічний елемент робить Марс червоним ?', 0),
-(5, 'Яку назву має орбітальний зонд, який сьогодні вивчає Юпітер ?', 0),
-(6, 'Яку геологічну структуру має Сатурн ?', 0),
-(7, 'Яка характерна ознака відрізняє Уран від інших планет Сонячної системи ?', 0),
-(8, 'За допомогою яких дослідницьких методів було відкрито планету Нептун ?', 0),
-(9, 'Назвіть найбільший супутник Плутона, який утворює з планетою єдине магнітне поле ?', 0),
-(10, 'Яку назву має найбільший пагорб на Меркурії ?', 0),
-(11, 'Вивчення яких кліматичних явищь викликає найбільший інтерес у вчених при дослідженнях Венери ?', 0),
-(12, 'Яка найбільша гірська вершина на Землі ?', 0),
-(13, 'Яку назву має пустеля, яка за хімічних складом поверхні нагадує Марс ?', 0),
-(14, 'Скільки годин триває доба на Юпітері ?', 0),
-(15, 'Довжина кілець Сатурна в кілометрах ?', 0),
-(16, 'Який вчений вперше відкрив Уран за допомогою оптичного телескопу ?', 0),
-(17, 'Яку назву має автоматична міжпланетна станція, яка здійснила обліт повз планету Нептун ?', 0),
-(18, 'Яка автоматична міжпланетна станція вивчала Плутон ?', 0);
+(1, 'What the largest crater in Mercury planet?', 0),
+(2, 'How many days need to Mercury for Sun rounding ?', 0),
+(3, 'What is the name of the largest sea basin on Earth?', 0),
+(4, 'What the name of  chemical element which makes Mars red planet ?', 0),
+(5, 'How call orbital explorer which explores Jupiter on our days ?', 0),
+(6, 'What is the geological structure of Saturn?', 0),
+(7, 'What characteristic distinguishes Uranus from other planets in the solar system?', 0),
+(8, 'Using what research methods did the planet Neptune be discovered?', 0),
+(9, 'What is the largest satellite of Pluto, which forms a single magnetic field with the planet?', 0),
+(10, 'What is the name of the largest hill on Mercury?', 0),
+(11, 'Studying which climatic phenomena is of greatest interest to scientists in researching Venus?', 0),
+(12, 'What is the largest mountain peak on Earth?', 0),
+(13, 'What is the name of the desert, which resembles Mars in chemical composition?', 0),
+(14, 'How many hours does Jupiter last?', 0),
+(15, 'What is the length of Saturn\'s rings in kilometers?', 0),
+(16, 'Which scientist first discovered Uranus with an optical telescope?', 0),
+(17, 'What is the name of the automatic interplanetary station that flew over the planet Neptune?', 0),
+(18, 'Which automatic interplanetary station did Pluto study?', 0);
 
 -- --------------------------------------------------------
 
@@ -762,19 +776,21 @@ CREATE TABLE `users` (
   `table_num` int(11) DEFAULT NULL COMMENT 'table num(teachers)',
   `is_root` varchar(1) NOT NULL DEFAULT 'N' COMMENT 'superuser',
   `user_pass` varchar(10) NOT NULL COMMENT 'user''s passphrase',
-  `add_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `add_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `scores` int(11) DEFAULT NULL,
+  `lastlogin` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='site users and their attributes';
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `surname`, `type`, `email`, `interactid`, `is_activ`, `table_num`, `is_root`, `user_pass`, `add_date`) VALUES
-(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34'),
-(16, 'Vasya', 'Pupkin', 'P', 'vasya@gmail.com', NULL, 'Y', 0, 'N', '0987654321', '2018-11-29 19:57:00'),
-(17, 'Kisa', 'Lisa', 'P', 'lisa@gmail.com', NULL, 'Y', 0, 'N', '654321', '2018-11-29 20:10:40'),
-(18, 'Zop', 'Pop', 'P', 'zop@gmail.com', NULL, 'Y', 0, 'N', '000000', '2018-11-29 20:17:21'),
-(19, 'Teacher', 'Shabelnykov', 'T', 't@gmail.com', NULL, 'Y', 10, 'N', '0987654321', '2018-12-05 21:18:41');
+INSERT INTO `users` (`id`, `name`, `surname`, `type`, `email`, `interactid`, `is_activ`, `table_num`, `is_root`, `user_pass`, `add_date`, `scores`, `lastlogin`) VALUES
+(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-08-05 20:04:24'),
+(19, 'Teacher', 'Shabelnykov', 'T', 't@gmail.com', NULL, 'Y', 10, 'N', '0987654321', '2018-12-05 21:18:41', NULL, '2019-07-30 19:12:44'),
+(28, 'pak', 'Buki', 'P', 'pak@gmail.com', NULL, 'Y', 701, 'N', '944400--2', '2019-06-06 19:31:19', NULL, NULL),
+(29, 'Popi', 'Kisa', 'P', 'pk@gmail.com', NULL, 'Y', 456, 'N', '0987654321', '2019-06-24 20:37:15', NULL, NULL),
+(30, 'puk', 'pukin', 'P', 'pik@ukr.net', NULL, 'Y', 12, 'N', '1905378902', '2019-06-25 19:32:27', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -824,7 +840,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'counter', AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'counter', AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

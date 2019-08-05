@@ -4,7 +4,6 @@ Author: Denys Shabelnyk
 Date: 14.03.2019
 */
 
-/*  ready to commit 19.03.2019 */
 function isNullOnField() {
 	// #1
 	document.getElementById('name_image_descr_1').addEventListener("keyup", function() {
@@ -95,7 +94,7 @@ function isNullOnField() {
         document.getElementById('btn_name_image_descr_9').setAttribute("disabled", null);
     }
 });
-    // Apply changes button  // ready to commit 02.04.2019
+    // Apply changes button
     document.getElementById('lnf').addEventListener("keyup", function() {
     var nameInput = document.getElementById('lnf').value;
     if (nameInput != "") {
@@ -103,8 +102,6 @@ function isNullOnField() {
     } else {
         document.getElementById('apply_btn').setAttribute("disabled", null);
     }
-}); 
-     // ... ///
-}
+});
 
-  /* ... */ 
+}

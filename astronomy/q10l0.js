@@ -1,4 +1,4 @@
-﻿
+
  // Display question №10 for default lesson
  $(document).ready(function(){
     $.ajax({
@@ -10,4 +10,4 @@
     }
 });
 });
- // ... //
+ 
