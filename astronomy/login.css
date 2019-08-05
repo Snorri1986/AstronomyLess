@@ -1,0 +1,45 @@
+ body {
+  	background-image: url("images/backgrounds/space-shuttle-atlantis.png");
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    }
+
+#Go {
+    	color: yellow;
+      padding-top: 150px;
+      display: block;
+      margin-top: 5px;
+      float: left;
+       }
+
+
+
+     #Go h3 {
+     	font-size: 28px;
+     }
+
+
+
+      .btn {
+      	width: 500px;
+      	height:80px;
+      }
+
+
+
+       .btn a {
+       	 font-size: 28px;
+       	 color: black;
+       }
+
+
+       #auth_form {
+        margin-left: 60px;
+       }
+
+      #Go button {
+        display: block;
+        margin-top: 5px;
+        }
