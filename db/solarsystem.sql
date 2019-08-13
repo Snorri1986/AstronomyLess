@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Авг 05 2019 г., 22:43
+-- Время создания: Авг 13 2019 г., 22:03
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -47,6 +47,16 @@ where objname = id
 and lessonnum = lesson_num
 and filetype = ft;
 end$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetRecipientMail` (OUT `answer` VARCHAR(30))  select mailbox into answer from mails
+where type = 'mail_recipient'$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetSenderMail` (OUT `answer` VARCHAR(30))  select mailbox into answer 
+from mails 
+where type = 'mail_sender'$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetSenderPass` (OUT `answer` VARCHAR(30))  select password into answer from mails
+where type = 'mail_sender'$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getTextAnswerHtml` (IN `qid` INT, IN `ln` INT, IN `num` INT, OUT `txt` TEXT CHARSET utf8)  NO SQL
 BEGIN
@@ -587,6 +597,26 @@ INSERT INTO `jupiter` (`Text`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `mails`
+--
+
+CREATE TABLE `mails` (
+  `type` varchar(30) DEFAULT NULL COMMENT 'account type',
+  `mailbox` varchar(30) DEFAULT NULL COMMENT 'user login',
+  `password` varchar(30) DEFAULT NULL COMMENT 'user pass'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='mail sender configuration';
+
+--
+-- Дамп данных таблицы `mails`
+--
+
+INSERT INTO `mails` (`type`, `mailbox`, `password`) VALUES
+('mail_sender', 'astromailer2019@gmail.com', 'astro2019'),
+('mail_recipient', 'dionisiy1986@gmail.com', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `mars`
 --
 
@@ -786,7 +816,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `type`, `email`, `interactid`, `is_activ`, `table_num`, `is_root`, `user_pass`, `add_date`, `scores`, `lastlogin`) VALUES
-(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-08-05 20:04:24'),
+(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-08-13 19:43:01'),
 (19, 'Teacher', 'Shabelnykov', 'T', 't@gmail.com', NULL, 'Y', 10, 'N', '0987654321', '2018-12-05 21:18:41', NULL, '2019-07-30 19:12:44'),
 (28, 'pak', 'Buki', 'P', 'pak@gmail.com', NULL, 'Y', 701, 'N', '944400--2', '2019-06-06 19:31:19', NULL, NULL),
 (29, 'Popi', 'Kisa', 'P', 'pk@gmail.com', NULL, 'Y', 456, 'N', '0987654321', '2019-06-24 20:37:15', NULL, NULL),

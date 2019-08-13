@@ -57,7 +57,7 @@
   <script src="neptune.js"></script>
   <script src="pluto.php"></script>
   <script src="pluto.js"></script>
-  <script src="scripts/adm_servs.js"></script>
+  <script src="scripts/hide_modal.js"></script>
   <style>
 
   #phys_mercury {
@@ -186,7 +186,7 @@
   /*****************************************/
   </style>
  </head>
-<body onload="buttsOn(),saveCurrentImagesPath()">
+ <body onload="buttsOn()">
   <!-- Instruction -->
   <div class="container" id="greetings_in_lection">
     <p>
@@ -199,28 +199,29 @@
   <div class="container" id="navigation_buts">
     <button type="button" class="btn btn-warning btn-lg"><a href="main.html">Main page</a></button>
     <button type="button" class="btn btn-warning btn-lg"><a href="general_test.html">Test</a></button>
-    <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#modify_lesson"><a href="#">Change lection</a></button>
   </div>
-   <div class="modal fade" id="modify_lesson" role="dialog">
-    <div class="modal-dialog modal-sm">
-     <div class="modal-content">
-       <div class="modal-body">
-        <div class="container">
-    <form id="mod_lesson" method="post" enctype="text/plain">
-    <div class="form-group">
-      <label for="password" style="color:black;">Password:</label>
-      <input type="password" class="form-control" id="pass" name="password" style="width:250px;">
-    </div>
-    <button type="submit" class="btn btn-default" id="send" style="width:120px; color:black; font-size: 14px;"
-    onclick="enbButts(document.getElementById('pass').value)">Send</button>
-    <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel" style="width:120px; color:black; font-size: 14px;">Canceled</button>
-    </form>
-      </div>
+    <div class="modal fade" id="survey" role="dialog">
+     <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Survey</h4>
+        </div>
+    <div class="modal-body">
+    <form id="survey_form" method="get" action="http://localhost:8080/AdminMain">
+     <div class="form-group">
+       <textarea class="black" rows="10" cols="35" name="ta_survey"></textarea>
+     <div class="modal-footer">
+       <button type="submit" class="btn btn-default">Send</button>
+     </div>
          </div>
-           </div>
-       </div>
+     </form>
+     </div>
+        </div>
     </div>
-   <div class="container">
+        </div>
+
+  <div class="container">
     <!-- First row of planets -->
     <div class="row">
       <div class="col-md-4">
@@ -352,8 +353,8 @@
           <!-- lection from DB -->
            <div id="mercury"></div>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default disabled" id="modify_mercury" onclick="updateMercuryLesson()">Change lection</button>
-          </div>
+          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Mercury')">Survey</button>
+        </div>
       </div>
     </div>
   </div>
@@ -406,7 +407,7 @@
           <div id="venus"></div>
         <!-- -->
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default disabled" id="modify_venus" onclick="updateVenusLesson()">Change lection</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Venus')">Survey</button>
         </div>
       </div>
     </div>
@@ -458,8 +459,8 @@
           <!-- Lection from DB -->
            <div id="earth"></div>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default disabled" id="modify_earth" onclick="updateEarthLesson()">Change lection</button>
-        </div>
+          <button type="button" class="btn btn-default" data-toggle="modal" data-dismiss="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Earth')">Survey</button>
+          </div>
       </div>
     </div>
   </div>
@@ -509,8 +510,8 @@
           <!-- Lection from DB -->
            <div id="mars"></div>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default disabled" id="modify_mars" onclick="updateMarsLesson()">Change lection</button>
-        </div>
+          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Mars')">Survey</button>
+          </div>
       </div>
     </div>
   </div>
@@ -560,7 +561,7 @@
           <!-- Lection from DB -->
            <div id="jupiter"></div>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default disabled" id="modify_jupiter" onclick="updateJupiterLesson()">Change lection</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Jupiter')">Survey</button>
         </div>
       </div>
     </div>
@@ -611,7 +612,7 @@
           <!-- Lection from DB -->
            <div id="saturn"></div>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default disabled" id="modify_saturn" onclick="updateSaturnLesson()">Change lection</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Saturn')">Survey</button>
         </div>
       </div>
     </div>
@@ -662,7 +663,7 @@
           <!-- Lection from DB -->
            <div id="uranus"></div>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default disabled" id="modify_uranus" onclick="updateUranusLesson()">Change lection</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Uranus')">Survey</button>
         </div>
       </div>
     </div>
@@ -713,7 +714,7 @@
           <!-- Lection from DB -->
            <div id="neptune"></div>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default disabled" id="modify_neptune" onclick="updateNeptuneLesson()">Change lection</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Neptune')">Survey</button>
         </div>
       </div>
     </div>
@@ -764,7 +765,7 @@
           <!-- Lection from DB -->
            <div id="pluto"></div>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default disabled" id="modify_pluto" onclick="updatePlutoLesson()">Change lection</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Pluto')">Survey</button>
         </div>
       </div>
     </div>

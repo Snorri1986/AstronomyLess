@@ -5,13 +5,16 @@
 */
 package com.astronomylesson;
 
-import org.jsoup.Jsoup;
+/*import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+import org.jsoup.select.Elements;*/
 
 import java.io.*;
 import java.sql.*;
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
 
 public class AdminLessons {
 
@@ -216,10 +219,9 @@ public class AdminLessons {
 
         int l_id = Integer.parseInt(lesson_id);
         boolean result = false;
-        switch(l_id) {
+        switch (l_id) {
 
-            case  1 :
-            {
+            case 1: {
                 File dest_file = new File("C:\\xampp\\htdocs\\astronomy\\main.html");
                 dest_file.delete();
 
@@ -231,7 +233,7 @@ public class AdminLessons {
 
                 int length;
                 //copy the file content in bytes
-                while ((length = in.read(buffer)) > 0){
+                while ((length = in.read(buffer)) > 0) {
                     out.write(buffer, 0, length);
                 }
 
@@ -243,9 +245,8 @@ public class AdminLessons {
 
             }
 
-                // default lesson
-            case 0:
-            {
+            // default lesson
+            case 0: {
                 File dest_file = new File("C:\\xampp\\htdocs\\astronomy\\main.html");
                 dest_file.delete();
 
@@ -257,7 +258,7 @@ public class AdminLessons {
 
                 int length;
                 //copy the file content in bytes
-                while ((length = in.read(buffer)) > 0){
+                while ((length = in.read(buffer)) > 0) {
                     out.write(buffer, 0, length);
                 }
 
@@ -269,8 +270,7 @@ public class AdminLessons {
 
             }
 
-            case 2:
-            {
+            case 2: {
                 File dest_file = new File("C:\\xampp\\htdocs\\astronomy\\main.html");
                 dest_file.delete();
 
@@ -282,7 +282,7 @@ public class AdminLessons {
 
                 int length;
                 //copy the file content in bytes
-                while ((length = in.read(buffer)) > 0){
+                while ((length = in.read(buffer)) > 0) {
                     out.write(buffer, 0, length);
                 }
 
@@ -293,8 +293,7 @@ public class AdminLessons {
                 break;
             }
 
-            case 3:
-            {
+            case 3: {
                 File dest_file = new File("C:\\xampp\\htdocs\\astronomy\\main.html");
                 dest_file.delete();
 
@@ -306,7 +305,7 @@ public class AdminLessons {
 
                 int length;
                 //copy the file content in bytes
-                while ((length = in.read(buffer)) > 0){
+                while ((length = in.read(buffer)) > 0) {
                     out.write(buffer, 0, length);
                 }
 
@@ -318,8 +317,7 @@ public class AdminLessons {
             }
 
 
-            case 4:
-            {
+            case 4: {
                 File dest_file = new File("C:\\xampp\\htdocs\\astronomy\\main.html");
                 dest_file.delete();
 
@@ -331,7 +329,7 @@ public class AdminLessons {
 
                 int length;
                 //copy the file content in bytes
-                while ((length = in.read(buffer)) > 0){
+                while ((length = in.read(buffer)) > 0) {
                     out.write(buffer, 0, length);
                 }
 
@@ -342,8 +340,7 @@ public class AdminLessons {
                 break;
             }
 
-            case 5:
-            {
+            case 5: {
                 File dest_file = new File("C:\\xampp\\htdocs\\astronomy\\main.html");
                 dest_file.delete();
 
@@ -355,7 +352,7 @@ public class AdminLessons {
 
                 int length;
                 //copy the file content in bytes
-                while ((length = in.read(buffer)) > 0){
+                while ((length = in.read(buffer)) > 0) {
                     out.write(buffer, 0, length);
                 }
 
@@ -366,8 +363,7 @@ public class AdminLessons {
                 break;
             }
 
-            case 6:
-            {
+            case 6: {
                 File dest_file = new File("C:\\xampp\\htdocs\\astronomy\\main.html");
                 dest_file.delete();
 
@@ -379,7 +375,7 @@ public class AdminLessons {
 
                 int length;
                 //copy the file content in bytes
-                while ((length = in.read(buffer)) > 0){
+                while ((length = in.read(buffer)) > 0) {
                     out.write(buffer, 0, length);
                 }
 
@@ -391,8 +387,7 @@ public class AdminLessons {
             }
 
 
-            case 7:
-            {
+            case 7: {
                 File dest_file = new File("C:\\xampp\\htdocs\\astronomy\\main.html");
                 dest_file.delete();
 
@@ -404,7 +399,7 @@ public class AdminLessons {
 
                 int length;
                 //copy the file content in bytes
-                while ((length = in.read(buffer)) > 0){
+                while ((length = in.read(buffer)) > 0) {
                     out.write(buffer, 0, length);
                 }
 
@@ -415,8 +410,7 @@ public class AdminLessons {
                 break;
             }
 
-            case 8:
-            {
+            case 8: {
                 File dest_file = new File("C:\\xampp\\htdocs\\astronomy\\main.html");
                 dest_file.delete();
 
@@ -428,7 +422,7 @@ public class AdminLessons {
 
                 int length;
                 //copy the file content in bytes
-                while ((length = in.read(buffer)) > 0){
+                while ((length = in.read(buffer)) > 0) {
                     out.write(buffer, 0, length);
                 }
 
@@ -439,8 +433,7 @@ public class AdminLessons {
                 break;
             }
 
-            case 9:
-            {
+            case 9: {
                 File dest_file = new File("C:\\xampp\\htdocs\\astronomy\\main.html");
                 dest_file.delete();
 
@@ -452,7 +445,7 @@ public class AdminLessons {
 
                 int length;
                 //copy the file content in bytes
-                while ((length = in.read(buffer)) > 0){
+                while ((length = in.read(buffer)) > 0) {
                     out.write(buffer, 0, length);
                 }
 
@@ -469,7 +462,7 @@ public class AdminLessons {
 
 
     // change question for general test
-    public static boolean setNewQuestion(String id,String txt,String less_num) {
+    public static boolean setNewQuestion(String id, String txt, String less_num) {
         boolean res = true;
         try {
 
@@ -501,16 +494,16 @@ public class AdminLessons {
                 stmt.execute();
                 conn.close();
 
-            }catch(SQLException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
                 res = false;
             }
 
-        }catch(ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
             res = false;
         }
-    return res;
+        return res;
     }
 
     // get current login from application session
@@ -594,4 +587,195 @@ public class AdminLessons {
         }
     }
 
+
+    // getSender
+    public static String getSenderMailboxDB() {
+        String sender_login = " ";
+        // connect to MySQL DB
+
+        // call DB
+        try {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // connect to MySQL DB
+            String jdbcUrl = "jdbc:mysql://localhost:3306/solarsystem" +
+                    "?verifyServerCertificate=false" +
+                    "&useSSL=false" +
+                    "&requireSSL=false" +
+                    "&useLegacyDatetimeCode=false" +
+                    "&amp" +
+                    "&serverTimezone=UTC";
+            String username = "spaceman";
+            String password = "mask";
+
+                try {
+                    Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
+
+                    String sql = "{call GetSenderMail(?)}";
+                    CallableStatement stmt = conn.prepareCall(sql);
+                    //Set OUT parameter
+                    stmt.registerOutParameter(1, Types.VARCHAR);
+
+                    stmt.execute();
+                    sender_login = stmt.getString(1);
+                    conn.close();
+
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+                  }catch(ClassNotFoundException e) {
+                       e.printStackTrace();
+                }
+
+            return sender_login;
+    }
+
+    // ... //
+
+    // sender pass
+    public static String getSenderPassDB() {
+        String sender_pass = " ";
+        // connect to MySQL DB
+
+        // call DB
+        try {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // connect to MySQL DB
+            String jdbcUrl = "jdbc:mysql://localhost:3306/solarsystem" +
+                    "?verifyServerCertificate=false" +
+                    "&useSSL=false" +
+                    "&requireSSL=false" +
+                    "&useLegacyDatetimeCode=false" +
+                    "&amp" +
+                    "&serverTimezone=UTC";
+            String username = "spaceman";
+            String password = "mask";
+
+            try {
+                Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
+
+                String sql = "{call GetSenderPass(?)}";
+                CallableStatement stmt = conn.prepareCall(sql);
+                //Set OUT parameter
+                stmt.registerOutParameter(1, Types.VARCHAR);
+
+                stmt.execute();
+                sender_pass = stmt.getString(1);
+                conn.close();
+
+            } catch(SQLException e) {
+                e.printStackTrace();
+            }
+        }catch(ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return sender_pass;
+    }
+    // ...//
+
+    // getRecepient
+    public static String getRecipientMailDB() {
+        String recipient_mail = " ";
+        // connect to MySQL DB
+
+        // call DB
+        try {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // connect to MySQL DB
+            String jdbcUrl = "jdbc:mysql://localhost:3306/solarsystem" +
+                    "?verifyServerCertificate=false" +
+                    "&useSSL=false" +
+                    "&requireSSL=false" +
+                    "&useLegacyDatetimeCode=false" +
+                    "&amp" +
+                    "&serverTimezone=UTC";
+            String username = "spaceman";
+            String password = "mask";
+
+            try {
+                Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
+
+                String sql = "{call GetRecipientMail(?)}";
+                CallableStatement stmt = conn.prepareCall(sql);
+                //Set OUT parameter
+                stmt.registerOutParameter(1, Types.VARCHAR);
+
+                stmt.execute();
+                recipient_mail = stmt.getString(1);
+                conn.close();
+
+            } catch(SQLException e) {
+                e.printStackTrace();
+            }
+        }catch(ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return recipient_mail;
+    }
+    // ... //
+
+    //sendSurvey
+    public static boolean sendSurveytoMail(String srv_text) {
+        boolean res = false;
+        String sender_name = getSenderMailboxDB();
+        String sender_pass = getSenderPassDB();
+        String usr_recipient = getRecipientMailDB();
+        String[] usr_recipient_arr = {usr_recipient};
+
+        String subject = "Survey on article";
+        String body = srv_text;
+
+        Properties props = System.getProperties();
+        String host = "smtp.gmail.com";
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.user", sender_name);
+        props.put("mail.smtp.password", sender_pass );
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+
+        Session session = Session.getDefaultInstance(props);
+        MimeMessage message = new MimeMessage(session);
+
+        try {
+            message.setFrom(new InternetAddress(sender_name));
+            InternetAddress[] toAddress = new InternetAddress[usr_recipient_arr.length];
+
+            // To get the array of addresses
+            for( int i = 0; i < usr_recipient_arr.length; i++ ) {
+                toAddress[i] = new InternetAddress(usr_recipient_arr[i]);
+            }
+
+            for( int i = 0; i < toAddress.length; i++) {
+                message.addRecipient(Message.RecipientType.TO, toAddress[i]);
+            }
+
+            message.setSubject(subject);
+            message.setText(body);
+            Transport transport = session.getTransport("smtp");
+            transport.connect(host, sender_name, sender_pass);
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+
+            res = true;
+        }
+        catch (AddressException ae) {
+            ae.printStackTrace();
+        }
+        catch (MessagingException me) {
+            me.printStackTrace();
+        }
+        return res;
+    }
+
 }
+    // ... //
+
+

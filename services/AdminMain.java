@@ -179,6 +179,21 @@ public class AdminMain extends HttpServlet  {
             scores_out.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/main.html\";</script>");
         }
 
+
+        // send survey
+        else if(request.getParameter("ta_survey") != null ) {
+            boolean res_mailbox = false;
+            String txt = request.getParameter("ta_survey");
+            res_mailbox = AdminLessons.sendSurveytoMail(txt);
+            if(res_mailbox) {
+                PrintWriter sysrveys = response.getWriter();
+                sysrveys.print("<script language='JavaScript'>alert('Survey have successfully sent');</script>");
+                sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/lections.html\";</script>");
+            }
+
+        }
+        // ... //
+
         else {
 
 
