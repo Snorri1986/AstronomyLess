@@ -194,6 +194,29 @@ public class AdminMain extends HttpServlet  {
         }
         // ... //
 
+        // Update text of lection
+        else if(request.getParameter("l_upload") != null )  {
+            String btn_number = request.getParameter("btn_l_num");
+            String lection_txt = request.getParameter("ta_l");
+
+            try {
+                boolean action_result = AdminLessons.SetNewLectioninDB(btn_number, lection_txt);
+                if(action_result) {
+                    PrintWriter txtlection = response.getWriter();
+                    txtlection.print("<script language='JavaScript'>alert('Lection text have successfully saved');</script>");
+                    txtlection.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/lections.html\";</script>");
+                } else {
+                    PrintWriter txtlection_err = response.getWriter();
+                    txtlection_err .print("<script language='JavaScript'>alert('Error while saved txt in DB');</script>");
+                    txtlection_err.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/admin2.html\";</script>");
+                }
+            } catch(ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
+        }
+        // ... //
+
         else {
 
 

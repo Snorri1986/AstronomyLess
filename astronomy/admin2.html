@@ -26,9 +26,10 @@
     color: black;
 }
 
-#new_leso_answer, #new_question {
+#new_leso_answer, #new_question, #new_lection {
   text-align: center;
   color: yellow;
+
 }
 
 body {
@@ -49,10 +50,7 @@ body {
 
     <!-- Button of lesson -->
 <div class="row">
-	  <!-- test code 02.01.2019 -->
-     <!-- <button type="submit" class="btn btn-warning btn-md" id="lesson_0" onclick="setImages()">0</button> -->
-     <!-- test code 15.04.2019 -->
-     <form method="get" id="ln_btn" action="http://localhost:8080/AdminMain">
+	   <form method="get" id="ln_btn" action="http://localhost:8080/AdminMain">
      <button type="submit" class="btn btn-warning btn-md" name="l0">0</button>
      <button type="submit" class="btn btn-warning btn-md" name="l1">1</button>
      <button type="submit" class="btn btn-warning btn-md" name="l2">2</button>
@@ -72,7 +70,7 @@ body {
 
   <div class="container">
           <h2 class="main_title">Write text of question below:</h2>
-    </div>
+  </div>
     <form method="get" id="new_question" action="http://localhost:8080/AdminMain">
       <div class="form-group">
       <textarea class="black" rows="4" cols="50" name="ta"></textarea>
@@ -81,6 +79,18 @@ body {
       <button type="submit" class="btn btn-warning btn-md" name="q_upload">Upload</button>
       <button type="submit" class="btn btn-warning btn-md" name="cback">Restore all changes</button>
       </div>
-</form>
+    </form>
+
+       <div class="container">
+            <h2 class="main_title">Write new text of lection below:</h2>
+       </div>
+       <form method="get" id="new_lection" action="http://localhost:8080/AdminMain">
+         <div class="form-group">
+         <textarea class="black" rows="25" cols="70" name="ta_l"></textarea>
+         Number of button: <input class="black" type="text" name="btn_l_num">
+         <button type="submit" class="btn btn-warning btn-lg" name="l_upload">Upload</button>
+       </div>
+       </form>
+
 </body>
 </html>
