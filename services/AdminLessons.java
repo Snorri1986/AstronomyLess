@@ -820,6 +820,51 @@ public class AdminLessons {
     }
     // ... //
 
+    // set new names of button in lection.
+    public static boolean SetNewButtonNameInLection(String new_btn_num, String btn_num, String less_num) throws ClassNotFoundException {
+        boolean result = false;
+        int lection_nums = 54;
+
+        if(Integer.parseInt(btn_num) > lection_nums) return result;
+
+        Class.forName("com.mysql.jdbc.Driver");
+
+        // connect to MySQL DB
+        String jdbcUrl = "jdbc:mysql://localhost:3306/solarsystem" +
+                "?verifyServerCertificate=false" +
+                "&useSSL=false" +
+                "&requireSSL=false" +
+                "&useLegacyDatetimeCode=false" +
+                "&amp" +
+                "&serverTimezone=UTC";
+        String username = "spaceman";
+        String password = "mask";
+        String sql = "{call SetNewNameButtonLection(?,?,?)}";
+
+        try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
+             CallableStatement stmt = conn.prepareCall(sql)) {
+
+            //Set IN parameter
+            stmt.setString(1, new_btn_num);
+            stmt.setString(2, btn_num);
+            stmt.setString(3, less_num);
+
+            //Execute stored procedure
+            stmt.execute();
+
+            // close connection
+            conn.close();
+
+            result = true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+    // ... //
+
 }
 
 

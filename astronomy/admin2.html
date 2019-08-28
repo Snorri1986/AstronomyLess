@@ -26,10 +26,9 @@
     color: black;
 }
 
-#new_leso_answer, #new_question, #new_lection {
+#new_leso_answer, #new_question, #new_lection, #new_lec_button_name {
   text-align: center;
   color: yellow;
-
 }
 
 body {
@@ -92,5 +91,18 @@ body {
        </div>
        </form>
 
-</body>
+
+       <div class="container">
+               <h2 class="main_title">Write new button name in lection:</h2>
+       </div>
+         <form method="get" id="new_lec_button_name" action="http://localhost:8080/AdminMain">
+           <div class="form-group">
+           New button name: <input class="black" type="text" name="btn_num_name">
+           Button number: <input class="black" type="text" name="btn_num_lection">
+           Lesson number: <input class="black" type="text" name="ln_num_lection" style="width: 120px;">
+           <button type="submit" class="btn btn-warning btn-md" name="btn_new_ln_upload">Upload</button>
+          </div>
+        </form>
+
+     </body>
 </html>

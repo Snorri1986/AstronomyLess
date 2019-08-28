@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Авг 19 2019 г., 23:22
+-- Время создания: Авг 28 2019 г., 21:12
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -92,6 +92,11 @@ where u.email = lg$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SetNewLectionText` (IN `lection_num` VARCHAR(2) CHARSET utf8, IN `lec_txt` VARCHAR(255) CHARSET utf8)  UPDATE `lections` SET `buttonnum`= lection_num,
 `lection_txt`= lec_txt WHERE `buttonnum`= lection_num$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SetNewNameButtonLection` (IN `n_name` VARCHAR(30) CHARSET utf8, IN `btn_num` VARCHAR(10) CHARSET utf8, IN `ln_num` VARCHAR(10) CHARSET utf8)  NO SQL
+update lections_b set `name` = n_name
+where `button_number` = btn_num
+and `lesson_number` =  ln_num$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `setNewQuestion` (IN `id` INT, IN `q_text` TEXT CHARSET utf8, IN `l_num` INT)  update questions q set q.text = q_text
 where q.id = id
@@ -591,6 +596,33 @@ INSERT INTO `lections` (`buttonnum`, `lection_txt`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `lections_b`
+--
+
+CREATE TABLE `lections_b` (
+  `name` varchar(30) NOT NULL,
+  `button_number` int(11) NOT NULL,
+  `lesson_number` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `lections_b`
+--
+
+INSERT INTO `lections_b` (`name`, `button_number`, `lesson_number`) VALUES
+('Mercury', 1, 0),
+('Venus', 2, 0),
+('Earth', 3, 0),
+('Mars', 4, 0),
+('Jupiter', 5, 0),
+('Saturn', 6, 0),
+('Uranus', 7, 0),
+('Neptune', 8, 0),
+('Pluto', 9, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `mails`
 --
 
@@ -702,7 +734,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `type`, `email`, `interactid`, `is_activ`, `table_num`, `is_root`, `user_pass`, `add_date`, `scores`, `lastlogin`) VALUES
-(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-08-19 21:13:33'),
+(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-08-28 19:07:17'),
 (19, 'Teacher', 'Shabelnykov', 'T', 't@gmail.com', NULL, 'Y', 10, 'N', '0987654321', '2018-12-05 21:18:41', NULL, '2019-07-30 19:12:44'),
 (28, 'pak', 'Buki', 'P', 'pak@gmail.com', NULL, 'Y', 701, 'N', '944400--2', '2019-06-06 19:31:19', NULL, NULL),
 (29, 'Popi', 'Kisa', 'P', 'pk@gmail.com', NULL, 'Y', 456, 'N', '0987654321', '2019-06-24 20:37:15', NULL, NULL),

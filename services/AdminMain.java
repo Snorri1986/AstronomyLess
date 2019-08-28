@@ -217,6 +217,30 @@ public class AdminMain extends HttpServlet  {
         }
         // ... //
 
+        //set new names of button in lection. 
+        else if(request.getParameter("btn_new_ln_upload") != null ) {
+            String n_btn_name = request.getParameter("btn_num_name");
+            String btn_lection_num = request.getParameter("btn_num_lection");
+            String l_num = request.getParameter("ln_num_lection");
+
+            try {
+                boolean action_result = AdminLessons.SetNewButtonNameInLection(n_btn_name,btn_lection_num,l_num);
+                if(action_result) {
+                    PrintWriter txtlection = response.getWriter();
+                    txtlection.print("<script language='JavaScript'>alert('New name of button successfully commited');</script>");
+                    txtlection.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/lections.html\";</script>");
+                } else {
+                    PrintWriter txtlection_err = response.getWriter();
+                    txtlection_err .print("<script language='JavaScript'>alert('Error while saved new name of Button in DB');</script>");
+                    txtlection_err.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/admin2.html\";</script>");
+                }
+            } catch(ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // ... //
+
         else {
 
 
