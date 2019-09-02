@@ -43,3 +43,21 @@
         display: block;
         margin-top: 5px;
         }
+
+      #missions_labels_1, #missions_labels_2 {
+        text-align: right;
+        width:70%;
+      }
+
+      #mission_logos_1 img {
+        width: 100px;
+        height: 100px;
+        margin-top: -280px;
+      }
+
+      #mission_logos_2 img {
+        width: 100px;
+        height: 100px;
+        margin-top: -110px;
+      }
+      

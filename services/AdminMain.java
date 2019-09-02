@@ -87,18 +87,22 @@ public class AdminMain extends HttpServlet  {
 
         }
 
-
         // Authentication.
           else if (request.getParameter("mail") != null &&
-                request.getParameter("pass") != null) {
+                request.getParameter("pass") != null &&
+                request.getParameter("lessons") != null) {
 
             String usr_login = request.getParameter("mail");
             String pass_phrase = request.getParameter("pass");
 
+
+            // get lesson type
+            String lesson_name = request.getParameter("lessons");
+
             // call current procedure
             boolean auth_result = AdminUsers.authUser(usr_login, pass_phrase);
 
-            // show result and redirect to main.html
+            // show result and redirect to lesson html
             if (auth_result) {
 
                 // get data from DB
@@ -112,9 +116,44 @@ public class AdminMain extends HttpServlet  {
                 // greeting message
                 auth_positive.print(greeting_str);
 
-                // redirect to main.html
-                auth_positive.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/main.html\";</script>");
+                // redirect to to lesson html. 
+                switch(lesson_name) {
+                    case "OurSolarSystem": {
+                        auth_positive.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/main.html\";</script>");
+                        break;
+                    }
 
+                    case "Mercury": {
+                        auth_positive.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl1/lections.html\";</script>");
+                        break;
+                    }
+
+                    case "Gemini": {
+                        auth_positive.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl2/lections.html\";</script>");
+                        break;
+                    }
+
+                    case "Apollo": {
+                        auth_positive.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl3/lections.html\";</script>");
+                        break;
+                    }
+
+                    case "SpaceShuttle": {
+                        auth_positive.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl4/lections.html\";</script>");
+                        break;
+                    }
+
+                    case "SkyLab": {
+                        auth_positive.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl5/lections.html\";</script>");
+                        break;
+                    }
+
+                    case "ISS": {
+                        auth_positive.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl6/lections.html\";</script>");
+                        break;
+                    }
+
+                }
 
             } else
                    {
@@ -217,7 +256,7 @@ public class AdminMain extends HttpServlet  {
         }
         // ... //
 
-        //set new names of button in lection. 
+        //set new names of button in lection.
         else if(request.getParameter("btn_new_ln_upload") != null ) {
             String n_btn_name = request.getParameter("btn_num_name");
             String btn_lection_num = request.getParameter("btn_num_lection");
