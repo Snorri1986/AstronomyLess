@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Авг 28 2019 г., 21:12
+-- Время создания: Сен 09 2019 г., 22:35
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -90,6 +90,9 @@ where email = login$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SetLoginDate` (IN `lg` VARCHAR(50))  update users u set u.lastlogin =  CURRENT_TIMESTAMP()
 where u.email = lg$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SetNewEvent` (IN `new_date` VARCHAR(30), IN `new_descr` VARCHAR(1000) CHARSET utf8)  INSERT INTO `events`(`event_date`, `description`) 
+VALUES (new_date,new_descr)$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SetNewLectionText` (IN `lection_num` VARCHAR(2) CHARSET utf8, IN `lec_txt` VARCHAR(255) CHARSET utf8)  UPDATE `lections` SET `buttonnum`= lection_num,
 `lection_txt`= lec_txt WHERE `buttonnum`= lection_num$$
 
@@ -101,6 +104,15 @@ and `lesson_number` =  ln_num$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `setNewQuestion` (IN `id` INT, IN `q_text` TEXT CHARSET utf8, IN `l_num` INT)  update questions q set q.text = q_text
 where q.id = id
 and q.lesson_num = l_num$$
+
+--
+-- Функции
+--
+CREATE DEFINER=`root`@`localhost` FUNCTION `getCurrentDate` () RETURNS DATE BEGIN
+DECLARE DAT DATE;
+   SELECT CURRENT_DATE() INTO DAT;
+RETURN DAT;
+END$$
 
 DELIMITER ;
 
@@ -188,6 +200,26 @@ INSERT INTO `answers` (`id`, `question_id`, `description`, `flag`, `lesson_num`,
 CREATE TABLE `employee_num` (
   `e_num` int(11) NOT NULL COMMENT 'native tabnum'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Native table numbers of employees';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `events`
+--
+
+CREATE TABLE `events` (
+  `event_date` varchar(30) NOT NULL,
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `events`
+--
+
+INSERT INTO `events` (`event_date`, `description`) VALUES
+('2019-09-05', 'Apollo 11 was landed on the Moon'),
+('2019-09-07', 'TESTOVICH'),
+('2019-09-09', 'I love my kitty');
 
 -- --------------------------------------------------------
 
@@ -734,7 +766,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `type`, `email`, `interactid`, `is_activ`, `table_num`, `is_root`, `user_pass`, `add_date`, `scores`, `lastlogin`) VALUES
-(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-08-28 19:07:17'),
+(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-09-09 20:23:37'),
 (19, 'Teacher', 'Shabelnykov', 'T', 't@gmail.com', NULL, 'Y', 10, 'N', '0987654321', '2018-12-05 21:18:41', NULL, '2019-07-30 19:12:44'),
 (28, 'pak', 'Buki', 'P', 'pak@gmail.com', NULL, 'Y', 701, 'N', '944400--2', '2019-06-06 19:31:19', NULL, NULL),
 (29, 'Popi', 'Kisa', 'P', 'pk@gmail.com', NULL, 'Y', 456, 'N', '0987654321', '2019-06-24 20:37:15', NULL, NULL),
@@ -749,6 +781,12 @@ INSERT INTO `users` (`id`, `name`, `surname`, `type`, `email`, `interactid`, `is
 --
 ALTER TABLE `employee_num`
   ADD PRIMARY KEY (`e_num`);
+
+--
+-- Индексы таблицы `events`
+--
+ALTER TABLE `events`
+  ADD UNIQUE KEY `INDX_EVENT_DATE` (`event_date`);
 
 --
 -- Индексы таблицы `questions`

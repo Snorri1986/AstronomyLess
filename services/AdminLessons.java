@@ -609,26 +609,26 @@ public class AdminLessons {
             String username = "spaceman";
             String password = "mask";
 
-                try {
-                    Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
+            try {
+                Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
 
-                    String sql = "{call GetSenderMail(?)}";
-                    CallableStatement stmt = conn.prepareCall(sql);
-                    //Set OUT parameter
-                    stmt.registerOutParameter(1, Types.VARCHAR);
+                String sql = "{call GetSenderMail(?)}";
+                CallableStatement stmt = conn.prepareCall(sql);
+                //Set OUT parameter
+                stmt.registerOutParameter(1, Types.VARCHAR);
 
-                    stmt.execute();
-                    sender_login = stmt.getString(1);
-                    conn.close();
+                stmt.execute();
+                sender_login = stmt.getString(1);
+                conn.close();
 
-                } catch(SQLException e) {
-                    e.printStackTrace();
-                }
-                  }catch(ClassNotFoundException e) {
-                       e.printStackTrace();
-                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
-            return sender_login;
+        return sender_login;
     }
 
     // ... //
@@ -666,10 +666,10 @@ public class AdminLessons {
                 sender_pass = stmt.getString(1);
                 conn.close();
 
-            } catch(SQLException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }catch(ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -710,10 +710,10 @@ public class AdminLessons {
                 recipient_mail = stmt.getString(1);
                 conn.close();
 
-            } catch(SQLException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }catch(ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -737,7 +737,7 @@ public class AdminLessons {
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", host);
         props.put("mail.smtp.user", sender_name);
-        props.put("mail.smtp.password", sender_pass );
+        props.put("mail.smtp.password", sender_pass);
         props.put("mail.smtp.port", "587");
         props.put("mail.smtp.auth", "true");
 
@@ -749,11 +749,11 @@ public class AdminLessons {
             InternetAddress[] toAddress = new InternetAddress[usr_recipient_arr.length];
 
             // To get the array of addresses
-            for( int i = 0; i < usr_recipient_arr.length; i++ ) {
+            for (int i = 0; i < usr_recipient_arr.length; i++) {
                 toAddress[i] = new InternetAddress(usr_recipient_arr[i]);
             }
 
-            for( int i = 0; i < toAddress.length; i++) {
+            for (int i = 0; i < toAddress.length; i++) {
                 message.addRecipient(Message.RecipientType.TO, toAddress[i]);
             }
 
@@ -765,11 +765,9 @@ public class AdminLessons {
             transport.close();
 
             res = true;
-        }
-        catch (AddressException ae) {
+        } catch (AddressException ae) {
             ae.printStackTrace();
-        }
-        catch (MessagingException me) {
+        } catch (MessagingException me) {
             me.printStackTrace();
         }
         return res;
@@ -781,7 +779,7 @@ public class AdminLessons {
         boolean result = false;
         int lection_nums = 54;
 
-        if(Integer.parseInt(btn_num) > lection_nums) return result;
+        if (Integer.parseInt(btn_num) > lection_nums) return result;
 
         Class.forName("com.mysql.jdbc.Driver");
 
@@ -825,7 +823,7 @@ public class AdminLessons {
         boolean result = false;
         int lection_nums = 54;
 
-        if(Integer.parseInt(btn_num) > lection_nums) return result;
+        if (Integer.parseInt(btn_num) > lection_nums) return result;
 
         Class.forName("com.mysql.jdbc.Driver");
 
@@ -865,6 +863,49 @@ public class AdminLessons {
     }
     // ... //
 
+    // Add new event date.
+    public static boolean SetNewEvent(String new_evnt_date, String event_descrp) throws ClassNotFoundException {
+        boolean result = false;
+
+        Class.forName("com.mysql.jdbc.Driver");
+
+        // connect to MySQL DB
+        String jdbcUrl = "jdbc:mysql://localhost:3306/solarsystem" +
+                "?verifyServerCertificate=false" +
+                "&useSSL=false" +
+                "&requireSSL=false" +
+                "&useLegacyDatetimeCode=false" +
+                "&amp" +
+                "&serverTimezone=UTC";
+        String username = "spaceman";
+        String password = "mask";
+        String sql = "{call SetNewEvent(?,?)}";
+
+
+        try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
+             CallableStatement stmt = conn.prepareCall(sql)) {
+
+            //Set IN parameter
+            stmt.setString(1, new_evnt_date);
+            stmt.setString(2, event_descrp);
+
+
+            //Execute stored procedure
+            stmt.execute();
+
+            // close connection
+            conn.close();
+
+            result = true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+         return result;
+    }
+    // ... //
 }
 
 

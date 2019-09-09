@@ -116,7 +116,7 @@ public class AdminMain extends HttpServlet  {
                 // greeting message
                 auth_positive.print(greeting_str);
 
-                // redirect to to lesson html. 
+                // redirect to to lesson html.
                 switch(lesson_name) {
                     case "OurSolarSystem": {
                         auth_positive.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/main.html\";</script>");
@@ -278,6 +278,31 @@ public class AdminMain extends HttpServlet  {
             }
         }
 
+        // ... //
+
+
+        // Add new event date.
+        else if(request.getParameter("ev_date") != null &&
+                request.getParameter("ev_description") != null) {
+
+            String new_ev_date = request.getParameter("ev_date");
+            String new_ev_descrp = request.getParameter("ev_description");
+
+            try {
+                boolean action_result = AdminLessons.SetNewEvent(new_ev_date,new_ev_descrp);
+                if(action_result) {
+                    PrintWriter txtlection = response.getWriter();
+                    txtlection.print("<script language='JavaScript'>alert('An new event has been successfully added');</script>");
+                    txtlection.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/main.html\";</script>");
+                } else {
+                    PrintWriter txtlection_err = response.getWriter();
+                    txtlection_err .print("<script language='JavaScript'>alert('Error while saved new event');</script>");
+                    txtlection_err.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/admin2.html\";</script>");
+                }
+            } catch(ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
         // ... //
 
         else {

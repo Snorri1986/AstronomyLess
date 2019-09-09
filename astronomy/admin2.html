@@ -26,10 +26,12 @@
     color: black;
 }
 
-#new_leso_answer, #new_question, #new_lection, #new_lec_button_name {
+#new_leso_answer, #new_question, #new_lection, #new_lec_button_name,
+#upl_new_event {
   text-align: center;
   color: yellow;
 }
+
 
 body {
 	background-image: url("images/backgrounds/galaxy.jpg");
@@ -103,6 +105,16 @@ body {
            <button type="submit" class="btn btn-warning btn-md" name="btn_new_ln_upload">Upload</button>
           </div>
         </form>
-
-     </body>
+        <div class="container">
+                <h2 class="main_title">Upload new event</h2>
+                <h4 class="main_title">insert date in format YYYY-MM-DD</h4>
+        </div>
+          <form method="get" id="upl_new_event" action="http://localhost:8080/AdminMain">
+            <div class="form-group">
+            Date: <input class="black" type="text" name="ev_date">
+            Description of event: <input class="black" type="text" name="ev_description">
+            <button type="submit" class="btn btn-warning btn-md" name="btn_event_upload">Upload</button>
+           </div>
+         </form>
+    </body>
 </html>

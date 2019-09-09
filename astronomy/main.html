@@ -11,11 +11,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="scripts/Local_IssTime.js"></script>
+  <script src="date.js"></script>
+  <script src="event.js"></script>
+  <script src="date.php"></script>
+  <script src="event.php"></script>
 </head>
 <body onload="startTimeIss(),startTime()">
   <div class="container" id="greetings">
 	<div id="hello">
-    <h1>Welcome in virtual univers!!!</h1>
+    <h1>Welcome in virtual universe!!!</h1>
     <div id="welcome"></div>
     <div id="vinci">
     <p>We choice to go to The Moon</p>
@@ -40,8 +44,8 @@
      <div class="container" id="selectors">
     <button type="button" class="btn btn-warning"><a href="lections.html">Lections</a></button>
     <button type="button" class="btn btn-warning"><a href="general_test.html">Test</a></button>
-    <button type="button" class="btn btn-warning"><a href="https://www.nasa.gov/multimedia/imagegallery/index.html">Gallery</a></button>
-     <button type="button" class="btn btn-warning" id="creator"><a href="admin.html">Admin part</a></button>
+    <button type="button" class="btn btn-warning"><a href="https://www.nasa.gov/multimedia/imagegallery/index.html">NASA Gallery</a></button>
+    <button type="button" class="btn btn-warning" id="creator"><a href="admin.html">Admin part</a></button>
     </div>
    <div class="container" id="add_info">
     <p>You can find additional information follow links below:</p>
@@ -59,5 +63,9 @@
 <div class="realtime">
   <div id="LocalTime"></div><br>
     <div id="LocalTimeISS"></div>
-  </body>
+</div>
+<div class="row">
+  <div class="web_calendar"><p id="Date">Date</p></div><div class="web_calendar"><p id="Event">Event</p></div>
+</div>
+</body>
 </html>
