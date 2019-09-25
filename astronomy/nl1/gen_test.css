@@ -1,9 +1,9 @@
  body {
-  	background-image: url("images/backgrounds/night_sky.jpg");
+  	background-image: url("../images/backgrounds/night_sky.jpg");
     background-position: center center;
     background-repeat:  no-repeat;
     background-attachment: fixed;
-    background-size:  cover;
+    background-size: cover;
     }
 
     /* delete before release */
@@ -24,7 +24,7 @@
 
     }
     /* ...  */
-    /* ready to commit 25.04.2019 */
+    
     .db_question {
        border: 2px solid yellow;
        border-radius: 5px;
@@ -47,7 +47,7 @@
 
     #navigation_buts_in_test
   {
-    display: block; 
+    display: block;
     text-align: center;
   }
 

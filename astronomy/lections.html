@@ -210,6 +210,9 @@
     <p>
       To read the lection material, you need to click on the name of the desired planet.<br>
       You must follow the links below to jump to the test or return to the main page.<br>
+      <!-- ready to commit 23.09.2019 -->
+      Current lesson name: <i>OurSolarSystem</i>
+      <!-- -->
     </p>
   </div>
   <!-- -->
@@ -228,7 +231,14 @@
     <div class="modal-body">
     <form id="survey_form" method="get" action="http://localhost:8080/AdminMain">
      <div class="form-group">
-       <textarea class="black" rows="10" cols="35" name="ta_survey"></textarea>
+       <!-- test code 20.09.2019 -->
+       <p>Write your survey below:</p>
+       <textarea class="black" rows="10" cols="35" name="ta"></textarea>
+       <!-- test code 23.09.2019 -->
+       <p>Write name of lesson:</p>
+       <textarea class="black" rows="1" cols="35" name="less_name"></textarea>
+       <!-- -->
+       <!-- -->
      <div class="modal-footer">
        <button type="submit" class="btn btn-default">Send</button>
      </div>

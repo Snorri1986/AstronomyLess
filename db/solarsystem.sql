@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Сен 09 2019 г., 22:35
+-- Время создания: Сен 25 2019 г., 21:14
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -650,7 +650,16 @@ INSERT INTO `lections_b` (`name`, `button_number`, `lesson_number`) VALUES
 ('Saturn', 6, 0),
 ('Uranus', 7, 0),
 ('Neptune', 8, 0),
-('Pluto', 9, 0);
+('Pluto', 9, 0),
+('Mercury-Redstone-3', 1, 1),
+('Mercury-Redstone-4', 2, 1),
+('Mercury-Atlas-6', 3, 1),
+('Mercury-Atlas-7', 4, 1),
+('Mercury-Atlas-8', 5, 1),
+('Mercury-Atlas-9', 6, 1),
+('Mercury-Redstone-2', 7, 1),
+('Mercury-Atlas-5', 8, 1),
+('Mercury-7-Team', 9, 1);
 
 -- --------------------------------------------------------
 
@@ -737,7 +746,25 @@ INSERT INTO `questions` (`id`, `text`, `lesson_num`) VALUES
 (15, 'What is the length of Saturn\'s rings in kilometers?', 0),
 (16, 'Which scientist first discovered Uranus with an optical telescope?', 0),
 (17, 'What is the name of the automatic interplanetary station that flew over the planet Neptune?', 0),
-(18, 'Which automatic interplanetary station did Pluto study?', 0);
+(18, 'Which automatic interplanetary station did Pluto study?', 0),
+(1, 'Mercury-Redstone-3 #1', 1),
+(2, 'Mercury-Redstone-4 #1', 1),
+(3, 'Mercury-Atlas-6 #1', 1),
+(4, 'Mercury-Atlas-7 #1', 1),
+(5, 'Mercury-Atlas-8 #1', 1),
+(6, 'Mercury-Atlas-9 #1', 1),
+(7, 'Mercury-Redstone-2 #1', 1),
+(8, 'Mercury-Atlas-5 #1', 1),
+(9, 'Mercury-7-Team #1', 1),
+(10, 'Mercury-Redstone-3 #2', 1),
+(11, 'Mercury-Redstone-4 #2', 1),
+(12, 'Mercury-Atlas-6 #2', 1),
+(13, 'Mercury-Atlas-7 #2', 1),
+(14, 'Mercury-Atlas-8 #2', 1),
+(15, 'Mercury-Atlas-9 #2', 1),
+(16, 'Mercury-Redstone-2 #2', 1),
+(17, 'Mercury-Atlas-5 #2', 1),
+(18, 'Mercury-7-Team #2', 1);
 
 -- --------------------------------------------------------
 
@@ -766,11 +793,41 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `type`, `email`, `interactid`, `is_activ`, `table_num`, `is_root`, `user_pass`, `add_date`, `scores`, `lastlogin`) VALUES
-(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-09-09 20:23:37'),
+(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-09-23 20:44:36'),
 (19, 'Teacher', 'Shabelnykov', 'T', 't@gmail.com', NULL, 'Y', 10, 'N', '0987654321', '2018-12-05 21:18:41', NULL, '2019-07-30 19:12:44'),
 (28, 'pak', 'Buki', 'P', 'pak@gmail.com', NULL, 'Y', 701, 'N', '944400--2', '2019-06-06 19:31:19', NULL, NULL),
 (29, 'Popi', 'Kisa', 'P', 'pk@gmail.com', NULL, 'Y', 456, 'N', '0987654321', '2019-06-24 20:37:15', NULL, NULL),
 (30, 'puk', 'pukin', 'P', 'pik@ukr.net', NULL, 'Y', 12, 'N', '1905378902', '2019-06-25 19:32:27', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `vehicles`
+--
+
+CREATE TABLE `vehicles` (
+  `mission` varchar(100) NOT NULL,
+  `rocket_name` varchar(100) NOT NULL,
+  `height` double NOT NULL,
+  `diameter` double NOT NULL,
+  `mass` double NOT NULL,
+  `stages` int(11) NOT NULL,
+  `payload` double NOT NULL,
+  `engines` int(11) NOT NULL,
+  `thrust` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `vehicles`
+--
+
+INSERT INTO `vehicles` (`mission`, `rocket_name`, `height`, `diameter`, `mass`, `stages`, `payload`, `engines`, `thrust`) VALUES
+('Mercury-Redstone-3', 'Redstone MRLV MR-7', 25, 2, 30000, 1, 2, 1, 350),
+('Mercury-Redstone-4', 'Redstone MRLV MR-8', 25.41, 1.78, 30000, 1, 1.8, 1, 350),
+('Mercury-Atlas-6', 'Atlas LV-3B 109-D', 28.7, 3, 120, 2, 1.36, 2, 1517),
+('Mercury-Atlas-9', 'Atlas LV-3B 130-D', 28.7, 3, 120000, 2, 1.36, 2, 363.22),
+('Mercury-Redstone-2', 'Redstone MRLV MR-2', 25.41, 1.78, 30, 1, 1.8, 1, 350),
+('Mercury-Atlas-5', 'Atlas LV-3B 93-D', 28.7, 3, 120000, 1, 1, 2, 1.517);
 
 --
 -- Индексы сохранённых таблиц
@@ -787,12 +844,6 @@ ALTER TABLE `employee_num`
 --
 ALTER TABLE `events`
   ADD UNIQUE KEY `INDX_EVENT_DATE` (`event_date`);
-
---
--- Индексы таблицы `questions`
---
-ALTER TABLE `questions`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `users`

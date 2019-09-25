@@ -7,14 +7,14 @@ package com.astronomylesson;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-public class AdminMain extends HttpServlet  {
+public class AdminMain extends HttpServlet {
 
     //private static final long serialVersionUID = 1L;
     private String message;
 
     public void init() throws ServletException {
-		message = "HelloWorld";
-	}
+        message = "HelloWorld";
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -31,9 +31,7 @@ public class AdminMain extends HttpServlet  {
             PrintWriter out_dc = response.getWriter();
             out_dc.print("<script language='JavaScript'>alert('" + temp + "');</script>");
 
-        }
-
-        else if (request.getParameter("apl") != null) {
+        } else if (request.getParameter("apl") != null) {
             //Get lesson num from site
             String l_num_from_site = request.getParameter("lnbn");
             boolean action_result = AdminLessons.setNewLection(l_num_from_site);
@@ -65,7 +63,7 @@ public class AdminMain extends HttpServlet  {
         }
 
         // set new question for general test
-        else if(request.getParameter("q_upload") != null) {
+        else if (request.getParameter("q_upload") != null) {
 
             // data from web-page
             String ta_txt = request.getParameter("ta");
@@ -74,7 +72,7 @@ public class AdminMain extends HttpServlet  {
 
 
             // call Java method
-            boolean action_result = AdminLessons.setNewQuestion(meta_question,ta_txt,less_num);
+            boolean action_result = AdminLessons.setNewQuestion(meta_question, ta_txt, less_num);
             // tell user about result
             if (action_result == true) {
                 PrintWriter new_question_res_pos = response.getWriter();
@@ -88,7 +86,7 @@ public class AdminMain extends HttpServlet  {
         }
 
         // Authentication.
-          else if (request.getParameter("mail") != null &&
+        else if (request.getParameter("mail") != null &&
                 request.getParameter("pass") != null &&
                 request.getParameter("lessons") != null) {
 
@@ -117,7 +115,7 @@ public class AdminMain extends HttpServlet  {
                 auth_positive.print(greeting_str);
 
                 // redirect to to lesson html.
-                switch(lesson_name) {
+                switch (lesson_name) {
                     case "OurSolarSystem": {
                         auth_positive.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/main.html\";</script>");
                         break;
@@ -155,12 +153,11 @@ public class AdminMain extends HttpServlet  {
 
                 }
 
-            } else
-                   {
-                       PrintWriter auth_negative = response.getWriter();
-                       auth_negative.print("<script language='JavaScript'>alert('Access denied.You must register before entry!');</script>");
-                       auth_negative.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/login.html\";</script>");
-                   }
+            } else {
+                PrintWriter auth_negative = response.getWriter();
+                auth_negative.print("<script language='JavaScript'>alert('Access denied.You must register before entry!');</script>");
+                auth_negative.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/login.html\";</script>");
+            }
         }
 
         // Add new user.
@@ -200,17 +197,17 @@ public class AdminMain extends HttpServlet  {
         }
 
         // Save user's score into DataBase
-        else if(request.getParameter("success_score") != null ) {
+        else if (request.getParameter("success_score") != null) {
 
             // get scores
             int user_scores = Integer.parseInt(request.getParameter("success_score"));
 
             //save in database
-           try {
-               AdminLessons.saveScoreinDb(user_scores);
-           } catch (ClassNotFoundException e) {
-               e.printStackTrace();
-           }
+            try {
+                AdminLessons.saveScoreinDb(user_scores);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
 
             PrintWriter scores_out = response.getWriter();
             scores_out.print("<script language='JavaScript'>alert('Point have successfully saved');</script>");
@@ -219,18 +216,80 @@ public class AdminMain extends HttpServlet  {
         }
 
 
-        // send survey
-        else if(request.getParameter("ta_survey") != null ) {
-            boolean res_mailbox = false;
-            String txt = request.getParameter("ta_survey");
+        // send survey // test code 23.09.2019
+        // need to be tested after adding all lessons
+        // ready to commit 23.09.2019
+        else if (request.getParameter("ta") != null &&
+                request.getParameter("less_name") != null)
+        // ... //
+        {
+            boolean res_mailbox;
+            String txt = request.getParameter("ta");
             res_mailbox = AdminLessons.sendSurveytoMail(txt);
-            if(res_mailbox) {
-                PrintWriter sysrveys = response.getWriter();
-                sysrveys.print("<script language='JavaScript'>alert('Survey have successfully sent');</script>");
-                sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/lections.html\";</script>");
-            }
+            String less_name = request.getParameter("less_name");
+            switch (less_name) {
+                // ready to commit 23.09.2019
+                case "OurSolarSystem":
+                    if (res_mailbox) {
+                        PrintWriter sysrveys = response.getWriter();
+                        sysrveys.print("<script language='JavaScript'>alert('Survey have successfully sent');</script>");
+                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/lections.html\";</script>");
+                    }
+                    break;
 
+                case "Mercury":
+                    if (res_mailbox) {
+                        PrintWriter sysrveys = response.getWriter();
+                        sysrveys.print("<script language='JavaScript'>alert('Survey have successfully sent');</script>");
+                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl1/lections.html\";</script>");
+                    }
+                    break;
+                    // ... //
+
+                    // test code 23.09.2019
+
+                case "Gemini":
+                    if (res_mailbox) {
+                        PrintWriter sysrveys = response.getWriter();
+                        sysrveys.print("<script language='JavaScript'>alert('Survey have successfully sent');</script>");
+                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl2/lections.html\";</script>");
+                    }
+                    break;
+
+                case "Apollo":
+                    if (res_mailbox) {
+                        PrintWriter sysrveys = response.getWriter();
+                        sysrveys.print("<script language='JavaScript'>alert('Survey have successfully sent');</script>");
+                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl2/lections.html\";</script>");
+                    }
+                    break;
+
+                case "SpaceShuttle":
+                    if (res_mailbox) {
+                        PrintWriter sysrveys = response.getWriter();
+                        sysrveys.print("<script language='JavaScript'>alert('Survey have successfully sent');</script>");
+                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl2/lections.html\";</script>");
+                    }
+                    break;
+
+                case "SkyLab":
+                    if (res_mailbox) {
+                        PrintWriter sysrveys = response.getWriter();
+                        sysrveys.print("<script language='JavaScript'>alert('Survey have successfully sent');</script>");
+                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl2/lections.html\";</script>");
+                    }
+                    break;
+
+                case "ISS":
+                    if (res_mailbox) {
+                        PrintWriter sysrveys = response.getWriter();
+                        sysrveys.print("<script language='JavaScript'>alert('Survey have successfully sent');</script>");
+                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl2/lections.html\";</script>");
+                    }
+                    break;
+            }
         }
+            // ... //
         // ... //
 
         // Update text of lection
