@@ -1,0 +1,57 @@
+ body {
+  	background-image: url("images/backgrounds/night_sky.jpg");
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    }
+
+    p {
+    	color:yellow;
+  	  font-style: italic;
+    }
+
+    #question1, #question2, #question3, #question4, #question5,
+    #question6, #question7, #question8, #question9  {
+       border: 2px solid yellow;
+       border-radius: 5px;
+       width: 360px;
+       height:100px;
+       line-height: normal;
+
+    }
+
+  #test_manual {
+    color: white;
+    font-style: italic;
+    margin-left: 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+  }
+
+    #navigation_buts_in_test
+  {
+    display: block;
+    text-align: center;
+  }
+
+  .row {
+    margin-top: 10px;
+  }
+
+  #but_to_sec_test {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+.db_question {
+       border: 2px solid yellow;
+       border-radius: 5px;
+       width: 360px;
+       height:100px;
+       line-height: normal;
+       color:yellow;
+       font-style: italic;
+    }
+    

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>General Test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="gen_test.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="../scripts/checkAnswers.js"></script>
+  <script src="../scripts/savepoints.js"></script>
+  <script src="../scripts/fillPnt.js"></script>
+  <script src="q1l2.js"></script>
+  <script src="q1l2.php"></script>
+  <script src="q2l2.js"></script>
+  <script src="q2l2.php"></script>
+  <script src="q3l2.js"></script>
+  <script src="q3l2.php"></script>
+  <script src="q4l2.js"></script>
+  <script src="q4l2.php"></script>
+  <script src="q5l2.js"></script>
+  <script src="q5l2.php"></script>
+  <script src="q6l2.js"></script>
+  <script src="q6l2.php"></script>
+  <script src="q7l2.js"></script>
+  <script src="q7l2.php"></script>
+  <script src="q8l2.js"></script>
+  <script src="q8l2.php"></script>
+  <script src="q9l2.js"></script>
+  <script src="q9l2.php"></script>
+</head>
+<body onload="savePnt()">
+<!-- Instruction -->
+  <div class="container" id="test_manual">
+    <p>
+      <h3>Welcome to the final test page !!!
+        This test will help you learn the material you have learned.
+        18 questions should be answered. Each question has only one correct answer.
+        For each correct answer, you will receive 10 points.
+        If you want to return to the homepage, repeat
+        lecture materials are available at the links below.
+        If you decided to save your's points, you should write the value into
+        text area, under buttons, and click to the "Save result" button.Good luck!!!
+      </h3>
+    </p>
+  </div>
+  <!-- Navigations butts -->
+  <div class="container" id="navigation_buts_in_test">
+    <button type="button" class="btn btn-warning btn-lg"><a href="../main.html">Main page</a></button>
+    <button type="button" class="btn btn-warning btn-lg"><a href="lections.html">Lections</a></button>
+    <span><p>Score count:</p><p id="score">0</p></span>
+    <form method="get" action="http://localhost:8080/AdminMain">
+    <button type="submit" class="btn btn-warning btn-sm">Save result</button>
+    <input type="text" name="success_score">
+    </form>
+  </div>
+  <div class="container">
+    <!-- First row of questions -->
+    <div class="row">
+      <div class="col-md-4">
+      	<div class="db_question" id="question1"></div>
+        <button type="submit" title="1" class="btn btn-info btn-sm btn-block" name="1" id="q1a1" value="Coloris" onclick="chkAnswers('Coloris',10,'q1a1')">
+          Coloris</button>
+         <button type="submit" title="2" class="btn btn-info btn-sm btn-block" name="2" id="q1a2" value="Discovery" onclick="chkAnswers('Discovery')">
+         Discovery</button>
+         <button type="submit" title="3" class="btn btn-info btn-sm btn-block" name="3" id="q1a3" value="Opportunity" onclick="chkAnswers('Opportunity')">
+         Opportunity</button>
+      </div>
+      <div class="col-md-4">
+      	<div class="db_question" id="question2"></div>
+      	<button type="button" title="4" class="btn btn-info btn-sm btn-block" id="q2a1" value="280" onclick="chkAnswers('280')">
+        280</button>
+         <button type="button" title="5" class="btn btn-info btn-sm btn-block" id="q2a2" value="243" onclick="chkAnswers('243',10,'q2a2')">
+        243</button>
+         <button type="button" title="6" class="btn btn-info btn-sm btn-block" id="q2a3" value="10" onclick="chkAnswers('10')">
+        10</button>
+      </div>
+      <div class="col-md-4">
+        <div class="db_question" id="question3"></div>
+         <button type="button" title="7" class="btn btn-info btn-sm btn-block" id="q3a1" value="Baykal" onclick="chkAnswers('Baykal')">
+          Baykal</button>
+         <button type="button" title="8" class="btn btn-info btn-sm btn-block" id="q3a2" value="MonBlanc" onclick="chkAnswers('MonBlanc')">
+          MonBlanc</button>
+         <button type="button" title="9" class="btn btn-info btn-sm btn-block" id="q3a3" value="Marian" onclick="chkAnswers('Marian',10,'q3a3')">
+          Marian</button>
+      </div>
+    </div>
+  </div>
+    <!-- Second row of questions -->
+    <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+      	<div class="db_question" id="question4"></div>
+      	 <button type="button" title="10" class="btn btn-info btn-sm btn-block" id="q4a1" value="Magnesium" onclick="chkAnswers('Magnesium')">Magnesium</button>
+         <button type="button" title="11" class="btn btn-info btn-sm btn-block" id="q4a2" value="Alcohol" onclick="chkAnswers('Alcohol')">Alcohol</button>
+         <button type="button" title="12" class="btn btn-info btn-sm btn-block" id="q4a3" value="Iron oxid" onclick="chkAnswers('Iron oxid',10,'q4a3')">Iron oxid</button>
+      </div>
+      <div class="col-md-4">
+      	<div class="db_question" id="question5"></div>
+      	  <button type="button" title="13" class="btn btn-info btn-sm btn-block" id="q5a1" value="Venus" onclick="chkAnswers('Venus')">Venus</button>
+         <button type="button" title="14" class="btn btn-info btn-sm btn-block" id="q5a2" value="Juno" onclick="chkAnswers('Juno',10,'q5a2')">Juno</button>
+         <button type="button" title="15" class="btn btn-info btn-sm btn-block" id="q5a3" value="Zevs" onclick="chkAnswers('Zevs')">Zevs</button>
+      </div>
+      <div class="col-md-4">
+      <div class="db_question" id="question6"></div>
+      <button type="button" title="16" class="btn btn-info btn-sm btn-block" id="q6a1" value="Water" onclick="chkAnswers('Water')">Water</button>
+         <button type="button" title="17" class="btn btn-info btn-sm btn-block" id="q6a2" value="Solid" onclick="chkAnswers('Solid')">Solid</button>
+         <button type="button" title="18" class="btn btn-info btn-sm btn-block" id="q6a3" value="Gaseous" onclick="chkAnswers('Gaseous',10,'q6a3')">Gaseous</button>
+       </div>
+     </div>
+   </div>
+    <!-- Third row of questions -->
+    <div class="container">
+    <div class="row">
+       <div class="col-md-4">
+       	<div class="db_question" id="question7"></div>
+         <button type="button" title="19" class="btn btn-info btn-sm btn-block" id="q7a1" value="'Axis of rotation" onclick="chkAnswers('Axis of rotation',10,'q7a1')">'Axis of rotation</button>
+         <button type="button" title="20" class="btn btn-info btn-sm btn-block" id="q7a2" value="Roundes" onclick="chkAnswers('Roundes')">Roundes</button>
+         <button type="button" title="21" class="btn btn-info btn-sm btn-block" id="q7a3" value="Satellites" onclick="chkAnswers('Satellites')">Satellites</button>
+       </div>
+       <div class="col-md-4">
+       	 <div class="db_question" id="question8"></div>
+         <button type="button" title="22" class="btn btn-info btn-sm btn-block" id="q8a1" value="Math" onclick="chkAnswers('Math',10,'q8a1')">Math</button>
+         <button type="button" title="23"  class="btn btn-info btn-sm btn-block" id="q8a2" value="Emperic" onclick="chkAnswers('Emperic')">Emperic</button>
+         <button type="button" title="24" class="btn btn-info btn-sm btn-block" id="q8a3" value="Observations" onclick="chkAnswers('Observations')">Observations</button>
+       </div>
+       <div class="col-md-4">
+         <div class="db_question" id="question9"></div>
+         <button type="button" title="25" class="btn btn-info btn-sm btn-block" id="q9a1" value="Encelad" onclick="chkAnswers('Encelad')">Encelad</button>
+         <button type="button" title="26" class="btn btn-info btn-sm btn-block" id="q9a2" value="Charon" onclick="chkAnswers('Charon',10,'q9a2')">Charon</button>
+         <button type="button" title="27" class="btn btn-info btn-sm btn-block" id="q9a3" value="Ariel" onclick="chkAnswers('Ariel')">Ariel</button>
+       </div>
+    </div>
+     </div>
+    <div class="container" id="but_to_sec_test">
+          <button type="button" class="btn btn-warning btn-lg"><a href="general_test_2.html">Next page</a></button>
+        </div>
+  </body>
+</html>
