@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Сен 25 2019 г., 21:14
+-- Время создания: Сен 27 2019 г., 21:09
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -659,7 +659,16 @@ INSERT INTO `lections_b` (`name`, `button_number`, `lesson_number`) VALUES
 ('Mercury-Atlas-9', 6, 1),
 ('Mercury-Redstone-2', 7, 1),
 ('Mercury-Atlas-5', 8, 1),
-('Mercury-7-Team', 9, 1);
+('Mercury-7-Team', 9, 1),
+('Gemini 3 & 4', 1, 2),
+('Gemini 5', 2, 2),
+('Gemini 7', 3, 2),
+('Gemini 6A', 4, 2),
+('Gemini 8', 5, 2),
+('Gemini 9A', 6, 2),
+('Gemini 10', 7, 2),
+('Gemini 11', 8, 2),
+('Gemini 12', 9, 2);
 
 -- --------------------------------------------------------
 
@@ -764,7 +773,25 @@ INSERT INTO `questions` (`id`, `text`, `lesson_num`) VALUES
 (15, 'Mercury-Atlas-9 #2', 1),
 (16, 'Mercury-Redstone-2 #2', 1),
 (17, 'Mercury-Atlas-5 #2', 1),
-(18, 'Mercury-7-Team #2', 1);
+(18, 'Mercury-7-Team #2', 1),
+(1, 'Gemini 3&4#1', 2),
+(2, 'Gemini 5#1', 2),
+(3, 'Gemini 7#1', 2),
+(4, 'Gemini 6A#1', 2),
+(5, 'Gemini 8#1', 2),
+(6, 'Gemini 9A#1', 2),
+(7, 'Gemini 10#1', 2),
+(8, 'Gemini 11#1', 2),
+(9, 'Gemini 12#1', 2),
+(10, 'Gemini 3&4#2', 2),
+(11, 'Gemini 5#2', 2),
+(12, 'Gemini 7#2', 2),
+(13, 'Gemini 6A#2', 2),
+(14, 'Gemini 8#2', 2),
+(15, 'Gemini 9A#2', 2),
+(16, 'Gemini 10#2', 2),
+(17, 'Gemini 11#2', 2),
+(18, 'Gemini 12#2', 2);
 
 -- --------------------------------------------------------
 
@@ -793,7 +820,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `type`, `email`, `interactid`, `is_activ`, `table_num`, `is_root`, `user_pass`, `add_date`, `scores`, `lastlogin`) VALUES
-(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-09-23 20:44:36'),
+(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-09-27 18:07:52'),
 (19, 'Teacher', 'Shabelnykov', 'T', 't@gmail.com', NULL, 'Y', 10, 'N', '0987654321', '2018-12-05 21:18:41', NULL, '2019-07-30 19:12:44'),
 (28, 'pak', 'Buki', 'P', 'pak@gmail.com', NULL, 'Y', 701, 'N', '944400--2', '2019-06-06 19:31:19', NULL, NULL),
 (29, 'Popi', 'Kisa', 'P', 'pk@gmail.com', NULL, 'Y', 456, 'N', '0987654321', '2019-06-24 20:37:15', NULL, NULL),
@@ -827,7 +854,16 @@ INSERT INTO `vehicles` (`mission`, `rocket_name`, `height`, `diameter`, `mass`, 
 ('Mercury-Atlas-6', 'Atlas LV-3B 109-D', 28.7, 3, 120, 2, 1.36, 2, 1517),
 ('Mercury-Atlas-9', 'Atlas LV-3B 130-D', 28.7, 3, 120000, 2, 1.36, 2, 363.22),
 ('Mercury-Redstone-2', 'Redstone MRLV MR-2', 25.41, 1.78, 30, 1, 1.8, 1, 350),
-('Mercury-Atlas-5', 'Atlas LV-3B 93-D', 28.7, 3, 120000, 1, 1, 2, 1.517);
+('Mercury-Atlas-5', 'Atlas LV-3B 93-D', 28.7, 3, 120000, 1, 1, 2, 1.517),
+('Gemini 3&4', 'Titan II GLV', 31.4, 3.05, 154000, 2, 3600, 2, 1900),
+('Gemini 5', 'Titan II GLV GT-5', 31.4, 3.05, 154000, 2, 3600, 2, 1900),
+('Gemini 7', 'Titan II GLV GT-7', 31.4, 3.05, 154000, 2, 3600, 2, 1900),
+('Gemini 6A', 'Titan II GLV GT-6', 31.4, 3.05, 154000, 2, 3600, 2, 1900),
+('Gemini 8', 'Titan II GLV GT-8', 31.4, 3.05, 154000, 2, 3600, 2, 1900),
+('Gemini 9A', 'Titan II GLV GT-9', 31.4, 3.05, 154000, 2, 3600, 2, 1900),
+('Gemini 10', 'Titan II GLV GT-10', 31.4, 3.05, 154000, 2, 3600, 2, 1900),
+('Gemini 11', 'Titan II GLV GT-11', 31.4, 3.05, 154000, 2, 3600, 2, 1900),
+('Gemini 12', 'Titan II GLV', 31.4, 3.05, 154000, 2, 3600, 2, 1900);
 
 --
 -- Индексы сохранённых таблиц
