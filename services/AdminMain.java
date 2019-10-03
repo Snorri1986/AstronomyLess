@@ -216,19 +216,17 @@ public class AdminMain extends HttpServlet {
         }
 
 
-        // send survey // test code 23.09.2019
-        // need to be tested after adding all lessons
-        // ready to commit 23.09.2019
+
         else if (request.getParameter("ta") != null &&
                 request.getParameter("less_name") != null)
-        // ... //
+
         {
             boolean res_mailbox;
             String txt = request.getParameter("ta");
             res_mailbox = AdminLessons.sendSurveytoMail(txt);
             String less_name = request.getParameter("less_name");
             switch (less_name) {
-                // ready to commit 23.09.2019
+
                 case "OurSolarSystem":
                     if (res_mailbox) {
                         PrintWriter sysrveys = response.getWriter();
@@ -244,9 +242,6 @@ public class AdminMain extends HttpServlet {
                         sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl1/lections.html\";</script>");
                     }
                     break;
-                    // ... //
-
-                    // test code 23.09.2019
 
                 case "Gemini":
                     if (res_mailbox) {
@@ -260,7 +255,7 @@ public class AdminMain extends HttpServlet {
                     if (res_mailbox) {
                         PrintWriter sysrveys = response.getWriter();
                         sysrveys.print("<script language='JavaScript'>alert('Survey have successfully sent');</script>");
-                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl2/lections.html\";</script>");
+                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl3/lections.html\";</script>");
                     }
                     break;
 
@@ -268,7 +263,7 @@ public class AdminMain extends HttpServlet {
                     if (res_mailbox) {
                         PrintWriter sysrveys = response.getWriter();
                         sysrveys.print("<script language='JavaScript'>alert('Survey have successfully sent');</script>");
-                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl2/lections.html\";</script>");
+                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl4/lections.html\";</script>");
                     }
                     break;
 
@@ -276,7 +271,7 @@ public class AdminMain extends HttpServlet {
                     if (res_mailbox) {
                         PrintWriter sysrveys = response.getWriter();
                         sysrveys.print("<script language='JavaScript'>alert('Survey have successfully sent');</script>");
-                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl2/lections.html\";</script>");
+                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl5/lections.html\";</script>");
                     }
                     break;
 
@@ -284,12 +279,12 @@ public class AdminMain extends HttpServlet {
                     if (res_mailbox) {
                         PrintWriter sysrveys = response.getWriter();
                         sysrveys.print("<script language='JavaScript'>alert('Survey have successfully sent');</script>");
-                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl2/lections.html\";</script>");
+                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl6/lections.html\";</script>");
                     }
                     break;
             }
         }
-            // ... //
+
         // ... //
 
         // Update text of lection

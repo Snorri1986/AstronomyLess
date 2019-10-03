@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Сен 27 2019 г., 21:09
+-- Время создания: Окт 03 2019 г., 22:38
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -668,7 +668,16 @@ INSERT INTO `lections_b` (`name`, `button_number`, `lesson_number`) VALUES
 ('Gemini 9A', 6, 2),
 ('Gemini 10', 7, 2),
 ('Gemini 11', 8, 2),
-('Gemini 12', 9, 2);
+('Gemini 12', 9, 2),
+('Preparation', 1, 3),
+('Apollo 1', 2, 3),
+('Apollo 4 5 6', 3, 3),
+('Apollo 7 8', 4, 3),
+('Apollo 9 10', 5, 3),
+('Apollo 11', 6, 3),
+('Apollo 12 13', 7, 3),
+('Apollo 14 15', 8, 3),
+('Apollo 16 17', 9, 3);
 
 -- --------------------------------------------------------
 
@@ -791,7 +800,25 @@ INSERT INTO `questions` (`id`, `text`, `lesson_num`) VALUES
 (15, 'Gemini 9A#2', 2),
 (16, 'Gemini 10#2', 2),
 (17, 'Gemini 11#2', 2),
-(18, 'Gemini 12#2', 2);
+(18, 'Gemini 12#2', 2),
+(1, 'Preparation#1', 3),
+(2, 'Apollo1#1', 3),
+(3, 'Apollo4&5&6#1', 3),
+(4, 'Apollo7&8#1', 3),
+(5, 'Apollo9&10#1', 3),
+(6, 'Apollo11#1', 3),
+(7, 'Apollo12&13#1', 3),
+(8, 'Apollo14&15#1', 3),
+(9, 'Apollo16&17#1', 3),
+(10, 'Preparation#2', 3),
+(11, 'Apollo1#2', 3),
+(12, 'Apollo4&5&6#2', 3),
+(13, 'Apollo7&8#2', 3),
+(14, 'Apollo9&10#2', 3),
+(15, 'Apollo11#2', 3),
+(16, 'Apollo12&13#2', 3),
+(17, 'Apollo14&15#2', 3),
+(18, 'Apollo16&17#2', 3);
 
 -- --------------------------------------------------------
 
@@ -820,7 +847,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `type`, `email`, `interactid`, `is_activ`, `table_num`, `is_root`, `user_pass`, `add_date`, `scores`, `lastlogin`) VALUES
-(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-09-27 18:07:52'),
+(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-10-03 19:48:34'),
 (19, 'Teacher', 'Shabelnykov', 'T', 't@gmail.com', NULL, 'Y', 10, 'N', '0987654321', '2018-12-05 21:18:41', NULL, '2019-07-30 19:12:44'),
 (28, 'pak', 'Buki', 'P', 'pak@gmail.com', NULL, 'Y', 701, 'N', '944400--2', '2019-06-06 19:31:19', NULL, NULL),
 (29, 'Popi', 'Kisa', 'P', 'pk@gmail.com', NULL, 'Y', 456, 'N', '0987654321', '2019-06-24 20:37:15', NULL, NULL),
@@ -863,7 +890,16 @@ INSERT INTO `vehicles` (`mission`, `rocket_name`, `height`, `diameter`, `mass`, 
 ('Gemini 9A', 'Titan II GLV GT-9', 31.4, 3.05, 154000, 2, 3600, 2, 1900),
 ('Gemini 10', 'Titan II GLV GT-10', 31.4, 3.05, 154000, 2, 3600, 2, 1900),
 ('Gemini 11', 'Titan II GLV GT-11', 31.4, 3.05, 154000, 2, 3600, 2, 1900),
-('Gemini 12', 'Titan II GLV', 31.4, 3.05, 154000, 2, 3600, 2, 1900);
+('Gemini 12', 'Titan II GLV', 31.4, 3.05, 154000, 2, 3600, 2, 1900),
+('Preparation', 'N/A', 0, 0, 0, 0, 0, 0, 0),
+('Apollo1', 'Saturn 1B A204', 68, 6.6, 590000, 2, 180000, 8, 6700),
+('Apollo 4&5&6', 'Saturn 5 SA-501', 110.6, 10.1, 2965000, 3, 140000, 11, 34343),
+('Apollo 7&8', 'Saturn 1B AS-205', 68, 6.6, 590000, 2, 18000, 9, 7590),
+('Apollo 9&10', 'Saturn-5 AS-504', 110.6, 10.1, 2965000, 3, 140000, 11, 34343),
+('Apollo11', 'Saturn 5 SA-506', 110.6, 10.1, 3140000, 3, 140000, 11, 34343),
+('Apollo 12&13', 'Saturn 5 SA-507', 110.6, 10.1, 295000, 3, 140000, 11, 34343),
+('Apollo 14&15', 'Saturn 5 SA-509', 110.6, 10.1, 2290000, 3, 140000, 11, 1019.2),
+('Apollo 16&17', 'Saturn 5 SA-511', 110.6, 10.1, 29655000, 3, 140000, 11, 5096);
 
 --
 -- Индексы сохранённых таблиц
