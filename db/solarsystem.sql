@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Окт 03 2019 г., 22:38
+-- Время создания: Окт 09 2019 г., 22:29
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -677,7 +677,16 @@ INSERT INTO `lections_b` (`name`, `button_number`, `lesson_number`) VALUES
 ('Apollo 11', 6, 3),
 ('Apollo 12 13', 7, 3),
 ('Apollo 14 15', 8, 3),
-('Apollo 16 17', 9, 3);
+('Apollo 16 17', 9, 3),
+('Preparation', 1, 4),
+('STS-1', 2, 4),
+('STS-60', 3, 4),
+('STS-31', 4, 4),
+('STS-51-F', 5, 4),
+('STS-88', 6, 4),
+('STS-51-L', 7, 4),
+('STS-107', 8, 4),
+('STS-135', 9, 4);
 
 -- --------------------------------------------------------
 
@@ -818,7 +827,59 @@ INSERT INTO `questions` (`id`, `text`, `lesson_num`) VALUES
 (15, 'Apollo11#2', 3),
 (16, 'Apollo12&13#2', 3),
 (17, 'Apollo14&15#2', 3),
-(18, 'Apollo16&17#2', 3);
+(18, 'Apollo16&17#2', 3),
+(1, 'Preparation#1', 4),
+(2, 'STS1#1', 4),
+(3, 'STS60#1', 4),
+(4, 'STS31#1', 4),
+(5, 'STS51F#1', 4),
+(6, 'STS88#1', 4),
+(7, 'STS51L#1', 4),
+(8, 'STS107#1', 4),
+(9, 'STS135#1', 4),
+(10, 'Preparation#2', 4),
+(11, 'STS1#2', 4),
+(12, 'STS60#2', 4),
+(13, 'STS31#2', 4),
+(14, 'STS51F#2', 4),
+(15, 'STS88#2', 4),
+(16, 'STS51L#2', 4),
+(17, 'STS107#2', 4),
+(18, 'STS135#2', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `sts`
+--
+
+CREATE TABLE `sts` (
+  `mission_code` varchar(20) NOT NULL,
+  `vehicle_name` varchar(100) NOT NULL COMMENT 'Orbiter name',
+  `flight_number` int(11) NOT NULL COMMENT 'Mission count',
+  `Launch_pad` varchar(100) NOT NULL COMMENT 'Launch pad',
+  `start_date` varchar(50) NOT NULL COMMENT 'Mission start date',
+  `landing_date` varchar(50) NOT NULL COMMENT 'Mission landing date',
+  `flight_duration` varchar(100) NOT NULL COMMENT 'Mission duration',
+  `turns_count` varchar(50) NOT NULL,
+  `distance` varchar(50) NOT NULL,
+  `orbit_altitude` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `sts`
+--
+
+INSERT INTO `sts` (`mission_code`, `vehicle_name`, `flight_number`, `Launch_pad`, `start_date`, `landing_date`, `flight_duration`, `turns_count`, `distance`, `orbit_altitude`) VALUES
+('STS-1', 'Columbia', 1, 'KSC 39A', '12.04.1981', '14.04.1981', '2 d 6 hrs 20 min 53 sec', 'N/A', '1728000', '307'),
+('ALT', 'Enterprice', 16, 'Boeing 747', '15.02.1977', '26.10.1977', 'N/A', 'N/A', 'N/A', 'N/A'),
+('STS-60', 'Discovery', 60, 'KSC 39A', '03.02.1994', '11.02.1994', '8 d 7 hrs 9 min 2 sec', '131', '5535653', '354'),
+('STS-31', 'Discovery', 31, 'KSC SP39-B', '24.04.1990', '29.04.1990', '5 d 1 hrs 16 min 6 sec', '80', '3326466', '611'),
+('STS-51-F', 'Challenger', 19, 'KSC 39A', '29.07.1985', '06.08.1985', '7 d 22 hrs 45 min 26 sec', '127', '5284350', '320'),
+('STS-88', 'Endeavour', 88, 'KSC 39A', '04.12.1998', '16.12.1998', '11 d 19 hrs 18 min 00 sec', '185', '7400000', 'N/A'),
+('STS-51-L', 'Challenger', 25, 'KSC 39B', '28.01.1986', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('STS-107', 'Columbia', 107, 'KSC 39A', '16.01.2003', '01.02.2003', '15 d 22 hrs 20 min 32 sec', '255', '1600000', '307'),
+('STS-135', 'Atlantis', 135, 'KSC 39A', '08.07.2011', '21.07.2011', '12 d 18 hrs 28 min', 'N/A', 'N/A', '225');
 
 -- --------------------------------------------------------
 
@@ -847,7 +908,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `type`, `email`, `interactid`, `is_activ`, `table_num`, `is_root`, `user_pass`, `add_date`, `scores`, `lastlogin`) VALUES
-(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-10-03 19:48:34'),
+(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-10-09 20:03:56'),
 (19, 'Teacher', 'Shabelnykov', 'T', 't@gmail.com', NULL, 'Y', 10, 'N', '0987654321', '2018-12-05 21:18:41', NULL, '2019-07-30 19:12:44'),
 (28, 'pak', 'Buki', 'P', 'pak@gmail.com', NULL, 'Y', 701, 'N', '944400--2', '2019-06-06 19:31:19', NULL, NULL),
 (29, 'Popi', 'Kisa', 'P', 'pk@gmail.com', NULL, 'Y', 456, 'N', '0987654321', '2019-06-24 20:37:15', NULL, NULL),
@@ -899,7 +960,8 @@ INSERT INTO `vehicles` (`mission`, `rocket_name`, `height`, `diameter`, `mass`, 
 ('Apollo11', 'Saturn 5 SA-506', 110.6, 10.1, 3140000, 3, 140000, 11, 34343),
 ('Apollo 12&13', 'Saturn 5 SA-507', 110.6, 10.1, 295000, 3, 140000, 11, 34343),
 ('Apollo 14&15', 'Saturn 5 SA-509', 110.6, 10.1, 2290000, 3, 140000, 11, 1019.2),
-('Apollo 16&17', 'Saturn 5 SA-511', 110.6, 10.1, 29655000, 3, 140000, 11, 5096);
+('Apollo 16&17', 'Saturn 5 SA-511', 110.6, 10.1, 29655000, 3, 140000, 11, 5096),
+('PreparationSTS', 'Enterprise', 0, 0, 0, 1, 0, 0, 0);
 
 --
 -- Индексы сохранённых таблиц
