@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Окт 09 2019 г., 22:29
+-- Время создания: Окт 15 2019 г., 22:36
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -686,7 +686,11 @@ INSERT INTO `lections_b` (`name`, `button_number`, `lesson_number`) VALUES
 ('STS-88', 6, 4),
 ('STS-51-L', 7, 4),
 ('STS-107', 8, 4),
-('STS-135', 9, 4);
+('STS-135', 9, 4),
+('SL-1', 1, 5),
+('SL-2', 2, 5),
+('SL-3', 3, 5),
+('SL-4', 4, 5);
 
 -- --------------------------------------------------------
 
@@ -845,7 +849,51 @@ INSERT INTO `questions` (`id`, `text`, `lesson_num`) VALUES
 (15, 'STS88#2', 4),
 (16, 'STS51L#2', 4),
 (17, 'STS107#2', 4),
-(18, 'STS135#2', 4);
+(18, 'STS135#2', 4),
+(1, 'SL1#1', 5),
+(2, 'SL2#1', 5),
+(3, 'SL3#1', 5),
+(4, 'SL4#1', 5),
+(5, 'SL1#2', 5),
+(6, 'SL2#2', 5),
+(7, 'SL3#2', 5),
+(8, 'SL4#2', 5),
+(9, 'SL1#3', 5),
+(10, 'SL2#3', 5),
+(11, 'SL3#3', 5),
+(12, 'SL4#3', 5),
+(13, 'SL1#4', 5),
+(14, 'SL2#4', 5),
+(15, 'SL3#4', 5),
+(16, 'SL4#4', 5),
+(17, 'SL1#5', 5),
+(18, 'SL2#5', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `skylab`
+--
+
+CREATE TABLE `skylab` (
+  `code` varchar(100) NOT NULL COMMENT 'mission code',
+  `start_date` varchar(100) NOT NULL COMMENT 'mission start date',
+  `end_date` varchar(100) NOT NULL COMMENT 'mission end date',
+  `staff` varchar(255) NOT NULL COMMENT 'name of staff members',
+  `init_vehicle` varchar(100) NOT NULL COMMENT 'rocket name',
+  `time_duration` varchar(100) NOT NULL COMMENT 'time duration',
+  `distance` varchar(100) NOT NULL COMMENT 'total distance'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `skylab`
+--
+
+INSERT INTO `skylab` (`code`, `start_date`, `end_date`, `staff`, `init_vehicle`, `time_duration`, `distance`) VALUES
+('SL-1', '14.05.1973', '11.07.1979', '0', 'Saturn-5', 'N/A', 'N/A'),
+('SL-2', '25.05.1973', '22.06.1973', 'Charles «Pete» Conrad, Jr.,Paul Joseph Weitz,Joseph Peter Kerwin', 'Saturn-1B', '28 d 0 h 49 min 49 sec', '18500000'),
+('SL-3', '28.07.1973', '25.09.1973', 'Alan LaVern Bean, Jack Robert Lousma,Owen Kay Garriott', 'Saturn-1B', '59 d 1 h 9 min', '39400000'),
+('SL-4', '16.11.1973', '08.02.1974', 'Gerald Paul Carr,William Reid Pogue,Edward George Gibson', 'Saturn-1B', '84 d 1 h 16 min', '55500000');
 
 -- --------------------------------------------------------
 
@@ -908,7 +956,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `type`, `email`, `interactid`, `is_activ`, `table_num`, `is_root`, `user_pass`, `add_date`, `scores`, `lastlogin`) VALUES
-(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-10-09 20:03:56'),
+(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-10-15 20:21:17'),
 (19, 'Teacher', 'Shabelnykov', 'T', 't@gmail.com', NULL, 'Y', 10, 'N', '0987654321', '2018-12-05 21:18:41', NULL, '2019-07-30 19:12:44'),
 (28, 'pak', 'Buki', 'P', 'pak@gmail.com', NULL, 'Y', 701, 'N', '944400--2', '2019-06-06 19:31:19', NULL, NULL),
 (29, 'Popi', 'Kisa', 'P', 'pk@gmail.com', NULL, 'Y', 456, 'N', '0987654321', '2019-06-24 20:37:15', NULL, NULL),
