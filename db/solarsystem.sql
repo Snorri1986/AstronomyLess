@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Окт 15 2019 г., 22:36
+-- Время создания: Окт 23 2019 г., 22:19
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -602,6 +602,46 @@ INSERT INTO `images` (`objname`, `filepath`, `filetype`, `lessonnum`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `iss`
+--
+
+CREATE TABLE `iss` (
+  `weight` varchar(50) NOT NULL COMMENT 'weight of station',
+  `length` varchar(50) NOT NULL COMMENT 'length of station',
+  `orbital_speed` varchar(50) NOT NULL COMMENT 'orbital speed of station',
+  `modulus` varchar(50) NOT NULL COMMENT 'name of station''s modules',
+  `team` varchar(50) NOT NULL COMMENT 'name of mission members'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `iss_missions`
+--
+
+CREATE TABLE `iss_missions` (
+  `mission_code` varchar(20) NOT NULL,
+  `team_count` int(11) NOT NULL COMMENT 'count of members',
+  `members_name` text NOT NULL COMMENT 'member''s name',
+  `start_mission` varchar(100) NOT NULL,
+  `end_mission` varchar(100) NOT NULL,
+  `vehicle_arrive` text NOT NULL COMMENT 'shuttle/soyuz model',
+  `vehicle_departure` text NOT NULL COMMENT 'shuttle/soyuz model'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `iss_missions`
+--
+
+INSERT INTO `iss_missions` (`mission_code`, `team_count`, `members_name`, `start_mission`, `end_mission`, `vehicle_arrive`, `vehicle_departure`) VALUES
+('ISS-1-6', 3, 'William McMichael Shepherd(USA.ISS-1),Yurii Gydzenko(RUS.ISS-1),Sergey Krykalov(RUS.ISS-1),Yurii Usachov(RUS.ISS-2),Susan Jane Helms(USA.ISS-2),James Shelton Voss(USA.ISS-2),Frank Lee Culbertson Jr.(USA.ISS-3),Vladymyr Dezhurov(RUS.ISS-3),Mikhail Tyurov(RUS.ISS-3),Yurii Onufrienko(RUS.ISS-4),Daniel Wheeler Bursch(USA.ISS-4),Carl Erwin Walz(USA.ISS-4),Valerii Korzun(RUS.ISS-5),Segiy Treschov(RUS.ISS-5),Peggy Annette Whitson(USA.ISS-5),Kenneth Dwane \"Sox\" Bowersox(USA.ISS-6),Nikolay Budarin(RUS.ISS-6),Donald Roy Pettit(USA.ISS-6)', '31.10.2000', '04.05.2003', 'Soyuz TM31(ISS1),Discovery(STS-102.ISS2),Discovery(STS-105.ISS2),Discovery(STS-105.ISS2), Endeavour(STS-108.ISS-4),Endeavour(STS-111.ISS-5),Endeavour(STS-113.ISS-6)', 'Discovery(STS-102.ISS1),Discovery(STS-105.ISS2),Endeavour(STS-108.ISS-3),Endeavour(STS-114.ISS-4),Endeavour(STS-113.ISS-5)'),
+('ISS-7-12', 2, 'Yuriy Malenchenko(RUS.ISS7),Edward Tsang «Ed» Lu(USA.ISS7),Colin Michael Foale(USA.ISS8),Aleksander Kareli(RUS.ISS8),Genadiy Padalka(RUS.IIS9),Edward Michael Fincke(USA,ISS9),Leroy Russel Chiao(USA.ISS10),Salizhan Sharipov(RUS.ISS10),Sergiy Krykalov(RUS.ISS11),John Lynch Phillips(USA.ISS11),William Surles McArthur, Jr(USA.ISS12),Valeriy Tokarev(RUS.ISS12)', '28.04.2003', '08.04.2006', 'Soyuz TMA-2(ISS7),Soyuz TMA-3(ISS8),Soyuz TMA-4(ISS9),Soyuz TMA-5(ISS10),Soyuz TMA-6(ISS11),Soyuz TMA-7(ISS12)', 'Soyuz TMA-2(ISS7),Soyuz TMA-3(ISS8),Soyuz TMA-4(ISS9),Soyuz TMA-5(ISS10),Soyuz TMA-6(ISS11),Soyuz TMA-7(ISS12)'),
+('ISS-13-19', 3, 'Pavel Vinogradov(RUS.ISS13),Jeffrey Nels Williams(USA.ISS13),Thomas Arthur Reiter(GER,ISS13/14),Michael Eladio López-Alegría(USA.ISS14),Michail Turin(RUS.ISS14),Sunita «Suni» Lyn Williams(USA.ISS14/15),Fedor Yurchihin(RUS.ISS15),Oleh Kotov(RUS.ISS15),Clayton Conrad Anderson(USA.ISS15/16),Peggy Annette Whitson(USA.ISS16),Yuriy Malenchenko(RUS.ISS16),Daniel Michio Tani(USA.ISS16),Léopold Eyharts(FRA.ISS16),Garrett Erin Reisman(USA.ISS16/17),Serhiy Volkov(RUS.ISS17),Oleh Kononenko(RUS.ISS17),Gregory Errol Chamitoff(USA.ISS17/18),Edward Michael Fincke(USA.ISS18),Yuriy Lonchakov(RUS.ISS18),Sandra Hall Magnus(USA.ISS18),Koiti Vakata(JPN.ISS18/19/20),Gennadiy Padalka(RUS.ISS19),Michael Reed Barratt(USA.ISS19)', '30.03.2006', '26.03.2009', 'Soyuz TMA-8(ISS13),STS-121(ISS13),Soyuz TMA-9(ISS14),STS-116(ISS14),STS-117(ISS15),Soyuz TMA-9(ISS15),Soyuz TMA-11(ISS16),STS-120(IIS16),STS-122(ISS16),STS-123(ISS16),Soyuz TMA-12(ISS17),STS-124(ISS17),Soyuz TMA-13(ISS18),STS-126(ISS18),STS-119(ISS18),Soyuz TMA-14(ISS19)', 'Soyuz TMA-8(ISS13),STS-116(ISS13),Soyuz TMA-8(ISS14),STS-117(ISS14),Soyuz TMA-10(ISS15),STS-120(ISS15),Soyuz TMA-11(ISS16),STS-122(ISS16),STS-123(SS16),STS-124(ISS16),Soyuz TMA-12(ISS17),STS-126(ISS17),Soyuz TMA-13(ISS18),STS-119(ISS18),STS-127(ISS18),Soyuz TMA-14(ISS19)'),
+('ISS-20-21', 2, 'Gennadiy Padalka(RUS.ISS20), Michael Reed Barratt(USA.ISS20),Timothy Lennart Kopra(USA.ISS20),Nicole Marie Passonno Stott(USA.ISS20),Jeffrey Nels Williams(USA.ISS21),Maksym Suraev(RUS.ISS22),Frank De Winne(BEL,ISS20/21),Roman Romanenko(RUS.ISS20/21),Robert Tersk(CAN,ISS20/21)', '27.05.2009', '30.09.2009', 'Soyuz TMA-15(ISS20),STS-127(ISS20),STS-128(ISS20),Soyuz TMA-15(ISS20)', 'Soyuz TMA-15(ISS20),STS-128(ISS20),STS-129(ISS20),Soyuz TMA-15(ISS21)');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `lections`
 --
 
@@ -690,7 +730,13 @@ INSERT INTO `lections_b` (`name`, `button_number`, `lesson_number`) VALUES
 ('SL-1', 1, 5),
 ('SL-2', 2, 5),
 ('SL-3', 3, 5),
-('SL-4', 4, 5);
+('SL-4', 4, 5),
+('Building station', 1, 6),
+('ISS-1-6', 2, 6),
+('ISS-7-12', 3, 6),
+('ISS-13-19', 4, 6),
+('ISS-20-21', 5, 6),
+('Regular Missions', 6, 6);
 
 -- --------------------------------------------------------
 
@@ -867,7 +913,25 @@ INSERT INTO `questions` (`id`, `text`, `lesson_num`) VALUES
 (15, 'SL3#4', 5),
 (16, 'SL4#4', 5),
 (17, 'SL1#5', 5),
-(18, 'SL2#5', 5);
+(18, 'SL2#5', 5),
+(1, 'Building#1', 6),
+(2, 'ISS1-6#1', 6),
+(3, 'ISS7-12#1', 6),
+(4, 'ISS13-19#1', 6),
+(5, 'ISS20-21#1', 6),
+(6, 'Regular#1', 6),
+(7, 'Building#2', 6),
+(8, 'ISS1-6#2', 6),
+(9, 'ISS7-12#2', 6),
+(10, 'Building#3', 6),
+(11, 'ISS1-6#3', 6),
+(12, 'ISS7-12#3', 6),
+(13, 'ISS13-19#2', 6),
+(14, 'ISS20-21#2', 6),
+(15, 'Regular#2', 6),
+(16, 'Building#4', 6),
+(17, 'ISS1-6#4', 6),
+(18, 'ISS7-12#4', 6);
 
 -- --------------------------------------------------------
 
@@ -956,7 +1020,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `type`, `email`, `interactid`, `is_activ`, `table_num`, `is_root`, `user_pass`, `add_date`, `scores`, `lastlogin`) VALUES
-(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-10-15 20:21:17'),
+(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-10-23 20:02:15'),
 (19, 'Teacher', 'Shabelnykov', 'T', 't@gmail.com', NULL, 'Y', 10, 'N', '0987654321', '2018-12-05 21:18:41', NULL, '2019-07-30 19:12:44'),
 (28, 'pak', 'Buki', 'P', 'pak@gmail.com', NULL, 'Y', 701, 'N', '944400--2', '2019-06-06 19:31:19', NULL, NULL),
 (29, 'Popi', 'Kisa', 'P', 'pk@gmail.com', NULL, 'Y', 456, 'N', '0987654321', '2019-06-24 20:37:15', NULL, NULL),

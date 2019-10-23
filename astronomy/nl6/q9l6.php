@@ -1,5 +1,5 @@
 <?php
-// Get 7st question for default lesson
+// Get 9st question for default lesson
 
 $user = 'spaceman';
 $pass = 'mask';
@@ -9,8 +9,7 @@ $db = 'solarSystem';
 $conn = new mysqli('localhost',$user,$pass,$db) or die("Unable to connect");
 mysqli_query($conn,"SET NAMES 'utf8'");
 
-$sql = "select text from questions where id = 7 and lesson_num = 3";
-
+$sql = "select text from questions where id = 9 and lesson_num = 6";
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
