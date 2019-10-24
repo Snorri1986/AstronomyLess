@@ -17,7 +17,33 @@
   <script src="event.php"></script>
 </head>
 <body onload="startTimeIss(),startTime()">
-  <div class="container" id="greetings">
+
+<div class="modal fade" id="lesson_choicer" role="dialog">
+  <div class="modal-dialog modal-sm">
+   <div class="modal-content">
+      <div class="modal-header">
+        <h3 style="text-align:center;color:blue;">Available lections</h3>
+      </div>
+      <div class="modal-body">
+        <div class="container" id="missions_labels_1">
+        <span id="mission_logos_1">
+              <a href="nl1/lections.html" title="Mercury"><img src="images/mission_lables/mercury_programm.png"></a>
+              <a href="nl2/lections.html" title="Gemini"><img src="images/mission_lables/gemini.jpg"></a>
+              <a href="nl3/lections.html" title="Apollo"><img src="images/mission_lables/apollo.jpg"></a>
+       </span>
+     </div>
+         <div class="container" id="missions_labels_2">
+     <span id="mission_logos_2">
+          <a href="nl4/lections.html" title="SpaceShuttle"><img src="images/mission_lables/sts.png"></a>
+          <a href="nl5/lections.html" title="Skylab"><img src="images/mission_lables/skylab.jpg"</a>
+          <a href="nl6/lections.html" title="ISS"><img src="images/mission_lables/iss.png"></a>
+     </span>
+        </div>
+           </div>
+       </div>
+         </div>
+       </div>
+     <div class="container" id="greetings">
 	<div id="hello">
     <h1>Welcome in virtual universe!!!</h1>
     <div id="welcome"></div>
@@ -42,8 +68,8 @@
        Regards, Denys Shabelnyk dionisiy1986@gmail.com
     </p>
      <div class="container" id="selectors">
-    <button type="button" class="btn btn-warning"><a href="lections.html">Lections</a></button>
-    <button type="button" class="btn btn-warning"><a href="general_test.html">Test</a></button>
+    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#lesson_choicer"><a href="#">Available Lections</a></button>
+    <button type="button" class="btn btn-warning"><a href="lections.html">OurSolarSystem</a></button>
     <button type="button" class="btn btn-warning"><a href="https://www.nasa.gov/multimedia/imagegallery/index.html">NASA Gallery</a></button>
     <button type="button" class="btn btn-warning" id="creator"><a href="admin.html">Admin part</a></button>
     </div>

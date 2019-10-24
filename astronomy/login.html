@@ -16,6 +16,7 @@
    <h3>Are you ready to explore the universe?</h3>
     <button type="button" id="reg_btn" class="btn btn-warning btn-md" data-toggle="modal" data-target="#auth_form"><a href="#">Registration</a></button>
     <button type="button" id="auth_btn" class="btn btn-warning btn-md" data-toggle="modal" data-target="#enter_form"><a href="#">Boarding</a></button>
+    <h4>* - Do not change lection name for redirect to main page</h4>
     </div>
 
   <!-- Register form -->
@@ -70,7 +71,7 @@
                     </div>
                     <div class="modal-body">
                     <div class="container">
-                      <h2 style="color:black;">Show your license</h2>
+                      <h2 style="color:black;">Show your license:)</h2>
                  <form  method="get" action="http://localhost:8080/AdminMain">
                  <div class="form-group">
                   <label for="email" style="color:black;">Email:</label>
@@ -81,6 +82,7 @@
                   <input type="password" pattern=".{5,}" class="form-control" id="auth_pass" name="pass" style="width:250px;" required>
                 </div>
                   <div class="form-group">
+                    <label for="lesson" style="color:black;">Name of lection:</label>
                   <select name="lessons">
                      <option value="OurSolarSystem">OurSolarSystem</option>
                      <option value="Mercury">Mercury</option>
