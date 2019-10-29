@@ -24,7 +24,7 @@
 
     }
     /* ...  */
-  
+
     .db_question {
        border: 2px solid yellow;
        border-radius: 5px;
@@ -57,5 +57,14 @@
 
   #but_to_sec_test {
     margin-top: 10px;
+    text-align: center;
+  }
+
+  #donation p {
+    color:black;
+    text-align: center;
+  }
+
+  #donation .modal-footer {
     text-align: center;
   }

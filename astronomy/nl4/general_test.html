@@ -49,7 +49,7 @@
   </div>
   <!-- Navigations butts -->
   <div class="container" id="navigation_buts_in_test">
-    <button type="button" class="btn btn-warning btn-lg"><a href="../main.html">Main page</a></button>
+    <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#donation"><a href="#">Main page</a></button>
     <button type="button" class="btn btn-warning btn-lg"><a href="lections.html">Lections</a></button>
     <span><p>Score count:</p><p id="score">0</p></span>
     <form method="get" action="http://localhost:8080/AdminMain">
@@ -57,7 +57,37 @@
     <input type="text" name="success_score">
     </form>
   </div>
-  <div class="container">
+
+  <!-- modal donation -->
+  <div class="modal fade" id="donation" role="dialog">
+   <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" style="text-align:center;">Thank's for reading!!!</h4>
+      </div>
+  <div class="modal-body">
+    <p>
+                       Dear visitor!!!<br>
+      Thank's for reading information in my application.
+      I hope you spent time with pleasure and knew something
+      knew in Space Exploration History.
+      I have many ideas for improve application in future.
+      If you want to support me, you can made little donation.
+      Account information you can find below:<br>
+                      (IBAN account)<br>
+                       Thank you!
+    </p>
+   <div class="modal-footer">
+     <button type="button" class="btn btn-warning"><a href="../main.html">MainPage</a></button>
+   </div>
+       </div>
+
+   </div>
+      </div>
+  </div>
+
+ <div class="container">
     <!-- First row of questions -->
     <div class="row">
       <div class="col-md-4">
