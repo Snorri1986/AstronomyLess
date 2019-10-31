@@ -281,6 +281,17 @@ public class AdminMain extends HttpServlet {
                         sysrveys.print("<script language='JavaScript'>alert('Survey have successfully sent');</script>");
                         sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl6/lections.html\";</script>");
                     }
+
+                     break;
+
+
+                case "General":
+                    if (res_mailbox) {
+                        PrintWriter sysrveys = response.getWriter();
+                        sysrveys.print("<script language='JavaScript'>alert('Survey have successfully sent');</script>");
+                        sysrveys.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/main.html\";</script>");
+                    }
+
                     break;
             }
         }
