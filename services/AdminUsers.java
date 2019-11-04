@@ -16,12 +16,9 @@ public class AdminUsers {
             String u_name,
             String u_lastname,
             String u_email,
-            String u_pass,
-            String u_id,
-            String u_tab,
-            String flag
+            String u_pass
     ) {
-        boolean result = false;
+        boolean result = true;
 
         try {
             // call DB
@@ -41,26 +38,15 @@ public class AdminUsers {
             try {
                 Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
 
-                // email and password must be unique.Let's check.
-                boolean email_used = AdminUsers.isEmailUsed(u_email);
-                if(email_used) {
-                    conn.close();
-                    return result;
-                }
-
-
-                String query = "INSERT INTO users(name, surname, type, email, interactid, table_num, user_pass) \n" +
-                        "VALUES (?,?,?,?,?,?,?)";
+                String query = "INSERT INTO users(name, surname, email, user_pass) \n" +
+                        "VALUES (?,?,?,?)";
 
                 // create the mysql insert preparedstatement
                 PreparedStatement preparedStmt = conn.prepareStatement(query);
                 preparedStmt.setString(1, u_name);
                 preparedStmt.setString(2, u_lastname);
-                preparedStmt.setString(3, flag);
-                preparedStmt.setString(4, u_email);
-                preparedStmt.setString(5, null);
-                preparedStmt.setString(6, u_tab);
-                preparedStmt.setString(7, u_pass);
+                preparedStmt.setString(3, u_email);
+                preparedStmt.setString(4, u_pass);
 
 
                 // execute the preparedstatement
@@ -68,69 +54,17 @@ public class AdminUsers {
 
                 conn.close();
 
-                result = true;
-
             } catch (SQLException e) {
                 e.printStackTrace();
+                result = false;
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            result = false;
         }
 
         return result;
 
-    }
-
-    // check email of new user.
-    public static boolean isEmailUsed(String nu_mail) {
-        boolean res = false;
-
-        try {
-            // call DB
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // connect to MySQL DB
-            String jdbcUrl = "jdbc:mysql://localhost:3306/solarsystem" +
-                    "?verifyServerCertificate=false" +
-                    "&useSSL=false" +
-                    "&requireSSL=false" +
-                    "&useLegacyDatetimeCode=false" +
-                    "&amp" +
-                    "&serverTimezone=UTC";
-            String username = "spaceman";
-            String password = "mask";
-
-            try {
-                Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
-                // email and password must be unique.Let's check
-                String sql = "{call CheckEmail(?,?)}";
-                CallableStatement stmt = conn.prepareCall(sql);
-                //Set IN parameter
-                stmt.setString(1, nu_mail);
-                //Set OUT parameter
-                stmt.registerOutParameter(2, Types.VARCHAR);
-                //Execute stored procedure
-                stmt.execute();
-
-                //Set result variable
-                String check_mail = stmt.getString(2);
-
-                if (check_mail == null) {
-                    conn.close();
-
-                } else {
-                    conn.close();
-                    res = true;
-                }
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
-        } catch (ClassNotFoundException e) {
-               e.printStackTrace();
-        }
-        return res;
     }
 
     // User authentication.

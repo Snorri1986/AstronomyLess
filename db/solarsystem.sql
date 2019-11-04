@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Окт 23 2019 г., 22:19
+-- Время создания: Ноя 04 2019 г., 22:40
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -824,7 +824,7 @@ INSERT INTO `questions` (`id`, `text`, `lesson_num`) VALUES
 (16, 'Which scientist first discovered Uranus with an optical telescope?', 0),
 (17, 'What is the name of the automatic interplanetary station that flew over the planet Neptune?', 0),
 (18, 'Which automatic interplanetary station did Pluto study?', 0),
-(1, 'Mercury-Redstone-3 #1', 1),
+(1, 'About Mercury-Redstone #1', 1),
 (2, 'Mercury-Redstone-4 #1', 1),
 (3, 'Mercury-Atlas-6 #1', 1),
 (4, 'Mercury-Atlas-7 #1', 1),
@@ -1003,12 +1003,8 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL COMMENT 'counter',
   `name` varchar(30) NOT NULL COMMENT 'name',
   `surname` varchar(30) NOT NULL COMMENT 'surname',
-  `type` varchar(1) NOT NULL COMMENT 'user type',
   `email` varchar(30) NOT NULL COMMENT 'user email',
-  `interactid` int(11) DEFAULT NULL COMMENT 'communication id',
   `is_activ` varchar(1) NOT NULL DEFAULT 'Y' COMMENT 'user status',
-  `table_num` int(11) DEFAULT NULL COMMENT 'table num(teachers)',
-  `is_root` varchar(1) NOT NULL DEFAULT 'N' COMMENT 'superuser',
   `user_pass` varchar(10) NOT NULL COMMENT 'user''s passphrase',
   `add_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `scores` int(11) DEFAULT NULL,
@@ -1019,12 +1015,8 @@ CREATE TABLE `users` (
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `surname`, `type`, `email`, `interactid`, `is_activ`, `table_num`, `is_root`, `user_pass`, `add_date`, `scores`, `lastlogin`) VALUES
-(15, 'Denys', 'Shabelnyk', 'P', 'dionisiy1986@gmail.com', NULL, 'Y', 0, 'N', '1234567890', '2018-11-21 20:33:34', 100, '2019-10-23 20:02:15'),
-(19, 'Teacher', 'Shabelnykov', 'T', 't@gmail.com', NULL, 'Y', 10, 'N', '0987654321', '2018-12-05 21:18:41', NULL, '2019-07-30 19:12:44'),
-(28, 'pak', 'Buki', 'P', 'pak@gmail.com', NULL, 'Y', 701, 'N', '944400--2', '2019-06-06 19:31:19', NULL, NULL),
-(29, 'Popi', 'Kisa', 'P', 'pk@gmail.com', NULL, 'Y', 456, 'N', '0987654321', '2019-06-24 20:37:15', NULL, NULL),
-(30, 'puk', 'pukin', 'P', 'pik@ukr.net', NULL, 'Y', 12, 'N', '1905378902', '2019-06-25 19:32:27', NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `surname`, `email`, `is_activ`, `user_pass`, `add_date`, `scores`, `lastlogin`) VALUES
+(15, 'Denys', 'Shabelnyk', 'dionisiy1986@gmail.com', 'Y', '1234567890', '2018-11-21 20:33:34', 100, '2019-11-01 20:35:00');
 
 -- --------------------------------------------------------
 
@@ -1096,7 +1088,7 @@ ALTER TABLE `events`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uniq_users` (`name`,`surname`,`email`,`user_pass`);
+  ADD UNIQUE KEY `ind_email` (`email`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
@@ -1106,7 +1098,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'counter', AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'counter', AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -164,24 +164,16 @@ public class AdminMain extends HttpServlet {
         else if (request.getParameter("username") != null &&
                 request.getParameter("usersurname") != null &&
                 request.getParameter("n_email") != null &&
-                request.getParameter("password") != null &&
-                request.getParameter("tabel") != null) {
+                request.getParameter("password") != null) {
             // get user's input
             String new_user_name = request.getParameter("username");
             String new_user_surname = request.getParameter("usersurname");
             String nu_email = request.getParameter("n_email");
             String nu_pass = request.getParameter("password");
-            String nu_tab = request.getParameter("tabel");
-            String nu_type;
-            if (request.getParameter("t_type") == null) {
-                nu_type = "P";
-            } else {
-                nu_type = "T";
-            }
 
             // call method
             boolean method_result = AdminUsers.addNewUser(new_user_name,
-                    new_user_surname, nu_email, nu_pass, "NULL", nu_tab, nu_type);
+                    new_user_surname, nu_email, nu_pass);
 
             // analyze result
             if (method_result) {
