@@ -46,35 +46,8 @@ p  {text-align: center;}
 </style>
 <body>
 
-	<!-- Choice number of lesson  -->
-	<div class="container" id="lesson_buttons">
-          <h2 class="main_title">Choice number of lesson:</h2>
-    </div>
-
-    <!-- Button of lesson -->
-<div class="row">
-	   <form method="get" id="ln_btn" action="http://localhost:8080/AdminMain">
-     <button type="submit" class="btn btn-warning btn-md" name="l0">0</button>
-     <button type="submit" class="btn btn-warning btn-md" name="l1">1</button>
-     <button type="submit" class="btn btn-warning btn-md" name="l2">2</button>
-     <button type="submit" class="btn btn-warning btn-md" name="l3">3</button>
-     <button type="submit" class="btn btn-warning btn-md" name="l4">4</button>
-     <button type="submit" class="btn btn-warning btn-md" name="l5">5</button>
-     <button type="submit" class="btn btn-warning btn-md" name="l6">6</button>
-     <button type="submit" class="btn btn-warning btn-md" name="l7">7</button>
-     <button type="submit" class="btn btn-warning btn-md" name="l8">8</button>
-     <button type="submit" class="btn btn-warning btn-md" name="l9">9</button>
-     <div class="container">
-       <input class="black" type="text" name="less_btn" style="width: 120px;" id="lnf"> Lesson number*
-     </div>
-     </form>
-<!-- -->
-</div>
-
-  <div class="container">
-    <!-- ready to commit 19.09.2019 -->
-          <h2 class="main_title">Write text of question below(update):</h2>
-    <!-- -->
+<div class="container">
+    <h2 class="main_title">Write text of question below(update):</h2>
   </div>
     <form method="get" id="new_question" action="http://localhost:8080/AdminMain">
       <div class="form-group">
@@ -86,11 +59,9 @@ p  {text-align: center;}
       </div>
     </form>
 
-       <div class="container">
-        <!-- ready to commit 19.09.2019 -->
-            <h2 class="main_title">Write new text of lection below(update):</h2>
-        <!--  -->
-       </div>
+    <div class="container">
+        <h2 class="main_title">Write new text of lection below(update):</h2>
+    </div>
        <form method="get" id="new_lection" action="http://localhost:8080/AdminMain">
          <div class="form-group">
          <textarea class="black" rows="25" cols="70" name="ta_l"></textarea>
@@ -101,9 +72,7 @@ p  {text-align: center;}
 
 
        <div class="container">
-        <!-- ready to commit 19.09.2019 -->
-               <h2 class="main_title">Write new button name in lection(update):</h2>
-        <!--  -->
+           <h2 class="main_title">Write new button name in lection(update):</h2>
        </div>
          <form method="get" id="new_lec_button_name" action="http://localhost:8080/AdminMain">
            <div class="form-group">
@@ -114,10 +83,8 @@ p  {text-align: center;}
           </div>
         </form>
         <div class="container">
-          <!-- ready to commit 19.09.2019 -->
-                <h2 class="main_title">Upload new event(insert)</h2>
-          <!--  -->
-                <h4 class="main_title">insert date in format YYYY-MM-DD</h4>
+            <h2 class="main_title">Upload new event(insert)</h2>
+        <h4 class="main_title">insert date in format YYYY-MM-DD</h4>
         </div>
           <form method="get" id="upl_new_event" action="http://localhost:8080/AdminMain">
             <div class="form-group">

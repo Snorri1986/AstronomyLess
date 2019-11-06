@@ -23,45 +23,7 @@ public class AdminMain extends HttpServlet {
         String id_name = " ";
         String les_num = " ";
 
-        // check button "Discard all changes"
-        if (request.getParameter("dc") != null) {
-            temp = "All changes are discarded";
-            PrintWriter out_dc = response.getWriter();
-            out_dc.print("<script language='JavaScript'>alert('" + temp + "');</script>");
-
-        } else if (request.getParameter("apl") != null) {
-            //Get lesson num from site
-            String l_num_from_site = request.getParameter("lnbn");
-            boolean action_result = AdminLessons.setNewLection(l_num_from_site);
-            // tell user about result
-            if (action_result == true) {
-                PrintWriter out_nb_action_pos = response.getWriter();
-                out_nb_action_pos.print("<script language='JavaScript'>alert('Success');</script>");
-            } else {
-                PrintWriter out_nb_action_neg = response.getWriter();
-                out_nb_action_neg.print("<script language='JavaScript'>alert('Failed');</script>");
-            }
-        }
-        // ...
-        // Change lesson number
-
-        else if (request.getParameter("less_btn") != null) {
-
-            String l_num_from_site = request.getParameter("less_btn");
-            boolean action_result = AdminLessons.setNewLesson(l_num_from_site);
-            // tell user about result
-            if (action_result == true) {
-                PrintWriter out_nb_action_pos = response.getWriter();
-                out_nb_action_pos.print("<script language='JavaScript'>alert('Successfully changed lesson');</script>");
-                out_nb_action_pos.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/main.html\";</script>");
-            } else {
-                PrintWriter out_nb_action_neg = response.getWriter();
-                out_nb_action_neg.print("<script language='JavaScript'>alert('Failed changed lesson');</script>");
-            }
-        }
-
-        // set new question for general test
-        else if (request.getParameter("q_upload") != null) {
+        if (request.getParameter("q_upload") != null) {
 
             // data from web-page
             String ta_txt = request.getParameter("ta");
