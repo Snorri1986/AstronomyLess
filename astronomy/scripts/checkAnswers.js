@@ -4,11 +4,16 @@ Version: 1.2
 function chkAnswers(answer,points,id) {
 	var crnPnt = document.getElementById("score").innerHTML;
 	var newPnt = Number(crnPnt) + Number(points);
+
 	var corAnswersArr = ["Coloris","243","Marian","Iron oxid",
 	                     "Juno","Gaseous","Axis of rotation",
 	                     "Math","Charon","Hurricanes","Everest",
-	                     "Discovery","Mohava",10,300000,"William Gershel",
-	                     "Voyager-2","New Horizons"];
+	                     "Discovery","Mohava","10","300000","William Gershel",
+	                     "Voyager-2","New Horizons","Alan Shepard","3 hours",
+										   "Gas Grissom","Museum","Walter Williams","USS Noa",
+										   "Aurora 7","Puerto Rico","6","21","Ham(shampanze)","LC-5",
+										   "Enos","42 weeks","77","Walter Shirra"];
+	
 	if (corAnswersArr.includes(answer)) {
 		alert("The answer is corrent.Yoy have got 10 points.");
 		document.getElementById("score").innerHTML = newPnt;
@@ -151,7 +156,7 @@ function chkAnswers(answer,points,id) {
 
 			break;
 
-			case 'q9a2': {
+			case 'q9a2': case 'q9a3': {
 			     document.getElementById("q9a2").classList.add('disabled');
 					 document.getElementById("q9a1").classList.add('disabled');
 					 document.getElementById("q9a3").classList.add('disabled');

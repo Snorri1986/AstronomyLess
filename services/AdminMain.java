@@ -37,7 +37,8 @@ public class AdminMain extends HttpServlet {
             if (action_result == true) {
                 PrintWriter new_question_res_pos = response.getWriter();
                 new_question_res_pos.print("<script language='JavaScript'>alert('Successfully changed question');</script>");
-                new_question_res_pos.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/main.html\";</script>");
+                new_question_res_pos.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/admin.html\";</script>");
+                // ... //
             } else {
                 PrintWriter new_question_res_err = response.getWriter();
                 new_question_res_err.print("<script language='JavaScript'>alert('Failed changed question');</script>");
@@ -260,11 +261,51 @@ public class AdminMain extends HttpServlet {
                 if(action_result) {
                     PrintWriter txtlection = response.getWriter();
                     txtlection.print("<script language='JavaScript'>alert('Lection text have successfully saved');</script>");
+                    // ready to commit 12.11.2019
+                    switch(btn_number) {
+                        // Mercury
+                        case "10": case "11": case "12": case "13": case "14": case "15": case "16": case "17":case "18":
+                            txtlection.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl1/lections.html\";</script>");
+                            break;
+
+                         // Gemini
+                        case "19": case "20": case "21": case "22": case "23": case "24": case "25": case "26":case "27":
+                            txtlection.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl2/lections.html\";</script>");
+                            break;
+
+                        // Apollo
+                        case "28": case "29": case "30": case "31": case "32": case "33": case "34": case "35":case "36":
+                            txtlection.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl3/lections.html\";</script>");
+                            break;
+
+                        // Space Shuttle
+                        case "37": case "38": case "39": case "40": case "41": case "42": case "43": case "44":case "45":
+                            txtlection.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl4/lections.html\";</script>");
+                            break;
+
+                        // SkyLab
+                        case "46": case "47": case "48": case "49":
+                            txtlection.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl5/lections.html\";</script>");
+                            break;
+
+                        // ISS
+                        case "50": case "51": case "52": case "53": case "54": case "55":
+                            txtlection.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/nl6/lections.html\";</script>");
+                            break;
+
+                        //OurSolarSystem
+                        case "1": case "2": case "3": case "4": case "5": case "6": case "7": case "8": case "9":
+                            txtlection.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/lections.html\";</script>");
+                            break;
+
+                    }
+                    // ... ///
                     txtlection.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/lections.html\";</script>");
                 } else {
                     PrintWriter txtlection_err = response.getWriter();
                     txtlection_err .print("<script language='JavaScript'>alert('Error while saved txt in DB');</script>");
-                    txtlection_err.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/admin2.html\";</script>");
+                    // ready to commit 12.11.2019
+                    txtlection_err.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/admin.html\";</script>");
                 }
             } catch(ClassNotFoundException e) {
                 e.printStackTrace();

@@ -6,7 +6,7 @@ $db = 'solarSystem';
 
 // Establish connection
 $conn = new mysqli('localhost',$user,$pass,$db) or die("Unable to connect");
-$sql = "select name from lections_b where button_number = 9 and lesson_number = 1"; // ready to commit 12.09.2019
+$sql = "select name from lections_b where button_number = 9 and lesson_number = 1"; 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
