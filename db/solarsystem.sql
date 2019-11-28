@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 27 2019 г., 22:33
+-- Время создания: Ноя 28 2019 г., 21:52
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -113,9 +113,22 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`event_date`, `description`) VALUES
+('1921-07-18', 'John Herschel Glen Jr was born'),
+('1923-03-12', 'Walter Marty Shirra Jr was born'),
+('1924-03-01', 'Donald Kent Slayton was born'),
+('1925-05-01', 'Malcolm Scott Carpenter was born'),
+('1926-04-03', 'Virgil \'Gas\' Grissom was born'),
+('1927-03-06', 'Leroy Gordon \'Gordo\' Cooper was born'),
+('1932-11-18', 'Alan Shepard was born'),
 ('1960-12-09', 'Mercury-Redstone 3 with capsule Freedom 7 had rolled out to the lauch pad on Cape Canaveral.'),
+('1961-01-31', 'Mercury-Redstone 2 with monkey Ham on the board was lifted off to Earth orbit'),
 ('1961-05-05', 'Mercury-Redstone 3 with Alan Shepard on board made first flight with USA human.'),
-('1961-07-21', 'Mercury-Redstone 4 was litfed off');
+('1961-07-21', 'Mercury-Redstone 4 was litfed off'),
+('1961-11-29', 'Mercury-Atlas 5 with monkey Enos was lifted off'),
+('1962-02-20', 'Mercury-Atlas 6 was lifted off with John Glenn'),
+('1962-05-24', 'Mercury-Atlas 7 was lifted off by astronaut Scott Carpenter'),
+('1962-10-03', 'Mercury-Atlas 8 with Sigma 7 was lifted off by astronaut Walter Shirra'),
+('1963-05-15', 'Mercury-Atlas 9 was lifted off by Gordon Cooper who piloted Faith 7 capsule');
 
 -- --------------------------------------------------------
 
@@ -543,7 +556,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `email`, `is_activ`, `user_pass`, `add_date`, `scores`, `lastlogin`) VALUES
-(15, 'Denys', 'Shabelnyk', 'dionisiy1986@gmail.com', 'Y', '1234567890', '2018-11-21 20:33:34', 100, '2019-11-27 21:15:40');
+(15, 'Denys', 'Shabelnyk', 'dionisiy1986@gmail.com', 'Y', '1234567890', '2018-11-21 20:33:34', 100, '2019-11-28 20:26:49');
 
 -- --------------------------------------------------------
 
