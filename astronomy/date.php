@@ -6,7 +6,7 @@ $db = 'solarSystem';
 
 // Establish connection
 $conn = new mysqli('localhost',$user,$pass,$db) or die("Unable to connect");
-$sql = "select event_date from events where solarsystem.getCurrentDate() = event_date";
+$sql = "select event_date from events where solarsystem.getCurrentDate() = substring(event_date,6,6)"; 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 28 2019 г., 21:52
+-- Время создания: Ноя 29 2019 г., 21:54
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -89,9 +89,9 @@ and q.lesson_num = l_num$$
 --
 -- Функции
 --
-CREATE DEFINER=`root`@`localhost` FUNCTION `getCurrentDate` () RETURNS DATE BEGIN
-DECLARE DAT DATE;
-   SELECT CURRENT_DATE() INTO DAT;
+CREATE DEFINER=`root`@`localhost` FUNCTION `getCurrentDate` () RETURNS TEXT CHARSET utf8 BEGIN
+DECLARE DAT TEXT;
+   SELECT SUBSTRING(CURRENT_DATE(),6,6) INTO DAT;
 RETURN DAT;
 END$$
 
@@ -556,7 +556,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `email`, `is_activ`, `user_pass`, `add_date`, `scores`, `lastlogin`) VALUES
-(15, 'Denys', 'Shabelnyk', 'dionisiy1986@gmail.com', 'Y', '1234567890', '2018-11-21 20:33:34', 100, '2019-11-28 20:26:49');
+(15, 'Denys', 'Shabelnyk', 'dionisiy1986@gmail.com', 'Y', '1234567890', '2018-11-21 20:33:34', 100, '2019-11-29 20:18:16');
 
 -- --------------------------------------------------------
 
