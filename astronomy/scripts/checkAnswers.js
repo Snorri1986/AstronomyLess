@@ -12,8 +12,12 @@ function chkAnswers(answer,points,id) {
 	                     "Voyager-2","New Horizons","Alan Shepard","3 hours",
 										   "Gas Grissom","Museum","Walter Williams","USS Noa",
 										   "Aurora 7","Puerto Rico","6","21","Ham(shampanze)","LC-5",
-										   "Enos","42 weeks","77","Walter Shirra"];
-	
+										   "Enos","42 weeks","77","Walter Shirra","Molly Brown",
+										   "spacewalk","Duration","8 days", "Pete Conrad", "206",
+										   "Randezvous","Explosion","Docking&EVA","3 days",
+										   "Aircrash","Stress","UDD(Pentagon)","Agena", "Richard Gordon","Auto landing",
+										   "5h30m","4"];
+
 	if (corAnswersArr.includes(answer)) {
 		alert("The answer is corrent.Yoy have got 10 points.");
 		document.getElementById("score").innerHTML = newPnt;
