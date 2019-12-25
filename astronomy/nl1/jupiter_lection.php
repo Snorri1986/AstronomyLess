@@ -10,7 +10,7 @@ $conn = new mysqli('localhost',$user,$pass,$db) or die("Unable to connect");
 
 mysqli_query($conn,"SET NAMES 'utf8'");
 
-$sql = "SELECT `lection_txt` FROM `lections` WHERE `buttonnum` = 14"; 
+$sql = "SELECT `lection_txt` FROM `lections` WHERE `buttonnum` = 14";  
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
