@@ -16,8 +16,11 @@ function chkAnswers(answer,points,id) {
 										   "spacewalk","Duration","8 days", "Pete Conrad", "206",
 										   "Randezvous","Explosion","Docking&EVA","3 days",
 										   "Aircrash","Stress","UDD(Pentagon)","Agena", "Richard Gordon","Auto landing",
-										   "5h30m","4"];
-
+										   "5h30m","4","John F.Kennedy","Maxim Faget","Electrical failures","20 months",
+										   "All-up test","Trans lunar injection","Lunar Module","TV Broadcast","Test LM",
+										   "Test LM on Moon orbit","31","Tranquility base","Eagle","Surveyer3","Ken Mattingly",
+										   "Golf","Lunar Roving Vehicle"];
+    
 	if (corAnswersArr.includes(answer)) {
 		alert("The answer is corrent.Yoy have got 10 points.");
 		document.getElementById("score").innerHTML = newPnt;

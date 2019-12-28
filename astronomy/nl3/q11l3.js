@@ -3,7 +3,7 @@
  $(document).ready(function(){
     $.ajax({
     type:'GET',
-    url: 'q11l3.php', /* #31 ready to commit 03.10.2019 */
+    url: 'q11l3.php', 
     data:'',
     success: function(data){
             $('#question11').html(data);

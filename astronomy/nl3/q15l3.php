@@ -8,9 +8,9 @@ $db = 'solarSystem';
 // Establish connection
 $conn = new mysqli('localhost',$user,$pass,$db) or die("Unable to connect");
 mysqli_query($conn,"SET NAMES 'utf8'");
-/* #31 ready to commit 03.10.2019 */
+
 $sql = "select text from questions where id = 15 and lesson_num = 3";
-/* ... */
+
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

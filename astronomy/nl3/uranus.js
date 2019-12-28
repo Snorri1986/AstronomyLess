@@ -2,7 +2,7 @@
  $(document).ready(function(){
     $.ajax({
     type:'GET',
-    url:'uranus.php', /*#31 ready to commit 03.q0.9*/
+    url:'uranus.php', 
     data:'',
     success: function(data){
             $('#phys_uranus').html(data);
