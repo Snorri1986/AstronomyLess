@@ -19,8 +19,11 @@ function chkAnswers(answer,points,id) {
 										   "5h30m","4","John F.Kennedy","Maxim Faget","Electrical failures","20 months",
 										   "All-up test","Trans lunar injection","Lunar Module","TV Broadcast","Test LM",
 										   "Test LM on Moon orbit","31","Tranquility base","Eagle","Surveyer3","Ken Mattingly",
-										   "Golf","Lunar Roving Vehicle"];
-    
+										   "Golf","Lunar Roving Vehicle","Enterprice","Rocketdyne RS-25","2 days","John W.Young(4 flights)",
+										   "Sergei K.Krikalev","Mir","Hubble Telescope","9 flights","Pepsi and Coca-Cola","Infrared telescope(IRT)",
+										   "Unity","Zarya","O-ring seal","32 month","Piece of foam","Window frame",
+										   "Smallest team","Charles Bolden"];
+
 	if (corAnswersArr.includes(answer)) {
 		alert("The answer is corrent.Yoy have got 10 points.");
 		document.getElementById("score").innerHTML = newPnt;

@@ -356,7 +356,7 @@ public class AdminMain extends HttpServlet {
                 } else {
                     PrintWriter txtlection_err = response.getWriter();
                     txtlection_err .print("<script language='JavaScript'>alert('Error while saved new event');</script>");
-                    txtlection_err.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/admin2.html\";</script>");
+                    txtlection_err.print("<script language='JavaScript'>window.location = \"http://localhost/astronomy/admin.html\";</script>");
                 }
             } catch(ClassNotFoundException e) {
                 e.printStackTrace();
