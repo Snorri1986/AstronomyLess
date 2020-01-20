@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Янв 10 2020 г., 19:59
+-- Время создания: Янв 20 2020 г., 13:11
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -155,7 +155,17 @@ INSERT INTO `events` (`event_date`, `description`) VALUES
 ('1971-02-09', 'Apollo 14 was successfully splashed down and executed all mission objectives on Pacific Ocean'),
 ('1971-07-26', 'Apollo 15 was started with David Scott on the board as commander'),
 ('1972-04-16', 'Apollo 16 was started from Kennedy Space Center in Florida '),
+('1972-07-26', 'SMEAT project was started with Bob Crippen, Karol Bobko and William Thornton.'),
+('1972-09-20', 'SMEAT was finished. All members were healty.'),
 ('1972-12-07', 'Apollo 17 was started with Eugene Cernan as commander on the board'),
+('1973-05-14', 'Skylab 1 SL-1 was started'),
+('1973-05-25', 'Skylab 2 SL-2 was started with Pete Conrad, Joseph Kerwin and Paul Weitz on the board.'),
+('1973-06-22', 'Skylab 2 SL-2 was finished. Pete Conrad, Joseph Kerwin and Paul Weitz was successfully landed.'),
+('1973-07-28', 'Skylab 3 SL-3 was started with Alan Bean, Owen Garriott and Jack Lousma on the board.'),
+('1973-09-25', 'Skylab 3 SL-3 was finished. Astronauts Alan Bean, Owen Garriott and Jack Lousma was successfully landed.'),
+('1973-11-16', 'Skylab 4 SL-4 was started with astronauts Gerald Carr, Edward Gibson and William Pogue on the board.'),
+('1974-02-08', 'Skylab 4 SL-4 was finished.Astronauts Gerald Carr, Edward Gibson and William Pogue was successfully landed.'),
+('1979-07-11', 'Skylab 1 SL-1 was finished'),
 ('1981-04-12', 'The first Space Shuttle Mission STS -1 was launched with John W Young and Bob Crippen on the board.'),
 ('1981-04-14', 'The STS-1 mission was successfully landed.'),
 ('1985-07-29', 'The STS-51-F was started to the Earth orbit with Pepsi & Coca-Cola and IRT on the board.'),
@@ -269,10 +279,10 @@ INSERT INTO `lections` (`buttonnum`, `lection_txt`) VALUES
 (43, 'STS-51-L was the 25th mission of the United States Space Shuttle program, the program to carry out routine transportation for Earth-to-orbit crew and cargo; as well as the final flight of Space Shuttle Challenger.\r\nPlanned as the first Teacher in Space Project in addition to observing Halley\'s Comet for six days, the mission never achieved orbit; a structural failure during its ascent phase 73 seconds after launch from Kennedy Space Center Launch Complex 39 on January 28, 1986, killed all seven crew membersâ??Commander Dick Scobee, Pilot Michael J. Smith, Mission Specialists Ellison S. Onizuka, Judith A. Resnik and Ronald E. McNair, and Payload Specialists Gregory Jarvis and Christa McAuliffeâ??and destroyed the orbiter.\r\nImmediately after the disaster, NASA convened the Rogers Commission to determine the cause of the explosion. The failure of an O-ring seal on the starboard Solid Rocket Booster (SRB) was determined to have caused the shuttle to break-up in flight. Space Shuttle flights were suspended for 32 months while the hazards with the shuttle were addressed. The Space Shuttle program resumed with STS-26, launched two years after the accident.\r\n========================================================================\r\nMore information folowed by link: https://en.wikipedia.org/wiki/STS-51-L\r\n========================================================================'),
 (44, 'STS-107 was the 113th flight of the Space Shuttle program, and the final flight of Space Shuttle Columbia. The mission launched from Kennedy Space Center in Florida on January 16, 2003 and during its 15 days, 22 hours, 20 minutes, 32 seconds in orbit conducted a multitude of international scientific experiments.\r\nAn in-flight break up during reentry into the atmosphere on February 1 killed all seven crew members and disintegrated Columbia. Immediately after the disaster, NASA convened the Columbia Accident Investigation Board to determine the cause of the disintegration. The source of the failure was determined to have been caused by a piece of foam that broke off during launch and damaged the thermal protection system (reinforced carbon-carbon panels and thermal protection tiles) on the leading edge of the orbiter\'s left wing. During re-entry the damaged wing slowly overheated and came apart, eventually leading to loss of control and disintegration of the vehicle. The cockpit window frame is now exhibited in a memorial inside the Space Shuttle Atlantis Pavilion at the Kennedy Space Center in Florida.\r\nThe damage to the thermal protection system on the wing was similar to that Atlantis had sustained back in 1988 during STS-27, the second mission after the Space Shuttle Challenger disaster. However, the damage on STS-27 occurred at a spot that had more robust metal, and that mission survived the re-entry.\r\n========================================================================\r\nMore information folowed by link: https://en.wikipedia.org/wiki/STS-107\r\n========================================================================'),
 (45, 'STS-135 (ISS assembly flight ULF7) was the 135th and final mission of the American Space Shuttle program. It used the orbiter Atlantis and hardware originally processed for the STS-335 contingency mission, which was not flown. STS-135 launched on 8 July 2011, and landed on 21 July 2011, following a one-day mission extension. The four-person crew was the smallest of any shuttle mission since STS-6 in April 1983. The mission\'s primary cargo was the Multi-Purpose Logistics Module (MPLM) Raffaello and a Lightweight Multi-Purpose Carrier (LMC), which were delivered to the International Space Station (ISS). The flight of Raffaello marked the only time that Atlantis carried an MPLM.\r\nAlthough the mission was authorized, it initially had no appropriation in the NASA budget, raising questions about whether the mission would fly. On 20 January 2011, program managers changed STS-335 to STS-135 on the flight manifest. This allowed for training and other mission specific preparations.On 13 February 2011, program managers told their workforce that STS-135 would fly regardless of the funding situation via a continuing resolution. Until this point, there had been no official references to the STS-135 mission in NASA documentation for the general public.\r\nDuring an address at the Marshall Space Flight Center on 16 November 2010, NASA administrator Charles Bolden said that the agency needed to fly STS-135 to the station in 2011 due to possible delays in the development of commercial rockets and spacecraft designed to transport cargo to the ISS. \"We are hoping to fly a third shuttle mission (in addition to STS-133 and STS-134) in June 2011, what everybody calls the launch-on-need mission...and that\'s really needed to [buy down] the risk for the development time for commercial cargo,\" Bolden said.\r\nThe mission was included in NASA\'s 2011 authorization,which was signed into law on 11 October 2010, but funding remained dependent on a subsequent appropriations bill. United Space Alliance signed a contract extension for the mission, along with STS-134; the contract contained six one-month options with NASA in order to support continuing operations.\r\nThe federal budget approved in April 2011 called for $5.5 billion for NASA\'s space operations division, including the shuttle and space station programs. According to NASA, the budget running through 30 September 2011 ended all concerns about funding the STS-135 mission.\r\nSTS-135 was the final crewed orbital launch and landing from U.S. soil until early 2020, when SpaceX or Boeing is scheduled to conduct its Crewed Flight Test, due to delays in the commercial crew program.\r\n========================================================================\r\nMore information folowed by link: https://en.wikipedia.org/wiki/STS-135\r\n========================================================================'),
-(46, 'XXXXX'),
-(47, 'XXXXX'),
-(48, 'XXXXX'),
-(49, 'XXXXX'),
+(46, 'Skylab was the first United States space station, launched by NASA, occupied for about 24 weeks between May 1973 and February 1974. It was operated by three separate three-man crews: SL-2, SL-3 and SL-4. Major operations included an orbital workshop, a solar observatory, Earth observation, and hundreds of experiments.\r\nUnable to be re-boosted by the Space Shuttle, which was not ready until the early 1980s, Skylab burned up in the Earth\'s atmosphere in 1979, over the Pacific Ocean.\r\n========================================================================\r\nMore information folowed by link: https://en.wikipedia.org/wiki/Skylab\r\n========================================================================'),
+(47, 'Skylab 2 (also SL-2 and SLM-1) was the first crewed mission to Skylab, the first U.S. orbital space station. The mission was launched on a Apollo command and service module on a Saturn IB rocket on May 25, 1973, and carried a three-person crew to the station. The name Skylab 2 also refers to the vehicle used for that mission. The Skylab 2 mission established a twenty-eight-day record for human spaceflight duration. Furthermore, its crew were the first space station occupants ever to return safely to Earth â?? the only previous space station occupants, the crew of the 1971 Soyuz 11 mission that had crewed the Salyut 1 station for twenty-four days, died upon reentry due to unexpected cabin depressurization.\r\nThe crewed Skylab missions were officially designated Skylab 2, 3, and 4. Miscommunication about the numbering resulted in the mission emblems reading \"Skylab I\", \"Skylab II\", and \"Skylab 3\" respectively.\r\n========================================================================\r\nMore information folowed by link: https://en.wikipedia.org/wiki/Skylab_2\r\n========================================================================'),
+(48, 'Skylab 3 (also SL-3 and SLM-2[2]) was the second crewed mission to the first American space station, Skylab. The mission began July 28, 1973, with the launch of three astronauts in the Apollo command and service module on the Saturn IB rocket, and lasted 59 days, 11 hours and 9 minutes. A total of 1,084.7 astronaut-utilization hours were tallied by the Skylab 3 crew performing scientific experiments in the areas of medical activities, solar observations, Earth resources, and other experiments.\r\n========================================================================\r\nMore information folowed by link: https://en.wikipedia.org/wiki/Skylab_3\r\n========================================================================'),
+(49, 'Skylab 4 (also SL-4 and SLM-3) was the third crewed Skylab mission and placed the third and final crew aboard the first American space station.\r\nThe mission started on November 16, 1973 with the launch of three astronauts on a Apollo command and service module on a Saturn IB rocket from the Kennedy Space Center, Florida and lasted 84 days, one hour and 16 minutes. A total of 6,051 astronaut-utilization hours were tallied by Skylab 4 astronauts performing scientific experiments in the areas of medical activities, solar observations, Earth resources, observation of the Comet Kohoutek and other experiments.\r\nThe crewed Skylab missions were officially designated Skylab 2, 3, and 4. Mis-communication about the numbering resulted in the mission emblems reading \"Skylab I\", \"Skylab II\", and \"Skylab 3\" respectively.\r\n========================================================================\r\nMore information folowed by link: https://en.wikipedia.org/wiki/Skylab_4\r\n========================================================================'),
 (50, 'XXXXX'),
 (51, 'XXXXX'),
 (52, 'XXXXX'),
@@ -511,24 +521,24 @@ INSERT INTO `questions` (`id`, `text`, `lesson_num`) VALUES
 (16, 'What part of Columbia orbiter is now exhibited in a memorial inside the Space Shuttle Atlantis Pavilion at the Kennedy Space Center in Florida ?', 4),
 (17, 'What is the special feature of the last mission of the Atlantis shuttle?', 4),
 (18, 'Who was the NASA Chief during last shuttle mission?', 4),
-(1, 'SL1#1', 5),
-(2, 'SL2#1', 5),
-(3, 'SL3#1', 5),
-(4, 'SL4#1', 5),
-(5, 'SL1#2', 5),
-(6, 'SL2#2', 5),
-(7, 'SL3#2', 5),
-(8, 'SL4#2', 5),
-(9, 'SL1#3', 5),
-(10, 'SL2#3', 5),
-(11, 'SL3#3', 5),
-(12, 'SL4#3', 5),
-(13, 'SL1#4', 5),
-(14, 'SL2#4', 5),
-(15, 'SL3#4', 5),
-(16, 'SL4#4', 5),
-(17, 'SL1#5', 5),
-(18, 'SL2#5', 5),
+(1, 'How many week was Skylab occupied ?', 5),
+(2, 'In general, how many Skylab missions was executed ?', 5),
+(3, 'What rocket model was used to put the SkyLab into orbit?', 5),
+(4, 'What the name of documentary film about SkyLab which was made in March 2019 ?', 5),
+(5, 'What is the name of the SkyLab Life Simulation Project on Earth?', 5),
+(6, 'What is the main feature of Skylab SL-2 mission ?', 5),
+(7, 'What was the Skylab station lost during put in the orbit process ?', 5),
+(8, 'Who was saved Skylab station built protection shield outside station ?', 5),
+(9, 'How many astronauts have been inside Skylab station during SL-2 mission > ', 5),
+(10, 'How many EVAs was performed by team during Skylab SL-2 mission ?', 5),
+(11, 'What home comfort item was on board the Skylab?', 5),
+(12, 'Who was a commander on Skylab SL-3 mission ?', 5),
+(13, 'What kind of experiments did the Skylab SL-3 team do the most?', 5),
+(14, 'How many days did the Skylab SL-3 team live in orbit?', 5),
+(15, 'What astronomy object was explored by Skylab SL-4 team?', 5),
+(16, 'What was the commander of Skylab SL-4 mission ?', 5),
+(17, 'What the part of Apollo spacecraft was used during all Skylab missions ?', 5),
+(18, 'What the name of cape where all Skylab missions were started ?', 5),
 (1, 'Building#1', 6),
 (2, 'ISS1-6#1', 6),
 (3, 'ISS7-12#1', 6),
@@ -631,7 +641,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `email`, `is_activ`, `user_pass`, `add_date`, `scores`, `lastlogin`) VALUES
-(15, 'Denys', 'Shabelnyk', 'dionisiy1986@gmail.com', 'Y', '1234567890', '2018-11-21 20:33:34', 100, '2020-01-09 20:29:15');
+(15, 'Denys', 'Shabelnyk', 'dionisiy1986@gmail.com', 'Y', '1234567890', '2018-11-21 20:33:34', 100, '2020-01-20 10:06:21');
 
 -- --------------------------------------------------------
 

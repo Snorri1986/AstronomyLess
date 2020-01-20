@@ -162,6 +162,13 @@
     margin: 0 auto;
     text-align: center;
   }
+
+  /* all images in one size */
+  .thumbnail img {
+    weight: 100px;
+    height: 350px;
+  }
+  /**/
   /*****************************************/
   </style>
  </head>
@@ -316,15 +323,15 @@
       <div id="VenusCarousel" class="carousel slide" data-ride="carousel" style="width:400px;">
             <div class="carousel-inner" role="listbox">
                 <div class="item">
-                    <img src="..\images\newlesson4\modal-galery\c21.jpg" alt="SL2_c1" style="width:400px" id="img2c1">
+                    <img src="..\images\newlesson5\modal-galery\c21.jpg" alt="SL2_c1" style="width:400px" id="img2c1">
                  </div>
 
                 <div class="item">
-                  <img src="..\images\newlesson4\modal-galery\c22.jpg" alt="SL2_c2" style="width:400px" id="img2c2">
+                  <img src="..\images\newlesson5\modal-galery\c22.jpg" alt="SL2_c2" style="width:400px" id="img2c2">
                 </div>
 
                 <div class="item active">
-                  <img src="..\images\newlesson4\modal-galery\c23.jpg" alt="SL2_c3" style="width:400px" id="img2c3">
+                  <img src="..\images\newlesson5\modal-galery\c23.jpg" alt="SL2_c3" style="width:400px" id="img2c3">
                 </div>
             </div>
 
@@ -451,9 +458,9 @@
         <div class="modal-footer">
           <!-- Lection from DB -->
            <div id="mars"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Mars')">Survey</button>
-          </div>
+           <button type="button" class="btn btn-default"><a href="https://en.wikipedia.org/wiki/Skylab_4" target="_blank">Wiki</a></button>
+           <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Mars')">Survey</button>
+        </div>
       </div>
     </div>
   </div>

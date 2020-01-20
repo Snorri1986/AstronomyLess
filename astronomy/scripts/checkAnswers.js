@@ -22,7 +22,10 @@ function chkAnswers(answer,points,id) {
 										   "Golf","Lunar Roving Vehicle","Enterprice","Rocketdyne RS-25","2 days","John W.Young(4 flights)",
 										   "Sergei K.Krikalev","Mir","Hubble Telescope","9 flights","Pepsi and Coca-Cola","Infrared telescope(IRT)",
 										   "Unity","Zarya","O-ring seal","32 month","Piece of foam","Window frame",
-										   "Smallest team","Charles Bolden"];
+										   "Smallest team","Charles Bolden","24 weeks","4 missions","Saturn V","Searching for Skylab",
+										   "SMEAT","28 days in orbit","solar arrays","Jack Kinzler","3 astronauts","2 times",
+										   "Shower","Owen K.Garriott","Medical","Medical","60 days","Comet Kohoutek",
+										   "Gerald P.Carr","Apollo CSM","Canaveral"];
 
 	if (corAnswersArr.includes(answer)) {
 		alert("The answer is corrent.Yoy have got 10 points.");

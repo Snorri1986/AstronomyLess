@@ -17,7 +17,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
-    // #31 ready to commit 12.10.2019
+
     while($row = $result->fetch_assoc()) {
       echo "<b>Mission code:</b>" . " " . $row["code"] . " " ."<br>";
       echo "<b>Mission start date:</b>" . " " . $row["start_date"] . " " ."<br>";
@@ -26,7 +26,7 @@ if ($result->num_rows > 0) {
       echo "<b>Vehicle name:</b>" . " " . $row["init_vehicle"] . "<br>";
       echo "<b>Mission flight duration:</b>" . " " . $row["time_duration"] . " " . "<br>";
       echo "<b>Mission distance:</b>" . " " . $row["distance"] . " " . "km" . "<br>";
-      // ... //
+    
       }
 } else {
     echo "0 results";
