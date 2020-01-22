@@ -37,6 +37,7 @@
   <script src="earth_btn.js"></script>
   <script src="mars_btn.php"></script>
   <script src="mars_btn.js"></script>
+  <script src="../scripts/action_button.js"></script>
   <style>
 
   #phys_mercury {
@@ -299,9 +300,9 @@
           </div>
         <div class="modal-footer">
           <!-- lection from DB -->
-           <div id="mercury"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Mercury')">Survey</button>
+          <div id="mercury"></div>
+           <button type="button" class="btn btn-default" onclick="open_links('SL1')">Wikipedia</button>
+           <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Mercury')">Survey</button>
         </div>
       </div>
     </div>
@@ -353,9 +354,8 @@
         <div class="modal-footer">
           <!-- lection from DB -->
           <div id="venus"></div>
-        <!-- -->
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Venus')">Survey</button>
+           <button type="button" class="btn btn-default" onclick="open_links('SL2')">Wikipedia</button>
+           <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Venus')">Survey</button>
         </div>
       </div>
     </div>
@@ -409,10 +409,10 @@
      </div>
         <div class="modal-footer">
           <!-- Lection from DB -->
-           <div id="earth"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default" data-toggle="modal" data-dismiss="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Earth')">Survey</button>
-          </div>
+          <div id="earth"></div>
+           <button type="button" class="btn btn-default" onclick="open_links('SL3')">Wikipedia</button>
+           <button type="button" class="btn btn-default" data-toggle="modal" data-dismiss="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Earth')">Survey</button>
+        </div>
       </div>
     </div>
   </div>
@@ -458,7 +458,7 @@
         <div class="modal-footer">
           <!-- Lection from DB -->
            <div id="mars"></div>
-           <button type="button" class="btn btn-default"><a href="https://en.wikipedia.org/wiki/Skylab_4" target="_blank">Wiki</a></button>
+           <button type="button" class="btn btn-default" onclick="open_links('SL4')">Wikipedia</button>
            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Mars')">Survey</button>
         </div>
       </div>

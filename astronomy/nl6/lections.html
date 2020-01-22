@@ -45,6 +45,7 @@
   <script src="jupiter_btn.js"></script>
   <script src="saturn_btn.php"></script>
   <script src="saturn_btn.js"></script>
+  <script src="../scripts/action_button.js"></script>
   <style>
 
   #phys_mercury {
@@ -326,7 +327,7 @@
         <div class="modal-footer">
           <!-- lection from DB -->
            <div id="mercury"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" onclick="open_links('Building')">Wikipedia</button>
           <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Mercury')">Survey</button>
         </div>
       </div>
@@ -381,8 +382,8 @@
         <div class="modal-footer">
           <!-- Lection from DB -->
              <div id="venus"></div>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-default" data-toggle="modal" data-dismiss="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Earth')">Survey</button>
+              <button type="button" class="btn btn-default" onclick="open_links('ISS1-6')">Wikipedia</button>
+              <button type="button" class="btn btn-default" data-toggle="modal" data-dismiss="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Earth')">Survey</button>
             </div>
         </div>
       </div>
@@ -436,9 +437,9 @@
      </div>
         <div class="modal-footer">
           <!-- Lection from DB -->
-           <div id="earth"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default" data-toggle="modal" data-dismiss="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Earth')">Survey</button>
+          <div id="earth"></div>
+           <button type="button" class="btn btn-default" onclick="open_links('ISS7-12')">Wikipedia</button>
+           <button type="button" class="btn btn-default" data-toggle="modal" data-dismiss="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Earth')">Survey</button>
           </div>
       </div>
     </div>
@@ -487,7 +488,7 @@
         <div class="modal-footer">
           <!-- Lection from DB -->
            <div id="mars"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" onclick="open_links('ISS13-19')">Wikipedia</button>
           <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Mars')">Survey</button>
           </div>
       </div>
@@ -540,7 +541,7 @@
         <div class="modal-footer">
           <!-- Lection from DB -->
            <div id="jupiter"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" onclick="open_links('ISS20-21')">Wikipedia</button>
           <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Jupiter')">Survey</button>
         </div>
       </div>
@@ -591,7 +592,7 @@
         <div class="modal-footer">
           <!-- Lection from DB -->
            <div id="saturn"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" onclick="open_links('Regular')">Wikipedia</button>
           <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Saturn')">Survey</button>
         </div>
       </div>

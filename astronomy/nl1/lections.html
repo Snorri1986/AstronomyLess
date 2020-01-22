@@ -48,7 +48,7 @@
   <script src="neptune.js"></script>
   <script src="pluto.php"></script>
   <script src="pluto.js"></script>
-  <script src="scripts/hide_modal.js"></script>
+  <script src="../scripts/hide_modal.js"></script>
   <script src="mercury_btn.php"></script>
   <script src="mercury_btn.js"></script>
   <script src="venus_btn.php"></script>
@@ -67,6 +67,7 @@
   <script src="neptune_btn.js"></script>
   <script src="pluto_btn.php"></script>
   <script src="pluto_btn.js"></script>
+  <script src="../scripts/action_button.js"></script>
   <style>
 
   #phys_mercury {
@@ -203,7 +204,7 @@
   /*****************************************/
   </style>
  </head>
- <body onload="buttsOn()">
+ <body onload="buttsOn(),open_links()"> <!-- test -->
   <!-- Instruction -->
   <div class="container" id="greetings_in_lection">
     <p>
@@ -373,8 +374,8 @@
         <div class="modal-footer">
           <!-- lection from DB -->
            <div id="mercury"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Mercury')">Survey</button>
+        <button type="button" class="btn btn-default" onclick="open_links('MR-3')">Wikipedia</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Mercury')">Survey</button>
         </div>
       </div>
     </div>
@@ -426,10 +427,9 @@
         <div class="modal-footer">
           <!-- lection from DB -->
           <div id="venus"></div>
-        <!-- -->
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Venus')">Survey</button>
-        </div>
+         <button type="button" class="btn btn-default" onclick="open_links('MR-4')">Wikipedia</a></button>
+         <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Venus')">Survey</button>
+          </div>
       </div>
     </div>
   </div>
@@ -479,8 +479,8 @@
         <div class="modal-footer">
           <!-- Lection from DB -->
            <div id="earth"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default" data-toggle="modal" data-dismiss="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Earth')">Survey</button>
+           <button type="button" class="btn btn-default" onclick="open_links('MA-6')">Wikipedia</button>
+           <button type="button" class="btn btn-default" data-toggle="modal" data-dismiss="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Earth')">Survey</button>
           </div>
       </div>
     </div>
@@ -527,9 +527,9 @@
         <div class="modal-footer">
           <!-- Lection from DB -->
            <div id="mars"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" onclick="open_links('MA-7')">Wikipedia</button>
           <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Mars')">Survey</button>
-          </div>
+         </div>
       </div>
     </div>
   </div>
@@ -578,8 +578,8 @@
         <div class="modal-footer">
           <!-- Lection from DB -->
            <div id="jupiter"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Jupiter')">Survey</button>
+           <button type="button" class="btn btn-default" onclick="open_links('MA-8')">Wikipedia</button>
+           <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Jupiter')">Survey</button>
         </div>
       </div>
     </div>
@@ -629,9 +629,9 @@
         <div class="modal-footer">
           <!-- Lection from DB -->
            <div id="saturn"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" onclick="open_links('MA-9')">Wikipedia</button>
           <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Saturn')">Survey</button>
-        </div>
+          </div>
       </div>
     </div>
   </div>
@@ -679,8 +679,8 @@
         </div>
         <div class="modal-footer">
           <!-- Lection from DB -->
-           <div id="uranus"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div id="uranus"></div>
+           <button type="button" class="btn btn-default" onclick="open_links('MR-2')">Wikipedia</button>
           <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Uranus')">Survey</button>
         </div>
       </div>
@@ -731,9 +731,9 @@
         <div class="modal-footer">
           <!-- Lection from DB -->
            <div id="neptune"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Neptune')">Survey</button>
-        </div>
+           <button type="button" class="btn btn-default" onclick="open_links('MA-5')">Wikipedia</button>
+           <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Neptune')">Survey</button>
+          </div>
       </div>
     </div>
   </div>
@@ -798,7 +798,7 @@
            <div id="pluto"></div>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#survey" id="btn_survey" onclick="hide_mod('#Pluto')">Survey</button>
-        </div>
+          </div>
       </div>
     </div>
   </div>
