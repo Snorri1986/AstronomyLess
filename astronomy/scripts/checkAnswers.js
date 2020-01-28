@@ -25,7 +25,8 @@ function chkAnswers(answer,points,id) {
 										   "Smallest team","Charles Bolden","24 weeks","4 missions","Saturn V","Searching for Skylab",
 										   "SMEAT","28 days in orbit","solar arrays","Jack Kinzler","3 astronauts","2 times",
 										   "Shower","Owen K.Garriott","Medical","Medical","60 days","Comet Kohoutek",
-										   "Gerald P.Carr","Apollo CSM","Canaveral"];
+										   "Gerald P.Carr","Apollo CSM","Canaveral","15 countries","microgravity laboratory","Soyuz TM-31",
+										   "Progress","ISS7","Pirs","ISS14","Khazahstan","6 crew members","Guy Laliberté","USSR","Kibo"];
 
 	if (corAnswersArr.includes(answer)) {
 		alert("The answer is corrent.Yoy have got 10 points.");

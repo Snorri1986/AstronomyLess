@@ -330,7 +330,7 @@ public class AdminLessons {
     // update text of lection
     public static boolean SetNewLectioninDB(String btn_num, String txt) throws ClassNotFoundException {
         boolean result = false;
-        int lection_nums = 54;
+        int lection_nums = 55;
 
         if (Integer.parseInt(btn_num) > lection_nums) return result;
 
