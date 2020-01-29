@@ -1,5 +1,43 @@
 function open_links(id) {
   switch(id) {
+
+    // Our Solar System
+    case 'mercury':
+                window.open("https://en.wikipedia.org/wiki/Mercury_(planet)","_blank");
+                break;
+
+    case 'venus':
+                window.open("https://en.wikipedia.org/wiki/Venus","_blank");
+                break;
+
+    case 'earth':
+                window.open("https://en.wikipedia.org/wiki/Earth","_blank");
+                break;
+
+    case 'mars':
+                window.open("https://en.wikipedia.org/wiki/Mars","_blank");
+                break;
+
+    case 'jupiter':
+                window.open("https://en.wikipedia.org/wiki/Jupiter","_blank");
+                break;
+
+    case 'saturn':
+                window.open("https://en.wikipedia.org/wiki/Saturn","_blank");
+                break;
+
+    case 'uranus':
+                window.open("https://en.wikipedia.org/wiki/Uranus","_blank");
+                break;
+
+    case 'neptune':
+                window.open("https://en.wikipedia.org/wiki/Neptune","_blank");
+                break;
+
+    case 'pluto':
+                window.open("https://en.wikipedia.org/wiki/Pluto","_blank");
+                break;
+
     // Mercury
     case 'MR-3':
                 window.open("https://en.wikipedia.org/wiki/Mercury-Redstone_3","_blank");

@@ -1,6 +1,6 @@
 <?php
 // Connect and fetch data from MySQL Database for Mercury planet
-// ready to commit 15.08.2019
+
 $user = 'spaceman';
 $pass = 'mask';
 $db = 'solarSystem';
@@ -23,7 +23,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<pre>".$row["lection_txt"]."</pre>";
+        echo $row["lection_txt"];
     }
 } else {
     echo "0 results";
