@@ -38,3 +38,6 @@ FEATURES ON ASTRONOMY LESSON v.2.0.0
 
 If you have any comments, questions or propositions about project feel free to write me on 
 email: dionisiy1986@gmail.com
+
+# Change Log
+verison 1.22.0 - Improve survey form
