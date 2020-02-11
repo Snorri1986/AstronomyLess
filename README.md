@@ -40,5 +40,5 @@ If you have any comments, questions or propositions about project feel free to w
 email: dionisiy1986@gmail.com
 
 # Change Log
-verison 1.22.0 - Improve survey form
+verison 1.22.0 - Improve survey form ||
 version 1.23.0 - Add installer
