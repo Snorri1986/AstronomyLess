@@ -41,4 +41,5 @@ email: dionisiy1986@gmail.com
 
 # Change Log
 verison 1.22.0 - Improve survey form ||
-version 1.23.0 - Add installer
+version 1.23.0 - Add installer ||
+version 1.23.1 - Fixed some bugs which found during Installer test on different laptop
