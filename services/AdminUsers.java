@@ -19,6 +19,7 @@ public class AdminUsers {
             String u_pass
     ) {
         boolean result = true;
+        int usr_scores_default = 0;
 
         try {
             // call DB
@@ -38,8 +39,9 @@ public class AdminUsers {
             try {
                 Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
 
-                String query = "INSERT INTO users(name, surname, email, user_pass) \n" +
-                        "VALUES (?,?,?,?)";
+
+                String query = "INSERT INTO users(name, surname, email, user_pass,scores) \n" +
+                        "VALUES (?,?,?,?,?)";
 
                 // create the mysql insert preparedstatement
                 PreparedStatement preparedStmt = conn.prepareStatement(query);
@@ -47,6 +49,7 @@ public class AdminUsers {
                 preparedStmt.setString(2, u_lastname);
                 preparedStmt.setString(3, u_email);
                 preparedStmt.setString(4, u_pass);
+                preparedStmt.setInt(5, usr_scores_default);
 
 
                 // execute the preparedstatement
