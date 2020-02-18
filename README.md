@@ -44,4 +44,6 @@ verison 1.22.0 - Improve survey form ||
 version 1.23.0 - Add installer ||
 version 1.23.1 - Fixed some bugs which found during Installer test on different laptop ||
 version 1.23.2 - Fixed bug with user register and points count ||
-version 1.23.3 - Add additional library to MySQL connection and fix problem with register new user.
+version 1.23.3 - Add additional library to MySQL connection and fix problem with register new user. ||
+version 1.23.4 - Add astro_readme.txt - installation and configuration guide.
+
