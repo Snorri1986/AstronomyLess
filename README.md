@@ -1,6 +1,6 @@
 # AstronomyLess
 
-ASTRONOMY LESSON v.1.0.0
+ASTRONOMY LESSON v.1.0.0 (Deprecated)
 This project is the the first version of web-learning platform which helps modern pupils remote study astronomy.
 This version consists of front-end part and MySQL DB.
 This is only desktop version which works only Google Chrome browser.
@@ -38,6 +38,9 @@ FEATURES ON ASTRONOMY LESSON v.2.0.0
 
 If you have any comments, questions or propositions about project feel free to write me on 
 email: dionisiy1986@gmail.com
+
+ASTRONOMY LESSON v 3.0 (In active development)
+Host: cloud environment
 
 # Change Log
 verison 1.22.0 - Improve survey form ||
