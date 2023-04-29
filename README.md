@@ -39,7 +39,7 @@ FEATURES ON ASTRONOMY LESSON v.2.0.0
 If you have any comments, questions or propositions about project feel free to write me on 
 email: dionisiy1986@gmail.com
 
-ASTRONOMY LESSON v 3.0 (In active deveopment)
+ASTRONOMY LESSON v 3.0 (In active development)
 Host: cloud environment
 
 # Change Log
